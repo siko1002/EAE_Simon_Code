@@ -1,0 +1,122 @@
+[
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.booklibrary.app-merged_res-29:/layout_my_row.xml.flat",
+        "source": "com.example.booklibrary.app-main-31:/layout/my_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\drawable\\ic_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\drawable_gradient_background.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\drawable\\gradient_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\layout_activity_update.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\layout\\activity_update.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\layout_my_author.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\layout\\my_author.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\layout_activity_add.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\layout\\activity_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\layout_my_row.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\layout\\my_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\drawable_ic_book.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\drawable\\ic_book.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-pngs-24:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-xxxhdpi\\ic_launcher.png"
+    }
+]
