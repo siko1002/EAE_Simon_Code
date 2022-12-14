@@ -12,127 +12,88 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class MyDatabaseHelper extends SQLiteOpenHelper {
+import java.util.List;
 
-    private Context context;
-    private static final String DATABASE_NAME = "BookLibrary.db";
-    private static final int DATABASE_VERSION = 1;
+public class MyDatabaseHelper {
+    Context context;
 
-    private static final String TABLE_NAME = "mylibrary";
-    private static final String COLUMN_ID = "id";
-    private static final String COLUMN_TITLE = "book_title";
-    private static final String COLUMN_AUTHOR = "book_author";
-    private static final String COLUMN_PAGES = "book_pages";
-    private static final String COLUMN_READ = "book_read";
+    MyDatabaseHelper() {
+    }
 
-    MyDatabaseHelper(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    public void addBook(String title, String authorName, String pages) {
+
+        Log.i("HSKL", "MyDBHelper => addBook => Title: " + title + ", Author: " + authorName + ", Pages: " + pages);
+        Book_DBHelper book_dbHelper = new Book_DBHelper(context);
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        //Name
+        String vorname = NameSplitter.SplitVorname(authorName);
+        String nachname = NameSplitter.SplitNachname(authorName);
+        Author author = new Author(vorname, nachname);
+        //Autor und Buch hinzufügen
+        Log.i("HSKL", "MyDBHelper -> AddData Author: " + author.toString());
+        if (!author_dbHelper.AuthorExists(authorName)) {
+            Log.i("HSKL", "MyDBHelper -> AddData -> Author Existiert bereits?: " + author_dbHelper.AuthorExists(authorName));
+            author_dbHelper.addAuthor(vorname, nachname);
+        }else{
+            Log.i("HSKL", "MyDBHelper -> AddData -> Author Existiert bereits?: " + author_dbHelper.AuthorExists(authorName));
+        }
+        Book book = new Book(title, author, pages);
+        book_dbHelper.addBook(title, authorName, Integer.parseInt(pages));
+
+
+    }
+    Author getAuthorByName(String vorname, String nachname){
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        return author_dbHelper.getAuthorByName(vorname, nachname);
+    }
+    Cursor readAllData() {
+        /*Book_DBHelper book_dbHelper = new Book_DBHelper(context);
+        Cursor ret = book_dbHelper.readAllBooks();
+        if(ret.moveToFirst()) {
+            return ret;
+        }else {
+            return null;
+        }*/
+        Book_DBHelper ret = new Book_DBHelper(context);
+        return ret.readAllBooks();
+    }
+
+    void updateData(String title, String new_author, String new_pages, String new_title) {
+        Log.i("JETZT", "MyDatabaseHelper => updateData aufgerufen: Title_Old: " + title + ", Title_New: " + new_title + ", Pages_New: " + new_pages + ", Author_new: " + new_author);
+        Book_DBHelper book_dbHelper = new Book_DBHelper(context);
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+
+        String vorname = NameSplitter.SplitVorname(new_author);
+        String nachname = NameSplitter.SplitNachname(new_author);
+        if(!author_dbHelper.AuthorExists(new_author)){
+            author_dbHelper.addAuthor(vorname, nachname);
+        }
+
+        book_dbHelper.updateData(title, author_dbHelper.getAuthorByName(vorname, nachname), new_pages, new_title);
+    }
+
+    //Todo
+    void deleteOne(String title) {
+        Book_DBHelper book_dbHelper = new Book_DBHelper(context);
+        book_dbHelper.deleteOne(title);
+    }
+
+    MyDatabaseHelper(Context context) {
         this.context = context;
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + TABLE_NAME +
-                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_TITLE + " TEXT, " +
-                COLUMN_AUTHOR + " TEXT, " +
-                COLUMN_PAGES + " INTEGER, " +
-                COLUMN_READ + " BOOLEAN);";
-        db.execSQL(query);
+    public void logAllData() {
+        Book_DBHelper book_dbHelper = new Book_DBHelper(context);
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        book_dbHelper.logAllData();
+        author_dbHelper.logAllData();
     }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        onCreate(db);
-
-
+    List<Book> getAllBooksAsList(){
+        Book_DBHelper book_dbHelper = new Book_DBHelper(context);
+        return book_dbHelper.getAllBooksAsList();
     }
-
-    void addBook(String title, String author, int pages) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-
-        cv.put(COLUMN_TITLE, title);
-        cv.put(COLUMN_AUTHOR, author);
-        cv.put(COLUMN_PAGES, pages);
-        long result = db.insert(TABLE_NAME, null, cv);
-        if (result == -1) {
-            Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    Cursor readAllData() {
-        String query = "SELECT * FROM " + TABLE_NAME;
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = null;
-        if (db != null) {
-            cursor = db.rawQuery(query, null);
-        }
-        return cursor;
-    }
-
-    void updateData(String title, String author, String pages, String new_title) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_TITLE, new_title);
-        values.put(COLUMN_AUTHOR, author);
-        values.put(COLUMN_PAGES, pages);
-
-        String where = COLUMN_ID + "=?";
-        String id = findByTitle(title);
-
-        Log.i("HSKL", "updateData -> ID: " + id + ", Buchtitel: " + title + ", Author: " + author + ", Seiten: " + pages+ "\n");
-
-        String[] whereArg = new String[]{id};
-
-        long result = db.update(TABLE_NAME, values, where, whereArg);
-        if (result == -1) {
-            Toast.makeText(context, "Update Failed", Toast.LENGTH_SHORT).show();
-            Log.i("HSKL", "Fehler beim Update des Elements");
-        } else {
-            Toast.makeText(context, "Successfully Updated", Toast.LENGTH_SHORT).show();
-            Log.i("HSKL", "Element erfolgreich geupdated");
-        }
-        db.close();
-    }
-
-
-    void deleteOne(String title) {
-
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        String where = COLUMN_TITLE + "=?";
-        String[] whereArg = new String[]{title};
-        long result = db.delete(TABLE_NAME, where, whereArg);
-        if (result == -1) {
-            Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show();
-            Log.i("HSKL", "Fehler beim Löschen des Elements");
-        } else {
-            Toast.makeText(context, "Successfully deleted", Toast.LENGTH_SHORT).show();
-            Log.i("HSKL", "Element erfolgreich gelöscht");
-        }
-    }
-
-    String findByTitle(String title) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        //'"+title+"'"
-        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE book_title='" + title + "'", null);
-        meinZeiger.moveToFirst();
-
-        int iId = meinZeiger.getColumnIndex(COLUMN_ID);
-        int iTitle = meinZeiger.getColumnIndex(COLUMN_TITLE);
-        int iAuthor = meinZeiger.getColumnIndex(COLUMN_AUTHOR);
-        int iPages = meinZeiger.getColumnIndex(COLUMN_PAGES);
-
-        Log.i("HSKL", "findByTitle -> ID: " + meinZeiger.getString(iId) + ", Buchtitel: " + meinZeiger.getString(iTitle) + ", Author: " + meinZeiger.getString(iAuthor) + ", Seiten: " + meinZeiger.getString(iPages) + "\n");
-
-        String ret = meinZeiger.getString(iId);
-        meinZeiger.close();
-        return ret;
+    List<Author> getAllAuthorsAsList(){
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        return author_dbHelper.getAllAuthorsAsList();
     }
 }

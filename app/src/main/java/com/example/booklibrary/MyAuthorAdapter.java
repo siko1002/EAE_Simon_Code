@@ -16,48 +16,41 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+class MyAuthorAdapter extends RecyclerView.Adapter<MyAuthorAdapter.MyViewHolder> {
 
     private Context context;
     Activity activity;
-   // private ArrayList book_title, book_author, book_pages;
-    private ArrayList<Book> books;
+    // private ArrayList book_title, book_author, book_pages;
+    private ArrayList<Author> authors;
 
     int position;
 
-    MyAdapter(Activity activity, Context context, ArrayList books){
+    MyAuthorAdapter(Activity activity, Context context, ArrayList authors){
         this.activity = activity;
         this.context = context;
-       this.books = books;
+        this.authors = authors;
         MyDatabaseHelper myDB = new MyDatabaseHelper(context);
-        books.addAll(myDB.getAllBooksAsList());
+        authors.addAll(myDB.getAllAuthorsAsList());
 
     }
     @NonNull
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.my_row, parent, false);
+        View view = inflater.inflate(R.layout.my_author, parent, false);
         return new MyViewHolder(view);
     }
 
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position){
         this.position=position;
-        holder.book_pages_text.setText(String.valueOf(books.get(position).getPages()));
-        holder.book_author_text.setText(String.valueOf(books.get(position).getAuthorName()));
-        holder.book_title_text.setText(String.valueOf(books.get(position).getTitle()));
         holder.mainLayout.setOnClickListener(view -> {
-            Intent intent = new Intent(context, UpdateActivity.class);
-            intent.putExtra("pages", String.valueOf(books.get(position).getPages()));
-            intent.putExtra("author", String.valueOf(books.get(position).getAuthorName()));
-            intent.putExtra("title", String.valueOf(books.get(position).getTitle()));
-            activity.startActivityForResult(intent, 1);
+            //Das wird aufgerufen wenn ich auf einen Author Tippe
         });
 
 
     }
 
     public int getItemCount(){
-        return books.size();
+        return authors.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
 

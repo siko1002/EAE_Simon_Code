@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton add_button;
 
     MyDatabaseHelper myDB;
-    ArrayList<String> book_title, book_author, book_pages, book_id;
+    ArrayList<String> book_title, book_author, book_pages, book_id, books;
     MyAdapter myAdapter;
 
     @Override
@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         myDB = new MyDatabaseHelper(MainActivity.this);
+        //Todo
+        books = new ArrayList<>();
+
         book_title = new ArrayList<>();
         book_author = new ArrayList<>();
         book_pages = new ArrayList<>();
@@ -47,31 +50,38 @@ public class MainActivity extends AppCompatActivity {
 
         displayData();
 
-        myAdapter = new MyAdapter(MainActivity.this, this, book_title, book_author, book_pages);
+        //myAdapter = new MyAdapter(MainActivity.this, this, book_title, book_author, book_pages);
+        myAdapter = new MyAdapter(MainActivity.this, this, books);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
     }
 
     @Override
-    protected void onActivityResult (int requestCode, int resultCode, @Nullable Intent data){
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1){
+        if (requestCode == 1) {
             recreate();
         }
         displayData();
     }
 
-    void displayData(){
+    void displayData() {
+        myDB.logAllData();
+
         Cursor cursor = myDB.readAllData();
-        if (cursor.getCount() == 0 ){
+        if (cursor.getCount() == 0) {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {
-            while (cursor.moveToNext()){
-                book_id.add(cursor.getString(0));
-                book_title.add(cursor.getString(1));
-                book_author.add(cursor.getString(2));
-                book_pages.add(cursor.getString(3));
+            while (cursor.moveToNext()) {
+                /*String vorname = NameSplitter.SplitVorname(cursor.getString(2));
+                String nachname = NameSplitter.SplitNachname(cursor.getString(2));
+                Author author = new Author(vorname, nachname);
+
+                int id = Integer.parseInt(cursor.getString(0));
+                String title = cursor.getString(1);
+                String pages = cursor.getString(3);
+                Book book = new Book(title, author, pages, id);*/
             }
         }
     }

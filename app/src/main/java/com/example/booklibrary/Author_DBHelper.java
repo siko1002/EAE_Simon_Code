@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.jar.Attributes;
 
 public class Author_DBHelper extends SQLiteOpenHelper {
@@ -201,5 +203,20 @@ public class Author_DBHelper extends SQLiteOpenHelper {
             Log.i("HSKL", "Author_DBHelper -> logAllData: ID: " + meinZeiger.getInt(iId) + ", Vorname: " + meinZeiger.getString(iVorname) + ", Nachname: " + meinZeiger.getString(iNachname) + "\n");
         }
         Log.i("HSKL", "----------------------------------------------------");
+    }
+    public List<Author> getAllAuthorsAsList(){
+        List<Author> ret = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        MyDatabaseHelper myDb = new MyDatabaseHelper(context);
+        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        while(meinZeiger.moveToNext()){
+            int iId = meinZeiger.getColumnIndex(COLUMN_ID);
+            int iVorname = meinZeiger.getColumnIndex(COLUMN_VORNAME);
+            int iNachname = meinZeiger.getColumnIndex(COLUMN_NACHNAME);
+            ret.add(new Author(meinZeiger.getString(iVorname), meinZeiger.getString(iNachname), meinZeiger.getInt(iId)));
+        }
+        return ret;
     }
 }

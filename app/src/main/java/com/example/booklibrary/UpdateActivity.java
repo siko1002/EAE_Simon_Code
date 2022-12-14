@@ -40,9 +40,10 @@ public class UpdateActivity extends AppCompatActivity {
             String new_title = insert_title.getText().toString();
             String new_author = insert_author.getText().toString();
             String new_pages = insert_pages.getText().toString();
+            Log.i("HSKL", "UpdateActivity => onCreate => values -> " + "Titel: " + title + ", Author: " + author + ", Pages: " + pages);
+            Log.i("HSKL", "UpdateActivity => onCreate => new_values -> Titel: " + new_title + ", Author: " + new_author + ", Pages: " + new_pages);
             MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
-            Log.i("HSKL", "UpdateActivity.onCreate -> Titel: " + new_title + ", Author: " + new_author + ", Pages: " + new_pages);
-            myDB.updateData(title, author, pages, new_title);
+            myDB.updateData(title, new_author, new_pages, new_title);
             Intent intent = new Intent(UpdateActivity.this, MainActivity.class);
             startActivity(intent);
         });
