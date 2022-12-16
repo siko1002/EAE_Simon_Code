@@ -33,6 +33,7 @@ id update_button
 layout activity_add
 layout activity_main
 layout activity_update
+layout main_toolbar
 layout my_author
 layout my_row
 mipmap ic_launcher

@@ -3134,6 +3134,7 @@ layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
 layout m3_auto_complete_simple_item
+layout main_toolbar
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

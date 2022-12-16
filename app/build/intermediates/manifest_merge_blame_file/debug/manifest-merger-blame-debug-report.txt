@@ -11,7 +11,7 @@
 9-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:5:5-46:19
+11-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:5:5-48:19
 12        android:allowBackup="true"
 12-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -64,54 +64,55 @@
 38                android:value="" />
 38-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:21:17-33
 39        </activity>
-40        <activity
-40-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:32:9-45:20
-41            android:name="com.example.booklibrary.MainActivity"
-41-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:33:13-41
-42            android:exported="true"
-42-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:34:13-36
-43            android:label="My Bookshelf" >
-43-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:35:13-41
-44            <intent-filter>
-44-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:36:13-40:29
-45                <action android:name="android.intent.action.MAIN" />
-45-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:37:17-69
-45-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:37:25-66
-46
-47                <category android:name="android.intent.category.LAUNCHER" />
-47-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:39:17-77
-47-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:39:27-74
-48            </intent-filter>
-49
-50            <meta-data
-50-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:19:13-21:36
-51                android:name="android.app.lib_name"
-51-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:20:17-52
-52                android:value="" />
-52-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:21:17-33
-53        </activity>
-54
-55        <provider
-55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-56            android:name="androidx.startup.InitializationProvider"
-56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-57            android:authorities="com.example.booklibrary.androidx-startup"
-57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-58            android:exported="false" >
-58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-59            <meta-data
-59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-60                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-61                android:value="androidx.startup" />
-61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-62            <meta-data
-62-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Simon\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-63                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-63-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Simon\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-64                android:value="androidx.startup" />
-64-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Simon\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-65        </provider>
-66    </application>
-67
-68</manifest>
+40        <!-- > Activity<! -->
+41        <activity
+41-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:33:9-47:20
+42            android:name="com.example.booklibrary.MainActivity"
+42-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:35:13-41
+43            android:exported="true"
+43-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:36:13-36
+44            android:label="Test" >
+44-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:37:13-33
+45            <intent-filter>
+45-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:38:13-42:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:39:17-69
+46-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:39:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:41:17-77
+48-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:41:27-74
+49            </intent-filter>
+50
+51            <meta-data
+51-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:19:13-21:36
+52                android:name="android.app.lib_name"
+52-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:20:17-52
+53                android:value="" />
+53-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:21:17-33
+54        </activity>
+55
+56        <provider
+56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+57            android:name="androidx.startup.InitializationProvider"
+57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+58            android:authorities="com.example.booklibrary.androidx-startup"
+58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+59            android:exported="false" >
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+60            <meta-data
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+61                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+62                android:value="androidx.startup" />
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+63            <meta-data
+63-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Simon\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+64                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+64-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Simon\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+65                android:value="androidx.startup" />
+65-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Simon\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+66        </provider>
+67    </application>
+68
+69</manifest>

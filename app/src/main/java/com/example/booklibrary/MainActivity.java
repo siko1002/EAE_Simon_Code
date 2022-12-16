@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
