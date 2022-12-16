@@ -19,6 +19,7 @@ public class AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
+
         insert_title = findViewById(R.id.insert_title);
         insert_author = findViewById(R.id.insert_author);
         insert_pages = findViewById(R.id.insert_pages);
