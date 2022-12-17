@@ -12,6 +12,8 @@ drawable ic_add
 drawable ic_book
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+id action_favorite
+id action_settings
 id add_button
 id author_nachname
 id author_picture
@@ -28,12 +30,13 @@ id insert_pages2
 id insert_title
 id insert_title2
 id mainLayout
+id my_toolbar
 id recyclerView
 id update_button
 layout activity_add
 layout activity_main
+layout activity_main_menue
 layout activity_update
-layout main_toolbar
 layout my_author
 layout my_row
 mipmap ic_launcher

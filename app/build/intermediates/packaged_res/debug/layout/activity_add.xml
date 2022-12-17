@@ -8,18 +8,20 @@
     tools:context=".AddActivity"
     android:padding="50dp"
     android:background="@color/white">
+   <!--> Das is neu <!-->
     <androidx.appcompat.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:navigationContentDescription="@string/abc_action_bar_up_description"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="Add Book"
-        android:gravity="center"></androidx.appcompat.widget.Toolbar>
+        tools:ignore="MissingConstraints"
+    />
+
+
+
     <EditText
         android:id="@+id/insert_title"
         android:layout_width="match_parent"

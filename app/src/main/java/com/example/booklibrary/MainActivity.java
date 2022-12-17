@@ -9,8 +9,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Menu;
 import android.widget.Toast;
 import android.widget.Toolbar;
+
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     MyDatabaseHelper myDB;
     ArrayList<String> book_title, book_author, book_pages, book_id, books;
     MyAdapter myAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         myAdapter = new MyAdapter(MainActivity.this, this, books);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+        getMenuInflater().inflate(R.menu.main_menu, menu);
 
     }
 
