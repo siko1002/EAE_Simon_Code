@@ -4,4 +4,7 @@
     <string name="number_of_pages">Number of pages</string>
     <string name="book_title">Book Title</string>
     <string name="add_book">Add book</string>
+    <string name="author_view">Author View</string>
+    <string name="edit_view">Edit View</string>
+    <string name="add_author">Add</string>
 </resources>

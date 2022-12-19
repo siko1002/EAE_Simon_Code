@@ -99,21 +99,21 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Si
 		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:13:9-49
 	android:dataExtractionRules
 		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:7:9-65
-activity#com.example.booklibrary.UpdateActivity
+activity#com.example.booklibrary.Update_Book
 ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:15:9-22:20
 	android:parentActivityName
 		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:18:13-55
 	android:exported
 		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:17:13-37
 	android:name
-		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:16:13-43
+		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:16:13-40
 meta-data#android.app.lib_name
 ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:19:13-21:36
 	android:value
 		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:21:17-33
 	android:name
 		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:20:17-52
-activity#com.example.booklibrary.AddActivity
+activity#com.example.booklibrary.Add_Book
 ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:23:9-31:20
 	android:parentActivityName
 		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:27:13-55
@@ -122,7 +122,7 @@ ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\A
 	android:exported
 		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:24:13-40
+		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:24:13-37
 activity#com.example.booklibrary.MainActivity
 ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:33:9-47:20
 	android:label

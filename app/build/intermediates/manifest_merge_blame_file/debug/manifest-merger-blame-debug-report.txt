@@ -34,8 +34,8 @@
 22-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:13:9-49
 23        <activity
 23-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:15:9-22:20
-24            android:name="com.example.booklibrary.UpdateActivity"
-24-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:16:13-43
+24            android:name="com.example.booklibrary.Update_Book"
+24-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:16:13-40
 25            android:exported="false"
 25-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:17:13-37
 26            android:parentActivityName="com.example.booklibrary.MainActivity" >
@@ -49,8 +49,8 @@
 30        </activity>
 31        <activity
 31-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:23:9-31:20
-32            android:name="com.example.booklibrary.AddActivity"
-32-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:24:13-40
+32            android:name="com.example.booklibrary.Add_Book"
+32-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:24:13-37
 33            android:exported="false"
 33-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:25:13-37
 34            android:label="Add Book"

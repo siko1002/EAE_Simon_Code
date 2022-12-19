@@ -2517,9 +2517,11 @@ drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
+id Author_view
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
+id Edit_view
 id FUNCTION
 id META
 id NO_DEBUG
@@ -2577,14 +2579,12 @@ id action_bar_title
 id action_container
 id action_context_bar
 id action_divider
-id action_favorite
 id action_image
 id action_menu_divider
 id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_settings
 id action_text
 id actions
 id activity_chooser_view_content
@@ -2835,7 +2835,6 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
-id my_toolbar
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3114,10 +3113,9 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_add
 layout activity_main
-layout activity_main_menue
-layout activity_update
+layout add_author
+layout add_book
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3134,6 +3132,8 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout edit_author
+layout edit_book
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3183,7 +3183,7 @@ layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout my_author
-layout my_row
+layout my_book
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -3210,6 +3210,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu main_menu
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
@@ -3241,11 +3242,13 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string add_author
 string add_book
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
 string author
+string author_view
 string book_title
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
@@ -3254,6 +3257,7 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string edit_view
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior

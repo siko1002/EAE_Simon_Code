@@ -13,7 +13,7 @@
         android:theme="@style/Theme.BookLibrary"
         tools:targetApi="31">
         <activity
-            android:name=".UpdateActivity"
+            android:name=".Update_Book"
             android:exported="false"
             android:parentActivityName=".MainActivity">
             <meta-data
@@ -21,7 +21,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AddActivity"
+            android:name=".Add_Book"
             android:exported="false"
             android:label="Add Book"
             android:parentActivityName=".MainActivity">

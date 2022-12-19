@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     MyDatabaseHelper myDB;
     ArrayList<String> book_title, book_author, book_pages, book_id, books;
-    MyAdapter myAdapter;
+    Book_Adapter bookAdapter;
 
 
     @Override
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                Intent intent = new Intent(MainActivity.this, Add_Book.class);
                 startActivity(intent);
 
             }
@@ -54,13 +54,35 @@ public class MainActivity extends AppCompatActivity {
         displayData();
 
         //myAdapter = new MyAdapter(MainActivity.this, this, book_title, book_author, book_pages);
-        myAdapter = new MyAdapter(MainActivity.this, this, books);
-        recyclerView.setAdapter(myAdapter);
+        bookAdapter = new Book_Adapter(MainActivity.this, this, books);
+        recyclerView.setAdapter(bookAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-
     }
+
+    //Action Bar Menü
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+    //Menü Items -> Case = Auswahl -> Was soll gemacht werden
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Author_view:
+                return true;
+            case R.id.Edit_view:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -70,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
         }
         displayData();
     }
-
     void displayData() {
         myDB.logAllData();
 
@@ -79,14 +100,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
-                /*String vorname = NameSplitter.SplitVorname(cursor.getString(2));
-                String nachname = NameSplitter.SplitNachname(cursor.getString(2));
-                Author author = new Author(vorname, nachname);
-
-                int id = Integer.parseInt(cursor.getString(0));
-                String title = cursor.getString(1);
-                String pages = cursor.getString(3);
-                Book book = new Book(title, author, pages, id);*/
             }
         }
     }
