@@ -79,7 +79,7 @@ public class Update_Book extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(Update_Book.this);
-                myDB.deleteOne(title);
+                myDB.deleteOneBook(title);
                 Intent intent = new Intent(Update_Book.this, MainActivity.class);
                 startActivity(intent);
             }

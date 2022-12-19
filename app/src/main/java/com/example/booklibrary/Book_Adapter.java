@@ -19,28 +19,29 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
 
     private Context context;
     Activity activity;
-   // private ArrayList book_title, book_author, book_pages;
+    // private ArrayList book_title, book_author, book_pages;
     private ArrayList<Book> books;
 
     int position;
 
-    Book_Adapter(Activity activity, Context context, ArrayList books){
+    Book_Adapter(Activity activity, Context context, ArrayList books) {
         this.activity = activity;
         this.context = context;
-       this.books = books;
+        this.books = books;
         MyDatabaseHelper myDB = new MyDatabaseHelper(context);
         books.addAll(myDB.getAllBooksAsList());
 
     }
+
     @NonNull
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.my_book, parent, false);
         return new MyViewHolder(view);
     }
 
-    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position){
-        this.position=position;
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        this.position = position;
         holder.book_pages_text.setText(String.valueOf(books.get(position).getPages()));
         holder.book_author_text.setText(String.valueOf(books.get(position).getAuthorName()));
         holder.book_title_text.setText(String.valueOf(books.get(position).getTitle()));
@@ -55,9 +56,10 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
 
     }
 
-    public int getItemCount(){
+    public int getItemCount() {
         return books.size();
     }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView book_title_text, book_author_text, book_pages_text;

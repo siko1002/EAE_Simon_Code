@@ -10,7 +10,7 @@
     android:background="@color/white">
 
     <EditText
-        android:id="@+id/insert_title"
+        android:id="@+id/add_author_vorname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/insert_author"
+        android:id="@+id/add_author_nachname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -37,10 +37,10 @@
         android:textColorHint="#B2BEB5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/insert_title" />
+        app:layout_constraintTop_toBottomOf="@+id/add_author_vorname" />
 
     <Button
-        android:id="@+id/add_button"
+        android:id="@+id/author_add_button"
         android:layout_width="114dp"
         android:layout_height="57dp"
         android:layout_marginStart="118dp"

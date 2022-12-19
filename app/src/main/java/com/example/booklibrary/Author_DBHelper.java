@@ -100,11 +100,11 @@ public class Author_DBHelper extends SQLiteOpenHelper {
     }
 
     //Todo
-    void updateData(String vorname, String nachname) {
+    void updateData(String vorname, String nachname, String new_vorname, String new_nachname) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_VORNAME, vorname);
-        values.put(COLUMN_NACHNAME, nachname);
+        values.put(COLUMN_VORNAME, new_vorname);
+        values.put(COLUMN_NACHNAME, new_nachname);
 
         String where = COLUMN_ID + "=?";
         String id = findAuthorByName(vorname, nachname);

@@ -11,9 +11,11 @@
     <string name="add_book">Add book</string>
     <string name="app_name">Book Library</string>
     <string name="author">Author</string>
+    <string name="author_edit_view">Edit</string>
     <string name="author_view">Author View</string>
     <string name="book_title">Book Title</string>
-    <string name="edit_view">Edit View</string>
+    <string name="edit_view">Edit</string>
+    <string name="main_view">Book View</string>
     <string name="number_of_pages">Number of pages</string>
     <style name="Theme.BookLibrary" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         

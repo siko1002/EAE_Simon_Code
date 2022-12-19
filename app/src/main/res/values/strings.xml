@@ -5,6 +5,8 @@
     <string name="book_title">Book Title</string>
     <string name="add_book">Add book</string>
     <string name="author_view">Author View</string>
-    <string name="edit_view">Edit View</string>
+    <string name="edit_view">Edit</string>
     <string name="add_author">Add</string>
+    <string name="main_view">Book View</string>
+    <string name="author_edit_view">Edit</string>
 </resources>

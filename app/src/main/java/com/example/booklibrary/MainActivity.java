@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton add_button;
 
     MyDatabaseHelper myDB;
-    ArrayList<String> book_title, book_author, book_pages, book_id, books;
+    ArrayList<String> books;
     Book_Adapter bookAdapter;
 
 
@@ -32,24 +32,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.book_recyclerView);
         add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Add_Book.class);
                 startActivity(intent);
-
             }
         });
 
         myDB = new MyDatabaseHelper(MainActivity.this);
         //Todo
         books = new ArrayList<>();
-
-        book_title = new ArrayList<>();
-        book_author = new ArrayList<>();
-        book_pages = new ArrayList<>();
-        book_id = new ArrayList<>();
 
         displayData();
 
@@ -62,28 +56,28 @@ public class MainActivity extends AppCompatActivity {
 
     //Action Bar Menü
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
+
     //Menü Items -> Case = Auswahl -> Was soll gemacht werden
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.Author_view:
+                Intent intent = new Intent(MainActivity.this, Author_View.class);
+                startActivity(intent);
                 return true;
             case R.id.Edit_view:
+                //Testaufruf
+                Intent intent1 = new Intent(MainActivity.this, Add_Book.class);
+                startActivity(intent1);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
-
-
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -92,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         }
         displayData();
     }
+
     void displayData() {
         myDB.logAllData();
 

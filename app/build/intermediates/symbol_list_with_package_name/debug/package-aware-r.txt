@@ -2589,6 +2589,8 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_author_nachname
+id add_author_vorname
 id add_button
 id alertTitle
 id aligned
@@ -2602,8 +2604,16 @@ id anticipate
 id arc
 id asConfigured
 id async
+id author_add_button
+id author_delete_button
+id author_edit_view
+id author_insert_nachname
+id author_insert_vorname
 id author_nachname
 id author_picture
+id author_update_button
+id author_view_add_button
+id author_view_recyclerView
 id author_vorname
 id auto
 id autoComplete
@@ -2617,7 +2627,9 @@ id bestChoice
 id blocking
 id book_author_text
 id book_pages_text
+id book_recyclerView
 id book_title_text
+id book_view
 id bottom
 id bounce
 id bounceBoth
@@ -2878,7 +2890,6 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
-id recyclerView
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3116,6 +3127,7 @@ layout abc_tooltip
 layout activity_main
 layout add_author
 layout add_book
+layout author_view
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3210,6 +3222,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu author_view_menu
 menu main_menu
 mipmap ic_launcher
 mipmap ic_launcher_foreground
@@ -3248,6 +3261,7 @@ string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
 string author
+string author_edit_view
 string author_view
 string book_title
 string bottom_sheet_behavior
@@ -3281,6 +3295,7 @@ string m3_sys_motion_easing_linear
 string m3_sys_motion_easing_standard
 string m3_sys_motion_easing_standard_accelerate
 string m3_sys_motion_easing_standard_decelerate
+string main_view
 string material_clock_display_divider
 string material_clock_toggle_content_description
 string material_hour_selection

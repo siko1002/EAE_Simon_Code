@@ -10,7 +10,7 @@
     android:id="@+id/mainLayout">
 
     <EditText
-        android:id="@+id/insert_title2"
+        android:id="@+id/author_insert_vorname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/insert_author2"
+        android:id="@+id/author_insert_nachname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -37,10 +37,10 @@
         android:textColorHint="#B2BEB5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/insert_title2" />
+        app:layout_constraintTop_toBottomOf="@+id/author_insert_vorname" />
 
     <Button
-        android:id="@+id/delete_button"
+        android:id="@+id/author_delete_button"
         android:layout_width="wrap_content"
         android:layout_height="57dp"
         android:backgroundTint="#d3d3d3"
@@ -49,12 +49,12 @@
         android:textColor="#ff7f7f"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintStart_toEndOf="@+id/update_button"
+        app:layout_constraintStart_toEndOf="@+id/author_update_button"
         tools:ignore="TextContrastCheck"
         tools:layout_editor_absoluteY="191dp" />
 
     <Button
-        android:id="@+id/update_button"
+        android:id="@+id/author_update_button"
         android:layout_width="wrap_content"
         android:layout_height="57dp"
         android:layout_marginTop="20dp"

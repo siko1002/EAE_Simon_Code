@@ -1,16 +1,8 @@
 package com.example.booklibrary;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.Toast;
-
-import androidx.annotation.Nullable;
-
-import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
@@ -71,11 +63,20 @@ public class MyDatabaseHelper {
 
         book_dbHelper.updateData(title, author_dbHelper.getAuthorByName(vorname, nachname), new_pages, new_title);
     }
+    void updateAuthor(String vorname, String nachname, String new_vorname, String new_nachname){
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        author_dbHelper.updateData(vorname,nachname, new_vorname, new_nachname);
+
+    }
 
     //Todo
-    void deleteOne(String title) {
+    void deleteOneBook(String title) {
         Book_DBHelper book_dbHelper = new Book_DBHelper(context);
         book_dbHelper.deleteOne(title);
+    }
+    void deleteOneAuthor(String vorname, String nachname){
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        author_dbHelper.deleteAuthor(vorname, nachname);
     }
 
     MyDatabaseHelper(Context context) {
