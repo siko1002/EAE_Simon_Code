@@ -38,7 +38,7 @@ public class Update_Author extends AppCompatActivity{
 
             MyDatabaseHelper myDB = new MyDatabaseHelper(Update_Author.this);
             myDB.updateAuthor(vorname, nachname, new_vorname, new_nachname);
-            Intent intent = new Intent(Update_Author.this, MainActivity.class);
+            Intent intent = new Intent(Update_Author.this, Author_View.class);
             startActivity(intent);
         });
         delete_button.setOnClickListener(new View.OnClickListener() {

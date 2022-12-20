@@ -2609,6 +2609,7 @@ id author_delete_button
 id author_edit_view
 id author_insert_nachname
 id author_insert_vorname
+id author_main_layout
 id author_nachname
 id author_picture
 id author_update_button

@@ -2608,6 +2608,7 @@ int id author_delete_button 0x7f0801fa
 int id author_edit_view 0x7f0801fb
 int id author_insert_nachname 0x7f0801fc
 int id author_insert_vorname 0x7f0801fd
+int id author_main_layout 0x7f080206
 int id author_nachname 0x7f080056
 int id author_picture 0x7f080057
 int id author_update_button 0x7f0801fe

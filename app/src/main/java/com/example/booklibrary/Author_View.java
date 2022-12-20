@@ -32,12 +32,13 @@ public class Author_View extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.author_view);
+
         authorRecyclerView = findViewById(R.id.author_view_recyclerView);
         add_button = findViewById(R.id.author_view_add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 //Add_Book.class soll zu Add_Author.class
-                Intent intent = new Intent(Author_View.this, Add_Book.class);
+                Intent intent = new Intent(Author_View.this, Add_Author.class);
                 startActivity(intent);
             }
         });
@@ -56,10 +57,11 @@ public class Author_View extends AppCompatActivity {
 
     //Action Bar Menü
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.author_view_menu, menu);
         return true;
     }
+
     //Menü Items -> Case = Auswahl -> Was soll gemacht werden
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -74,6 +76,7 @@ public class Author_View extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -82,6 +85,7 @@ public class Author_View extends AppCompatActivity {
         }
         displayData();
     }
+
     void displayData() {
         //myDB.logAllData();
 

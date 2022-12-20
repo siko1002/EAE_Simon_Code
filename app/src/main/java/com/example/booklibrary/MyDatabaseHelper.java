@@ -26,26 +26,26 @@ public class MyDatabaseHelper {
         if (!author_dbHelper.AuthorExists(authorName)) {
             Log.i("HSKL", "MyDBHelper -> AddData -> Author Existiert bereits?: " + author_dbHelper.AuthorExists(authorName));
             author_dbHelper.addAuthor(vorname, nachname);
-        }else{
+        } else {
             Log.i("HSKL", "MyDBHelper -> AddData -> Author Existiert bereits?: " + author_dbHelper.AuthorExists(authorName));
         }
         Book book = new Book(title, author, pages);
         book_dbHelper.addBook(title, authorName, Integer.parseInt(pages));
-
-
     }
-    Author getAuthorByName(String vorname, String nachname){
+
+    public void addAuthor(String vorname, String nachname) {
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        if (author_dbHelper.findAuthorByName(vorname, nachname) != "") {
+            author_dbHelper.addAuthor(vorname, nachname);
+        }
+    }
+
+    Author getAuthorByName(String vorname, String nachname) {
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
         return author_dbHelper.getAuthorByName(vorname, nachname);
     }
+
     Cursor readAllData() {
-        /*Book_DBHelper book_dbHelper = new Book_DBHelper(context);
-        Cursor ret = book_dbHelper.readAllBooks();
-        if(ret.moveToFirst()) {
-            return ret;
-        }else {
-            return null;
-        }*/
         Book_DBHelper ret = new Book_DBHelper(context);
         return ret.readAllBooks();
     }
@@ -57,15 +57,16 @@ public class MyDatabaseHelper {
 
         String vorname = NameSplitter.SplitVorname(new_author);
         String nachname = NameSplitter.SplitNachname(new_author);
-        if(!author_dbHelper.AuthorExists(new_author)){
+        if (!author_dbHelper.AuthorExists(new_author)) {
             author_dbHelper.addAuthor(vorname, nachname);
         }
 
         book_dbHelper.updateData(title, author_dbHelper.getAuthorByName(vorname, nachname), new_pages, new_title);
     }
-    void updateAuthor(String vorname, String nachname, String new_vorname, String new_nachname){
+
+    void updateAuthor(String vorname, String nachname, String new_vorname, String new_nachname) {
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
-        author_dbHelper.updateData(vorname,nachname, new_vorname, new_nachname);
+        author_dbHelper.updateData(vorname, nachname, new_vorname, new_nachname);
 
     }
 
@@ -74,7 +75,8 @@ public class MyDatabaseHelper {
         Book_DBHelper book_dbHelper = new Book_DBHelper(context);
         book_dbHelper.deleteOne(title);
     }
-    void deleteOneAuthor(String vorname, String nachname){
+
+    void deleteOneAuthor(String vorname, String nachname) {
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
         author_dbHelper.deleteAuthor(vorname, nachname);
     }
@@ -89,11 +91,13 @@ public class MyDatabaseHelper {
         book_dbHelper.logAllData();
         author_dbHelper.logAllData();
     }
-    List<Book> getAllBooksAsList(){
+
+    List<Book> getAllBooksAsList() {
         Book_DBHelper book_dbHelper = new Book_DBHelper(context);
         return book_dbHelper.getAllBooksAsList();
     }
-    List<Author> getAllAuthorsAsList(){
+
+    List<Author> getAllAuthorsAsList() {
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
         return author_dbHelper.getAllAuthorsAsList();
     }

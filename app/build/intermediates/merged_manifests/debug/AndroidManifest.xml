@@ -24,19 +24,32 @@
             android:name="com.example.booklibrary.Update_Book"
             android:exported="false"
             android:parentActivityName="com.example.booklibrary.MainActivity" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
             android:name="com.example.booklibrary.Add_Book"
             android:exported="false"
             android:label="Add Book"
             android:parentActivityName="com.example.booklibrary.MainActivity" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
+        <activity
+            android:name="com.example.booklibrary.Add_Author"
+            android:exported="false"
+            android:label="Add Book"
+            android:parentActivityName="com.example.booklibrary.MainActivity" />
+        <activity
+            android:name="com.example.booklibrary.Update_Author"
+            android:exported="false"
+            android:label="Add Book"
+            android:parentActivityName="com.example.booklibrary.MainActivity" />
+        <activity
+            android:name="com.example.booklibrary.Author_View"
+            android:exported="false"
+            android:label="Add Book"
+            android:parentActivityName="com.example.booklibrary.MainActivity" />
+
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
         <!-- > Activity<! -->
         <activity
             android:name="com.example.booklibrary.MainActivity"

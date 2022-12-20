@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ class Author_Adapter extends RecyclerView.Adapter<Author_Adapter.MyViewHolder> {
         this.position = position;
         holder.author_vorname.setText(String.valueOf(authors.get(position).getVorname()));
         holder.author_nachname.setText(String.valueOf(authors.get(position).getNachname()));
-        holder.mainLayout.setOnClickListener(view -> {
+        holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, Update_Author.class);
             intent.putExtra("vorname", String.valueOf(authors.get(position).getVorname()));
             intent.putExtra("nachname", String.valueOf(authors.get(position).getNachname()));
@@ -66,6 +67,7 @@ class Author_Adapter extends RecyclerView.Adapter<Author_Adapter.MyViewHolder> {
             super(itemView);
             author_vorname = itemView.findViewById(R.id.author_vorname);
             author_nachname = itemView.findViewById(R.id.author_nachname);
+            mainLayout = itemView.findViewById(R.id.mainLayout);
         }
     }
 }
