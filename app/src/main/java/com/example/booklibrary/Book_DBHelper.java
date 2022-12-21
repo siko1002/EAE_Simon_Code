@@ -14,6 +14,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.jar.Attributes;
 
 public class Book_DBHelper extends SQLiteOpenHelper {
 
@@ -65,12 +66,20 @@ public class Book_DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        Author temp;
         if(!author_dbHelper.AuthorExists(author)){
             author_dbHelper.addAuthor(author);
+            temp = author_dbHelper.getAuthorByName(NameSplitter.SplitVorname(author), NameSplitter.SplitNachname(author));
+        }else{
+            if(author_dbHelper.findAuthorByName("Max", "Mustermann") != null) {
+                temp = author_dbHelper.getAuthorByName("Max", "Mustermann");
+            }else{
+                temp = new Author("Max", "Mustermann");
+            }
         }
 
         cv.put(COLUMN_TITLE, title);
-        cv.put(COLUMN_AUTHOR, author);
+        cv.put(COLUMN_AUTHOR, temp.getpId());
         cv.put(COLUMN_PAGES, pages);
         long result = db.insert(TABLE_NAME, null, cv);
         Log.i("HSKL", "Book_DBHelper => addBook => Title: " + title + ", Author: " + author + ", Pages: " + pages + ", Result: " + result);
@@ -95,10 +104,17 @@ public class Book_DBHelper extends SQLiteOpenHelper {
     }
 
     void updateData(String title, Author author, String pages, String new_title) {
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_TITLE, new_title);
-        values.put(COLUMN_AUTHOR, author.getVorname() + " " + author.getNachname());
+        //Neu
+        if(author == null){
+            values.put(COLUMN_AUTHOR, "");
+        }else {
+            values.put(COLUMN_AUTHOR, author.getVorname() + " " + author.getNachname());
+        }
+        //neu ende
         values.put(COLUMN_PAGES, pages);
 
         String where = COLUMN_ID + "=?";
