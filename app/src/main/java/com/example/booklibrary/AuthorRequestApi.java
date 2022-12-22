@@ -4,9 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+
+import Book_Api.Author;
+import Book_Api.JsonStringToAuthorObject;
 
 public class AuthorRequestApi {
     public static Author getAuthor(String name) throws IOException {
