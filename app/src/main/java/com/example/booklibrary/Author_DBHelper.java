@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-import Book_Api.Author;
+//import Book_Api.Author;
 
 public class Author_DBHelper extends SQLiteOpenHelper {
 
@@ -219,7 +219,9 @@ public class Author_DBHelper extends SQLiteOpenHelper {
             int iId = meinZeiger.getColumnIndex(COLUMN_ID);
             int iVorname = meinZeiger.getColumnIndex(COLUMN_VORNAME);
             int iNachname = meinZeiger.getColumnIndex(COLUMN_NACHNAME);
+
             ret.add(new Author(meinZeiger.getString(iVorname), meinZeiger.getString(iNachname), meinZeiger.getInt(iId)));
+
         }
         return ret;
     }

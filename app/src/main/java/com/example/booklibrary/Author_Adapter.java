@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import Book_Api.Author;
+//import Book_Api.Author;
 
 class Author_Adapter extends RecyclerView.Adapter<Author_Adapter.MyViewHolder> {
 
@@ -44,12 +44,12 @@ class Author_Adapter extends RecyclerView.Adapter<Author_Adapter.MyViewHolder> {
 
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         this.position = position;
-        holder.author_vorname.setText(String.valueOf(authors.get(position).getName()));
-        holder.author_nachname.setText(String.valueOf(authors.get(position).getName()));
+        holder.author_vorname.setText(String.valueOf(authors.get(position).getVorname()));
+        holder.author_nachname.setText(String.valueOf(authors.get(position).getNachname()));
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, Update_Author.class);
-            intent.putExtra("vorname", String.valueOf(authors.get(position).getName()));
-            intent.putExtra("nachname", String.valueOf(authors.get(position).getName()));
+            intent.putExtra("vorname", String.valueOf(authors.get(position).getVorname()));
+            intent.putExtra("nachname", String.valueOf(authors.get(position).getNachname()));
             activity.startActivityForResult(intent, 1);
         });
 

@@ -6,8 +6,8 @@ import android.util.Log;
 
 import java.util.List;
 
-import Book_Api.Author;
-import Book_Api.Book;
+//import Book_Api.Author;
+//import Book_Api.Book;
 
 public class MyDatabaseHelper {
     Context context;

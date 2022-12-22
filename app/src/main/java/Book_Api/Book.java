@@ -287,5 +287,7 @@ public class Book {
         this.subjects = subjects;
     }
 
+
+
     // Getters and setters for each field
 }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import Book_Api.Book;
+//import Book_Api.Book;
 
 class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
 
@@ -32,6 +33,7 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
         this.books = books;
         MyDatabaseHelper myDB = new MyDatabaseHelper(context);
         books.addAll(myDB.getAllBooksAsList());
+        Log.i("HSKL", books.toString());
 
     }
 
