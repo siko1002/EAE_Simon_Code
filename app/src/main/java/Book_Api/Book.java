@@ -1,5 +1,6 @@
 package Book_Api;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Book {
@@ -11,7 +12,7 @@ public class Book {
                 List<String> editionKey, List<String> publishDate, List<Integer> publishYear, int firstPublishYear,
                 int numberOfPagesMedian, List<String> lccn, List<String> publishPlace, List<String> oclc,
                 List<String> contributor, List<String> lcc, List<String> ddc, List<String> isbn, List<String> authors,
-                List<String> subjects) {
+                List<String> subjects, String coverId, byte[] coverImage) {
         this.key = key;
         this.type = type;
         this.seed = seed;
@@ -32,6 +33,8 @@ public class Book {
         this.isbn = isbn;
         this.authors = authors;
         this.subjects = subjects;
+        this.coverId = coverId;
+        this.coverImage = coverImage;
     }
 
     private String key;
@@ -54,16 +57,29 @@ public class Book {
     private List<String> isbn;
     private List<String> authors;
     private List<String> subjects;
+    private String coverId;
+    private byte[] coverImage;
 
     @Override
     public String toString() {
-        return "Book [\nkey=" + key + ", \ntype=" + type + ", \nseed=" + seed + ", \ntitle=" + title
-                + ", \ntitleSuggest=" + titleSuggest + ", \neditionCount=" + editionCount + ", \neditionKey="
-                + editionKey + ", \npublishDate=" + publishDate + ", \npublishYear=" + publishYear
-                + ", \nfirstPublishYear=" + firstPublishYear + ", \nnumberOfPagesMedian=" + numberOfPagesMedian
-                + ", \nlccn=" + lccn + ", \npublishPlace=" + publishPlace + ", \noclc=" + oclc + ", \ncontributor="
-                + contributor + ", \nlcc=" + lcc + ", \nddc=" + ddc + ", \nisbn=" + isbn + ", \nauthors=" + authors
-                + ", \nsubjects=" + subjects + "]\n";
+        if (this.coverImage != null) {
+            return "Book [\nkey=" + key + ", \ntype=" + type + ", \nseed=" + seed + ", \ntitle=" + title
+                    + ", \ntitleSuggest=" + titleSuggest + ", \neditionCount=" + editionCount + ", \neditionKey="
+                    + editionKey + ", \npublishDate=" + publishDate + ", \npublishYear=" + publishYear
+                    + ", \nfirstPublishYear=" + firstPublishYear + ", \nnumberOfPagesMedian=" + numberOfPagesMedian
+                    + ", \nlccn=" + lccn + ", \npublishPlace=" + publishPlace + ", \noclc=" + oclc + ", \ncontributor="
+                    + contributor + ", \nlcc=" + lcc + ", \nddc=" + ddc + ", \nisbn=" + isbn + ", \nauthors=" + authors
+                    + ", \nsubjects=" + subjects + ", \ncoverId: " + coverId + ", \ncoverImg: " + this.coverImage.toString()
+                    + "]\n";
+        } else {
+            return "Book [\nkey=" + key + ", \ntype=" + type + ", \nseed=" + seed + ", \ntitle=" + title
+                    + ", \ntitleSuggest=" + titleSuggest + ", \neditionCount=" + editionCount + ", \neditionKey="
+                    + editionKey + ", \npublishDate=" + publishDate + ", \npublishYear=" + publishYear
+                    + ", \nfirstPublishYear=" + firstPublishYear + ", \nnumberOfPagesMedian=" + numberOfPagesMedian
+                    + ", \nlccn=" + lccn + ", \npublishPlace=" + publishPlace + ", \noclc=" + oclc + ", \ncontributor="
+                    + contributor + ", \nlcc=" + lcc + ", \nddc=" + ddc + ", \nisbn=" + isbn + ", \nauthors=" + authors
+                    + ", \nsubjects=" + subjects + ", \ncoverId: " + coverId + ", \ncoverImg: " + "]\n";
+        }
     }
 
     public String toStringReduced() {
@@ -123,6 +139,12 @@ public class Book {
         }
         if (subjects != null && subjects.size() > 0) {
             sb.append("\tsubjects=" + subjects + ",\n");
+        }
+        if (coverId != null && coverId.length() > 0) {
+            sb.append("\tcoverId=" + coverId + ",\n");
+        }
+        if (coverImage != null) {
+            sb.append("\tcoverImage=" + coverImage.toString() + ",\n");
         }
         return sb.toString();
     }
@@ -287,7 +309,20 @@ public class Book {
         this.subjects = subjects;
     }
 
+    public byte[] getCoverImage() {
+        return coverImage;
+    }
 
+    public void setCoverImage(byte[] coverImage) {
+        this.coverImage = coverImage;
+    }
 
+    public String getCoverId() {
+        return coverId;
+    }
+
+    public void setCoverId(String id) {
+        this.coverId = id;
+    }
     // Getters and setters for each field
 }

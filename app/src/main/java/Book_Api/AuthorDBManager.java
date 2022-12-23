@@ -31,7 +31,7 @@ public class AuthorDBManager extends SQLiteOpenHelper {
     private static final String COLUMN_WORK_COUNT = "workCount";
     private static final String COLUMN_TOP_SUBJECTS = "topSubjects";
 
-    AuthorDBManager(@Nullable Context context) {
+    public AuthorDBManager(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }

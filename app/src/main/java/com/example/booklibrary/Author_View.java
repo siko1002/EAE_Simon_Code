@@ -46,7 +46,6 @@ public class Author_View extends AppCompatActivity {
         myDB = new MyDatabaseHelper(Author_View.this);
         //Todo
         authors = new ArrayList<>();
-        displayData();
 
         //myAdapter = new MyAdapter(MainActivity.this, this, book_title, book_author, book_pages);
         authorAdapter = new Author_Adapter(Author_View.this, this, authors);
@@ -82,19 +81,6 @@ public class Author_View extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             recreate();
-        }
-        displayData();
-    }
-
-    void displayData() {
-        //myDB.logAllData();
-
-        Cursor cursor = myDB.readAllData();
-        if (cursor.getCount() == 0) {
-            Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
-        } else {
-            while (cursor.moveToNext()) {
-            }
         }
     }
 }

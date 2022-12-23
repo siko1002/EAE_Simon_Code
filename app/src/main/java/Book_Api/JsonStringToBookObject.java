@@ -1,6 +1,13 @@
 package Book_Api;
 
-
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +17,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonStringToBookObject {
-    public static List<Book> parseJsonToBook(String jsonString) throws JsonMappingException, JsonProcessingException {
+
+    public static List<Book> parseJsonToBook(String jsonString) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(jsonString);
 
@@ -63,6 +71,10 @@ public class JsonStringToBookObject {
             add.setAuthors(JsonObjectCreaterHelper.interpreteStringList(doc, "authors"));
             // private List<String> subjects;
             add.setSubjects(JsonObjectCreaterHelper.interpreteStringList(doc, "subjects"));
+            // private String coverId;
+            add.setCoverId(JsonObjectCreaterHelper.interpreteString(doc, "cover_i"));
+            // private byte[] coverImage;
+            add.setCoverImage(SaveImageFromUrl.saveImageToArray(add.getCoverId()));
             ret.add(add);
         }
         return ret;

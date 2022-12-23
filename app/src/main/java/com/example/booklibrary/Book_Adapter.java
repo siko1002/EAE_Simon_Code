@@ -31,9 +31,14 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
         this.activity = activity;
         this.context = context;
         this.books = books;
+
         MyDatabaseHelper myDB = new MyDatabaseHelper(context);
         books.addAll(myDB.getAllBooksAsList());
-        Log.i("HSKL", books.toString());
+
+        for(int i = 0; i < books.size(); i++){
+            Log.i("BTest", books.get(i).toString());
+        }
+        Log.i("HSKL", "books.toString() -> " + books.toString());
 
     }
 

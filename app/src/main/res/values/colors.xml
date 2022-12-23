@@ -7,4 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- api_book_colors -->
+    <!-- Option 1 -->
+    <color name="book_card_info_text_color">#333333</color>
+    <color name="book_card_title_text_color">#111111</color>
+    <color name="book_card_subtitle_text_color">#555555</color>
+    <!-- Option 2
+    <color name="book_card_info_text_color">#666666</color>
+    <color name="book_card_title_text_color">#444444</color>
+    <color name="book_card_subtitle_text_color">#888888</color>
+    -->
+    <!-- Option 3
+    <color name="book_card_info_text_color">#999999</color>
+    <color name="book_card_title_text_color">#777777</color>
+    <color name="book_card_subtitle_text_color">#BBBBBB</color>
+    -->
 </resources>

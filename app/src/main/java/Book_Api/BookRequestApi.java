@@ -1,14 +1,14 @@
 package Book_Api;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.util.List;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 
 public class BookRequestApi {
     public static List<Book> getBooks(String title) throws IOException {
@@ -68,6 +68,6 @@ public class BookRequestApi {
         } else {
             return null;
         }
-
     }
+
 }

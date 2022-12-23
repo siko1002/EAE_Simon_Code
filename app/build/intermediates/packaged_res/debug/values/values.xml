@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="book_card_info_text_color">#333333</color>
+    <color name="book_card_subtitle_text_color">#555555</color>
+    <color name="book_card_title_text_color">#111111</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -13,10 +16,18 @@
     <string name="author">Author</string>
     <string name="author_edit_view">Edit</string>
     <string name="author_view">Author View</string>
+    <string name="authors">Author</string>
     <string name="book_title">Book Title</string>
+    <string name="ddc">DDC</string>
     <string name="edit_view">Edit</string>
+    <string name="first_publish_year">Jahr der Erstveröffentlichung</string>
+    <string name="isbn">ISBN</string>
+    <string name="lcc">LCC</string>
+    <string name="lccn">LCCN</string>
     <string name="main_view">Book View</string>
     <string name="number_of_pages">Number of pages</string>
+    <string name="number_of_pages_median">Durschschnittliche Seiten</string>
+    <string name="title">Titel</string>
     <style name="Theme.BookLibrary" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
         <item name="colorPrimary">#7dc8b4</item>

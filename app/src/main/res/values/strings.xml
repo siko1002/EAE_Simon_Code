@@ -9,4 +9,13 @@
     <string name="add_author">Add</string>
     <string name="main_view">Book View</string>
     <string name="author_edit_view">Edit</string>
+
+    <string name="title">Titel</string>
+    <string name="authors">Author</string>
+    <string name="number_of_pages_median">Durschschnittliche Seiten</string>
+    <string name="first_publish_year">Jahr der Erstveröffentlichung</string>
+    <string name="isbn">ISBN</string>
+    <string name="lcc">LCC</string>
+    <string name="ddc">DDC</string>
+    <string name="lccn">LCCN</string>
 </resources>

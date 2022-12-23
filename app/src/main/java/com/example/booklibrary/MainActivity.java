@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton add_button;
 
     MyDatabaseHelper myDB;
-    ArrayList<String> books;
+    ArrayList<Book> books;
     Book_Adapter bookAdapter;
 
 
@@ -43,9 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         myDB = new MyDatabaseHelper(MainActivity.this);
         //Todo
-        books = new ArrayList<>();
-
-        displayData();
+        books = new ArrayList<Book>();
+        ;
 
         //myAdapter = new MyAdapter(MainActivity.this, this, book_title, book_author, book_pages);
         bookAdapter = new Book_Adapter(MainActivity.this, this, books);
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.Edit_view:
                 //Testaufruf
-                Intent intent1 = new Intent(MainActivity.this, Add_Book.class);
+                Intent intent1 = new Intent(MainActivity.this, Api_Book_View.class);
                 startActivity(intent1);
                 return true;
             default:
@@ -83,19 +82,6 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             recreate();
-        }
-        displayData();
-    }
-
-    void displayData() {
-        myDB.logAllData();
-
-        Cursor cursor = myDB.readAllData();
-        if (cursor.getCount() == 0) {
-            Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
-        } else {
-            while (cursor.moveToNext()) {
-            }
         }
     }
 }
