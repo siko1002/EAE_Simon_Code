@@ -11,12 +11,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="add_author">Add</string>
-    <string name="add_book">Add book</string>
+    <string name="add_book">Add apiBook</string>
+    <string name="apiAuthor">Author</string>
+    <string name="apiAuthors">Author</string>
     <string name="app_name">Book Library</string>
-    <string name="author">Author</string>
     <string name="author_edit_view">Edit</string>
     <string name="author_view">Author View</string>
-    <string name="authors">Author</string>
     <string name="book_title">Book Title</string>
     <string name="ddc">DDC</string>
     <string name="edit_view">Edit</string>

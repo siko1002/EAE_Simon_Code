@@ -1,6 +1,5 @@
 package com.example.booklibrary;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,32 +10,52 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
+import Book_Api.Api_Book;
 import Book_Api.Api_Book_Adapter;
-import Book_Api.AuthorDBManager;
-import Book_Api.Book;
 import Book_Api.BookDBManager;
+import Book_Api.BookRequestApi;
 
 
 public class Api_Book_View extends AppCompatActivity {
     RecyclerView Api_Book_RecyclerView;
 
     BookDBManager myDB;
-    ArrayList<Book_Api.Book> books;
+    ArrayList<Api_Book> apiBooks;
     Api_Book_Adapter book_adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    BookDBManager myDB = new BookDBManager(Api_Book_View.this);
+                    List<Api_Book> books = BookRequestApi.getBooks("A");
+                    for (Api_Book api_book : books) {
+                        myDB.insert(api_book);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+
         setContentView(R.layout.api_book_view);
 
         Api_Book_RecyclerView = findViewById(R.id.api_book_view_RecyclerView);
         myDB = new BookDBManager(Api_Book_View.this);
-        books = new ArrayList<Book>();
-        books.addAll(myDB.getAllBooks());
+        apiBooks = new ArrayList<Api_Book>();
+        apiBooks.addAll(myDB.getAllBooks());
 
-        book_adapter = new Api_Book_Adapter(Api_Book_View.this, null, books);
+        book_adapter = new Api_Book_Adapter(Api_Book_View.this, null, apiBooks);
         Api_Book_RecyclerView.setAdapter(book_adapter);
         Api_Book_RecyclerView.setLayoutManager(new LinearLayoutManager(Api_Book_View.this));
 
@@ -46,6 +65,7 @@ public class Api_Book_View extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.author_view_menu, menu);
+
         return true;
     }
 

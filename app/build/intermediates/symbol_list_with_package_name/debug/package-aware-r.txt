@@ -3279,12 +3279,12 @@ string abc_toolbar_collapse_description
 string add_author
 string add_book
 string androidx_startup
+string apiAuthor
+string apiAuthors
 string app_name
 string appbar_scrolling_view_behavior
-string author
 string author_edit_view
 string author_view
-string authors
 string book_title
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway

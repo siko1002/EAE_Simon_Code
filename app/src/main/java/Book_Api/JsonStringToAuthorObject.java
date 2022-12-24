@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonStringToAuthorObject {
-    public static List<Author> parseJsonToAuthor(String jsonString)
+    public static List<Api_Author> parseJsonToAuthor(String jsonString)
             throws JsonMappingException, JsonProcessingException {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -19,11 +19,11 @@ public class JsonStringToAuthorObject {
         int numFound = root.get("numFound").asInt();
         int start = root.get("start").asInt();
         boolean numFoundExact = root.get("numFoundExact").asBoolean();
-        List<Author> ret = new ArrayList<Author>();
+        List<Api_Author> ret = new ArrayList<Api_Author>();
         // Access the array of documents
         JsonNode docs = root.get("docs");
         for (JsonNode doc : docs) {
-            Author add = new Author();
+            Api_Author add = new Api_Author();
             // String key
             add.setKey(JsonObjectCreaterHelper.interpreteString(doc, "key"));
             // String type

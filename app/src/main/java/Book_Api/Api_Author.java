@@ -1,12 +1,12 @@
 package Book_Api;
 import java.util.List;
 
-public class Author {
-    Author() {
+public class Api_Author {
+    Api_Author() {
     }
 
-    Author(String key, String type, String name, List<String> alternateNames, String birthDate, String topWork,
-           int workCount, List<String> topSubjects) {
+    Api_Author(String key, String type, String name, List<String> alternateNames, String birthDate, String topWork,
+               int workCount, List<String> topSubjects) {
         this.key = key;
         this.type = type;
         this.name = name;

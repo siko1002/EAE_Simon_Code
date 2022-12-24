@@ -1,24 +1,15 @@
 package Book_Api;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonStringToBookObject {
 
-    public static List<Book> parseJsonToBook(String jsonString) throws IOException {
+    public static List<Api_Book> parseJsonToBook(String jsonString) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(jsonString);
 
@@ -26,11 +17,11 @@ public class JsonStringToBookObject {
         int numFound = root.get("numFound").asInt();
         int start = root.get("start").asInt();
         boolean numFoundExact = root.get("numFoundExact").asBoolean();
-        List<Book> ret = new ArrayList<Book>();
+        List<Api_Book> ret = new ArrayList<Api_Book>();
         // Access the array of documents
         JsonNode docs = root.get("docs");
         for (JsonNode doc : docs) {
-            Book add = new Book();
+            Api_Book add = new Api_Book();
             // private String key;
             add.setKey(JsonObjectCreaterHelper.interpreteString(doc, "key"));
             // private String type;

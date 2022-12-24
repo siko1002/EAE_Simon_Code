@@ -2,7 +2,6 @@ package Book_Api;
 
 import android.content.Context;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -13,7 +12,6 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class AuthorDBManager extends SQLiteOpenHelper {
     private Context context;
@@ -55,38 +53,38 @@ public class AuthorDBManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long insert(Author author) {
+    public long insert(Api_Author apiAuthor) {
         SQLiteDatabase db = this.getReadableDatabase();
         ContentValues values = new ContentValues();
-        values.put("key", author.getKey());
-        values.put("type", author.getType());
-        values.put("name", author.getName());
-        values.put("alternateNames", TextUtils.join(",", author.getAlternateNames()));
-        values.put("birthDate", author.getBirthDate());
-        values.put("topWork", author.getTopWork());
-        values.put("workCount", author.getWorkCount());
-        values.put("topSubjects", TextUtils.join(",", author.getTopSubjects()));
+        values.put("key", apiAuthor.getKey());
+        values.put("type", apiAuthor.getType());
+        values.put("name", apiAuthor.getName());
+        values.put("alternateNames", TextUtils.join(",", apiAuthor.getAlternateNames()));
+        values.put("birthDate", apiAuthor.getBirthDate());
+        values.put("topWork", apiAuthor.getTopWork());
+        values.put("workCount", apiAuthor.getWorkCount());
+        values.put("topSubjects", TextUtils.join(",", apiAuthor.getTopSubjects()));
         return db.insert(TABLE_NAME, null, values);
     }
 
-    public int update(Author author) {
+    public int update(Api_Author apiAuthor) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("type", author.getType());
-        values.put("name", author.getName());
-        values.put("alternateNames", TextUtils.join(",", author.getAlternateNames()));
-        values.put("birthDate", author.getBirthDate());
-        values.put("topWork", author.getTopWork());
-        values.put("workCount", author.getWorkCount());
-        values.put("topSubjects", TextUtils.join(",", author.getTopSubjects()));
-        return db.update(TABLE_NAME, values, "key = ?", new String[]{author.getKey()});
+        values.put("type", apiAuthor.getType());
+        values.put("name", apiAuthor.getName());
+        values.put("alternateNames", TextUtils.join(",", apiAuthor.getAlternateNames()));
+        values.put("birthDate", apiAuthor.getBirthDate());
+        values.put("topWork", apiAuthor.getTopWork());
+        values.put("workCount", apiAuthor.getWorkCount());
+        values.put("topSubjects", TextUtils.join(",", apiAuthor.getTopSubjects()));
+        return db.update(TABLE_NAME, values, "key = ?", new String[]{apiAuthor.getKey()});
     }
 
-    public int delete(Author author) {
+    public int delete(Api_Author apiAuthor) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, "key = ?", new String[]{author.getKey()});
+        return db.delete(TABLE_NAME, "key = ?", new String[]{apiAuthor.getKey()});
     }
-    public Author find(String key) {
+    public Api_Author find(String key) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.query("Author", null, "key = ?", new String[] { key }, null, null, null);
         if (cursor.moveToFirst()) {
@@ -99,15 +97,15 @@ public class AuthorDBManager extends SQLiteOpenHelper {
             int workCount = cursor.getInt(cursor.getColumnIndexOrThrow("workCount"));
             String topSubjectsStr = cursor.getString(cursor.getColumnIndexOrThrow("topSubjects"));
             List<String> topSubjects = Arrays.asList(topSubjectsStr.split(","));
-            return new Author(key, type, name, alternateNames, birthDate, topWork, workCount, topSubjects);
+            return new Api_Author(key, type, name, alternateNames, birthDate, topWork, workCount, topSubjects);
         } else {
             return null;
         }
     }
 
-    public List<Author> getAllAuthors() {
+    public List<Api_Author> getAllAuthors() {
         SQLiteDatabase db = this.getWritableDatabase();
-        List<Author> authors = new ArrayList<>();
+        List<Api_Author> apiAuthors = new ArrayList<>();
         Cursor cursor = db.query("Author", null, null, null, null, null, null);
         while (cursor.moveToNext()) {
             String key = cursor.getString(cursor.getColumnIndexOrThrow("key"));
@@ -120,9 +118,9 @@ public class AuthorDBManager extends SQLiteOpenHelper {
             int workCount = cursor.getInt(cursor.getColumnIndexOrThrow("workCount"));
             String topSubjectsStr = cursor.getString(cursor.getColumnIndexOrThrow("topSubjects"));
             List<String> topSubjects = Arrays.asList(topSubjectsStr.split(","));
-            authors.add(new Author(key, type, name, alternateNames, birthDate, topWork, workCount, topSubjects));
+            apiAuthors.add(new Api_Author(key, type, name, alternateNames, birthDate, topWork, workCount, topSubjects));
         }
-        return authors;
+        return apiAuthors;
     }
 
 

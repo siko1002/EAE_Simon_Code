@@ -16,7 +16,13 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import Book_Api.Api_Book;
+import Book_Api.BookDBManager;
+import Book_Api.BookRequestApi;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,10 +47,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        myDB = new MyDatabaseHelper(MainActivity.this);
-        //Todo
         books = new ArrayList<Book>();
-        ;
+        myDB = new MyDatabaseHelper(MainActivity.this);
+
 
         //myAdapter = new MyAdapter(MainActivity.this, this, book_title, book_author, book_pages);
         bookAdapter = new Book_Adapter(MainActivity.this, this, books);

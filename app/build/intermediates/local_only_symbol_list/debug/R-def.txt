@@ -79,11 +79,11 @@ mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 string add_author
 string add_book
+string apiAuthor
+string apiAuthors
 string app_name
-string author
 string author_edit_view
 string author_view
-string authors
 string book_title
 string ddc
 string edit_view

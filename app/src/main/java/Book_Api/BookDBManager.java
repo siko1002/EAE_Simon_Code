@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -68,76 +69,80 @@ public class BookDBManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long insert(Book book) {
+    public long insert(Api_Book apiBook) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_KEY, book.getKey());
-        values.put(COLUMN_TYPE, book.getType());
-        values.put(COLUMN_SEED, book.getSeed().toString());
-        values.put(COLUMN_TITLE, book.getTitle());
-        values.put(COLUMN_TITLE_SUGGEST, book.getTitleSuggest());
-        values.put(COLUMN_EDITION_COUNT, book.getEditionCount());
-        values.put(COLUMN_EDITION_KEY, book.getEditionKey().toString());
-        values.put(COLUMN_PUBLISH_DATE, book.getPublishDate().toString());
-        values.put(COLUMN_PUBLISH_YEAR, book.getPublishYear().toString());
-        values.put(COLUMN_FIRST_PUBLISH_YEAR, book.getFirstPublishYear());
-        values.put(COLUMN_NUMBER_OF_PAGES_MEDIAN, book.getNumberOfPagesMedian());
-        values.put(COLUMN_LCCN, book.getLccn().toString());
-        values.put(COLUMN_PUBLISH_PLACE, book.getPublishPlace().toString());
-        values.put(COLUMN_OCLC, book.getOclc().toString());
-        values.put(COLUMN_CONTRIBUTOR, book.getContributor().toString());
-        values.put(COLUMN_LCC, book.getLcc().toString());
-        values.put(COLUMN_DDC, book.getDdc().toString());
-        values.put(COLUMN_ISBN, book.getIsbn().toString());
-        values.put(COLUMN_AUTHORS, book.getAuthors().toString());
-        values.put(COLUMN_SUBJECTS, book.getSubjects().toString());
-        values.put(COLUMN_COVER_ID, book.getCoverId());
-        values.put(COLUMN_COVER_IMAGE, book.getCoverImage());
+        values.put(COLUMN_KEY, apiBook.getKey());
+        values.put(COLUMN_TYPE, apiBook.getType());
+        values.put(COLUMN_SEED, apiBook.getSeed().toString());
+        values.put(COLUMN_TITLE, apiBook.getTitle());
+        values.put(COLUMN_TITLE_SUGGEST, apiBook.getTitleSuggest());
+        values.put(COLUMN_EDITION_COUNT, apiBook.getEditionCount());
+        values.put(COLUMN_EDITION_KEY, apiBook.getEditionKey().toString());
+        values.put(COLUMN_PUBLISH_DATE, apiBook.getPublishDate().toString());
+        values.put(COLUMN_PUBLISH_YEAR, apiBook.getPublishYear().toString());
+        values.put(COLUMN_FIRST_PUBLISH_YEAR, apiBook.getFirstPublishYear());
+        values.put(COLUMN_NUMBER_OF_PAGES_MEDIAN, apiBook.getNumberOfPagesMedian());
+        values.put(COLUMN_LCCN, apiBook.getLccn().toString());
+        values.put(COLUMN_PUBLISH_PLACE, apiBook.getPublishPlace().toString());
+        values.put(COLUMN_OCLC, apiBook.getOclc().toString());
+        values.put(COLUMN_CONTRIBUTOR, apiBook.getContributor().toString());
+        values.put(COLUMN_LCC, apiBook.getLcc().toString());
+        values.put(COLUMN_DDC, apiBook.getDdc().toString());
+        values.put(COLUMN_ISBN, apiBook.getIsbn().toString());
+        values.put(COLUMN_AUTHORS, apiBook.getAuthors().toString());
+        values.put(COLUMN_SUBJECTS, apiBook.getSubjects().toString());
+        values.put(COLUMN_COVER_ID, apiBook.getCoverId());
+        values.put(COLUMN_COVER_IMAGE, apiBook.getCoverImage());
+
+        Log.i("HSKL_API", "Insert -> \n" + apiBook.toString());
 
         return db.insert(TABLE_NAME, null, values);
     }
 
-    public int update(Book book) {
+    public int update(Api_Book apiBook) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_KEY, book.getKey());
-        values.put(COLUMN_TYPE, book.getType());
-        values.put(COLUMN_SEED, book.getSeed().toString());
-        values.put(COLUMN_TITLE, book.getTitle());
-        values.put(COLUMN_TITLE_SUGGEST, book.getTitleSuggest());
-        values.put(COLUMN_EDITION_COUNT, book.getEditionCount());
-        values.put(COLUMN_EDITION_KEY, book.getEditionKey().toString());
-        values.put(COLUMN_PUBLISH_DATE, book.getPublishDate().toString());
-        values.put(COLUMN_PUBLISH_YEAR, book.getPublishYear().toString());
-        values.put(COLUMN_FIRST_PUBLISH_YEAR, book.getFirstPublishYear());
-        values.put(COLUMN_NUMBER_OF_PAGES_MEDIAN, book.getNumberOfPagesMedian());
-        values.put(COLUMN_LCCN, book.getLccn().toString());
-        values.put(COLUMN_PUBLISH_PLACE, book.getPublishPlace().toString());
-        values.put(COLUMN_OCLC, book.getOclc().toString());
-        values.put(COLUMN_CONTRIBUTOR, book.getContributor().toString());
-        values.put(COLUMN_LCC, book.getLcc().toString());
-        values.put(COLUMN_DDC, book.getDdc().toString());
-        values.put(COLUMN_ISBN, book.getIsbn().toString());
-        values.put(COLUMN_AUTHORS, book.getAuthors().toString());
-        values.put(COLUMN_SUBJECTS, book.getSubjects().toString());
-        values.put(COLUMN_COVER_ID, book.getCoverId());
-        values.put(COLUMN_COVER_IMAGE, book.getCoverImage());
+        values.put(COLUMN_KEY, apiBook.getKey());
+        values.put(COLUMN_TYPE, apiBook.getType());
+        values.put(COLUMN_SEED, apiBook.getSeed().toString());
+        values.put(COLUMN_TITLE, apiBook.getTitle());
+        values.put(COLUMN_TITLE_SUGGEST, apiBook.getTitleSuggest());
+        values.put(COLUMN_EDITION_COUNT, apiBook.getEditionCount());
+        values.put(COLUMN_EDITION_KEY, apiBook.getEditionKey().toString());
+        values.put(COLUMN_PUBLISH_DATE, apiBook.getPublishDate().toString());
+        values.put(COLUMN_PUBLISH_YEAR, apiBook.getPublishYear().toString());
+        values.put(COLUMN_FIRST_PUBLISH_YEAR, apiBook.getFirstPublishYear());
+        values.put(COLUMN_NUMBER_OF_PAGES_MEDIAN, apiBook.getNumberOfPagesMedian());
+        values.put(COLUMN_LCCN, apiBook.getLccn().toString());
+        values.put(COLUMN_PUBLISH_PLACE, apiBook.getPublishPlace().toString());
+        values.put(COLUMN_OCLC, apiBook.getOclc().toString());
+        values.put(COLUMN_CONTRIBUTOR, apiBook.getContributor().toString());
+        values.put(COLUMN_LCC, apiBook.getLcc().toString());
+        values.put(COLUMN_DDC, apiBook.getDdc().toString());
+        values.put(COLUMN_ISBN, apiBook.getIsbn().toString());
+        values.put(COLUMN_AUTHORS, apiBook.getAuthors().toString());
+        values.put(COLUMN_SUBJECTS, apiBook.getSubjects().toString());
+        values.put(COLUMN_COVER_ID, apiBook.getCoverId());
+        values.put(COLUMN_COVER_IMAGE, apiBook.getCoverImage());
 
         String selection = "key = ?";
-        String[] selectionArgs = {book.getKey()};
+        String[] selectionArgs = {apiBook.getKey()};
+
+        Log.i("HSKL_API", "Update -> \n" + apiBook.toString());
 
         return db.update(TABLE_NAME, values, selection, selectionArgs);
     }
 
-    public int delete(Book book) {
+    public int delete(Api_Book apiBook) {
         SQLiteDatabase db = this.getWritableDatabase();
         String selection = "key = ?";
-        String[] selectionArgs = {book.getKey()};
+        String[] selectionArgs = {apiBook.getKey()};
 
         return db.delete(TABLE_NAME, selection, selectionArgs);
     }
 
-    public Book find(String key) {
+    public Api_Book find(String key) {
         SQLiteDatabase db = this.getWritableDatabase();
         String[] projection = {COLUMN_ID, COLUMN_KEY, COLUMN_TYPE, COLUMN_SEED, COLUMN_TITLE, COLUMN_TITLE_SUGGEST, COLUMN_EDITION_COUNT, COLUMN_EDITION_KEY, COLUMN_PUBLISH_DATE, COLUMN_PUBLISH_YEAR, COLUMN_FIRST_PUBLISH_YEAR, COLUMN_NUMBER_OF_PAGES_MEDIAN, COLUMN_LCCN, COLUMN_PUBLISH_PLACE, COLUMN_OCLC, COLUMN_CONTRIBUTOR, COLUMN_LCC, COLUMN_DDC, COLUMN_ISBN, COLUMN_AUTHORS, COLUMN_SUBJECTS, COLUMN_COVER_ID, COLUMN_COVER_IMAGE};
 
@@ -146,27 +151,27 @@ public class BookDBManager extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, null);
 
-        Book book = null;
+        Api_Book apiBook = null;
         if (cursor.moveToFirst()) {
-            book = getBookThroughCursor(cursor);
+            apiBook = getBookThroughCursor(cursor);
         }
-        return book;
+        return apiBook;
     }
 
-    public List<Book> getAllBooks() {
+    public List<Api_Book> getAllBooks() {
         SQLiteDatabase db = this.getWritableDatabase();
         String[] projection = {COLUMN_ID, COLUMN_KEY, COLUMN_TYPE, COLUMN_SEED, COLUMN_TITLE, COLUMN_TITLE_SUGGEST, COLUMN_EDITION_COUNT, COLUMN_EDITION_KEY, COLUMN_PUBLISH_DATE, COLUMN_PUBLISH_YEAR, COLUMN_FIRST_PUBLISH_YEAR, COLUMN_NUMBER_OF_PAGES_MEDIAN, COLUMN_LCCN, COLUMN_PUBLISH_PLACE, COLUMN_OCLC, COLUMN_CONTRIBUTOR, COLUMN_LCC, COLUMN_DDC, COLUMN_ISBN, COLUMN_AUTHORS, COLUMN_SUBJECTS, COLUMN_COVER_ID, COLUMN_COVER_IMAGE};
 
         Cursor cursor = db.query(TABLE_NAME, projection, null, null, null, null, null);
 
-        List<Book> books = new ArrayList<>();
+        List<Api_Book> apiBooks = new ArrayList<>();
         while (cursor.moveToNext()) {
-            Book book = getBookThroughCursor(cursor);
-            books.add(book);
+            Api_Book apiBook = getBookThroughCursor(cursor);
+            apiBooks.add(apiBook);
         }
-        return books;
+        return apiBooks;
     }
-    public Book getBookThroughCursor(Cursor cursor){
+    public Api_Book getBookThroughCursor(Cursor cursor){
         String bookKey = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_KEY));
         String type = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TYPE));
         String seedString = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_SEED));
@@ -206,7 +211,7 @@ public class BookDBManager extends SQLiteOpenHelper {
         String cover_id = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_COVER_ID));
         byte[] cover_image = cursor.getBlob(cursor.getColumnIndexOrThrow(COLUMN_COVER_IMAGE));
 
-        Book book = new Book(bookKey, type, seed, title, titleSuggest, editionCount, editionKey, publishDate, publishYear, firstPublishYear, numberOfPagesMedian, lccn, publishPlace, oclc, contributor, lcc, ddc, isbn, authors, subjects, cover_id, cover_image);
-        return book;
+        Api_Book apiBook = new Api_Book(bookKey, type, seed, title, titleSuggest, editionCount, editionKey, publishDate, publishYear, firstPublishYear, numberOfPagesMedian, lccn, publishPlace, oclc, contributor, lcc, ddc, isbn, authors, subjects, cover_id, cover_image);
+        return apiBook;
     }
 }

@@ -150,7 +150,7 @@ public class Author_DBHelper extends SQLiteOpenHelper {
         int iVorname = meinZeiger.getColumnIndex(COLUMN_VORNAME);
         int iNachname = meinZeiger.getColumnIndex(COLUMN_NACHNAME);
 
-        Log.i("HSKL", "Author_DBHelper -> findAuthorByName: ID: " + meinZeiger.getInt(iId) +", Vorname: " + meinZeiger.getString(iVorname) + ", Nachname: " + meinZeiger.getString(iNachname) + "\n");
+        //Log.i("HSKL", "Author_DBHelper -> findAuthorByName: ID: " + meinZeiger.getInt(iId) +", Vorname: " + meinZeiger.getString(iVorname) + ", Nachname: " + meinZeiger.getString(iNachname) + "\n");
         String ret;
         if(meinZeiger.getString(iId).length() > 0) {
             ret = meinZeiger.getString(iId);

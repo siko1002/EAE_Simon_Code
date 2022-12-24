@@ -1,17 +1,14 @@
 package Book_Api;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
 import java.util.List;
 
 public class BookRequestApi {
-    public static List<Book> getBooks(String title) throws IOException {
+    public static List<Api_Book> getBooks(String title) throws IOException {
         title.toLowerCase();
         title = title.replace(" ", "%20");
 
@@ -31,17 +28,17 @@ public class BookRequestApi {
         con.disconnect();
 
         String jsonString = content.toString();
-        List<Book> books = JsonStringToBookObject.parseJsonToBook(jsonString);
+        List<Api_Book> apiBooks = JsonStringToBookObject.parseJsonToBook(jsonString);
 
-        if (books.size() > 0) {
-            return books;
+        if (apiBooks.size() > 0) {
+            return apiBooks;
         } else {
             return null;
         }
 
     }
 
-    public static Book getBook(String title) throws IOException {
+    public static Api_Book getBook(String title) throws IOException {
         title.toLowerCase();
         title = title.replace(" ", "%20");
 
@@ -61,10 +58,10 @@ public class BookRequestApi {
         con.disconnect();
 
         String jsonString = content.toString();
-        List<Book> books = JsonStringToBookObject.parseJsonToBook(jsonString);
+        List<Api_Book> apiBooks = JsonStringToBookObject.parseJsonToBook(jsonString);
 
-        if (books.size() > 0) {
-            return books.get(0);
+        if (apiBooks.size() > 0) {
+            return apiBooks.get(0);
         } else {
             return null;
         }

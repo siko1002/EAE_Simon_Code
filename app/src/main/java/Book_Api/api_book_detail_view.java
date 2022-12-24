@@ -40,24 +40,24 @@ public class api_book_detail_view extends AppCompatActivity {
         mLccnTextView = findViewById(R.id.lccn_text_view);
 
         // Retrieve book data from the intent or savedInstanceState
-        Book book = (Book) getIntent().getSerializableExtra("book");
-        if (book == null && savedInstanceState != null) {
-            book = (Book) savedInstanceState.getSerializable("book");
+        Api_Book apiBook = (Api_Book) getIntent().getSerializableExtra("book");
+        if (apiBook == null && savedInstanceState != null) {
+            apiBook = (Api_Book) savedInstanceState.getSerializable("book");
         }
 
         // Update the UI with the book data
-        if (book != null) {
-            mTitleTextView.setText(book.getTitle());
-            mAuthorsTextView.setText(book.getAuthors().get(0));
-            mNumberOfPagesMedianTextView.setText(book.getNumberOfPagesMedian());
-            mFirstPublishYearTextView.setText(book.getFirstPublishYear());
-            mIsbnTextView.setText(book.getIsbn().get(0));
-            mLccTextView.setText(book.getLcc().get(0));
-            mDdcTextView.setText(book.getDdc().get(0));
-            mLccnTextView.setText(book.getLccn().get(0));
+        if (apiBook != null) {
+            mTitleTextView.setText(apiBook.getTitle());
+            mAuthorsTextView.setText(apiBook.getAuthors().get(0));
+            mNumberOfPagesMedianTextView.setText(apiBook.getNumberOfPagesMedian());
+            mFirstPublishYearTextView.setText(apiBook.getFirstPublishYear());
+            mIsbnTextView.setText(apiBook.getIsbn().get(0));
+            mLccTextView.setText(apiBook.getLcc().get(0));
+            mDdcTextView.setText(apiBook.getDdc().get(0));
+            mLccnTextView.setText(apiBook.getLccn().get(0));
         }
-        if (book.getCoverImage() != null) {
-            Bitmap bitmap = BitmapFactory.decodeByteArray(book.getCoverImage(), 0, book.getCoverImage().length);
+        if (apiBook.getCoverImage() != null) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(apiBook.getCoverImage(), 0, apiBook.getCoverImage().length);
             mBookCoverImageView.setImageBitmap(bitmap);
         }
     }

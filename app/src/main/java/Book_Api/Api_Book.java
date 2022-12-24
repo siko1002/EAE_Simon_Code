@@ -1,18 +1,17 @@
 package Book_Api;
 
-import java.util.Arrays;
 import java.util.List;
 
-public class Book {
-    public Book() {
+public class Api_Book {
+    public Api_Book() {
 
     }
 
-    public Book(String key, String type, List<String> seed, String title, String titleSuggest, int editionCount,
-                List<String> editionKey, List<String> publishDate, List<Integer> publishYear, int firstPublishYear,
-                int numberOfPagesMedian, List<String> lccn, List<String> publishPlace, List<String> oclc,
-                List<String> contributor, List<String> lcc, List<String> ddc, List<String> isbn, List<String> authors,
-                List<String> subjects, String coverId, byte[] coverImage) {
+    public Api_Book(String key, String type, List<String> seed, String title, String titleSuggest, int editionCount,
+                    List<String> editionKey, List<String> publishDate, List<Integer> publishYear, int firstPublishYear,
+                    int numberOfPagesMedian, List<String> lccn, List<String> publishPlace, List<String> oclc,
+                    List<String> contributor, List<String> lcc, List<String> ddc, List<String> isbn, List<String> authors,
+                    List<String> subjects, String coverId, byte[] coverImage) {
         this.key = key;
         this.type = type;
         this.seed = seed;

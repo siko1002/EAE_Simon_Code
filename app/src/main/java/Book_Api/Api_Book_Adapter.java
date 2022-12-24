@@ -19,13 +19,13 @@ import java.util.List;
 
 public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.BookViewHolder> {
 
-    private List<Book> mBooks;
+    private List<Api_Book> mApiBooks;
     private Context mContext;
     Activity activity;
 
-    public Api_Book_Adapter(Activity activity, Context context, List<Book> books) {
+    public Api_Book_Adapter(Activity activity, Context context, List<Api_Book> apiBooks) {
         activity = activity;
-        mBooks = books;
+        mApiBooks = apiBooks;
         mContext = context;
     }
 
@@ -38,23 +38,23 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
 
     @Override
     public void onBindViewHolder(@NonNull BookViewHolder holder, int position) {
-        Book book = mBooks.get(position);
+        Api_Book apiBook = mApiBooks.get(position);
 
         // Set the title and authors
-        holder.titleTextView.setText(book.getTitle());
-        holder.authorsTextView.setText(book.getAuthors().get(0));
+        holder.titleTextView.setText(apiBook.getTitle());
+        holder.authorsTextView.setText(apiBook.getAuthors().get(0));
 
         // Set the cover image
-        Bitmap coverImageBitmap = BitmapFactory.decodeByteArray(book.getCoverImage(), 0, book.getCoverImage().length);
+        Bitmap coverImageBitmap = BitmapFactory.decodeByteArray(apiBook.getCoverImage(), 0, apiBook.getCoverImage().length);
         holder.bookCoverImageView.setImageBitmap(coverImageBitmap);
 
         // Set the other book details
-        holder.numberOfPagesMedianTextView.setText(String.format("Number of Pages (Median): %d", book.getNumberOfPagesMedian()));
-        holder.firstPublishYearTextView.setText(String.format("First Publish Year: %d", book.getFirstPublishYear()));
-        holder.isbnTextView.setText(String.format("ISBN: %s", book.getIsbn().get(0)));
-        holder.lccTextView.setText(String.format("LCC: %s", book.getLcc().get(0)));
-        holder.ddcTextView.setText(String.format("DDC: %s", book.getDdc().get(0)));
-        holder.lccnTextView.setText(String.format("LCCN: %s", book.getLccn().get(0)));
+        holder.numberOfPagesMedianTextView.setText(String.format("Number of Pages (Median): %d", apiBook.getNumberOfPagesMedian()));
+        holder.firstPublishYearTextView.setText(String.format("First Publish Year: %d", apiBook.getFirstPublishYear()));
+        holder.isbnTextView.setText(String.format("ISBN: %s", apiBook.getIsbn().get(0)));
+        holder.lccTextView.setText(String.format("LCC: %s", apiBook.getLcc().get(0)));
+        holder.ddcTextView.setText(String.format("DDC: %s", apiBook.getDdc().get(0)));
+        holder.lccnTextView.setText(String.format("LCCN: %s", apiBook.getLccn().get(0)));
 
         // holder.mainLayout.setOnClickListener(view -> {}); Hier den Add für meine Datenbank einbauen
 
@@ -62,7 +62,7 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
 
     @Override
     public int getItemCount() {
-        return mBooks.size();
+        return mApiBooks.size();
     }
 
     class BookViewHolder extends RecyclerView.ViewHolder {

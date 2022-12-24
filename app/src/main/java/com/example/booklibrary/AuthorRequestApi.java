@@ -7,11 +7,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import Book_Api.Author;
+import Book_Api.Api_Author;
 import Book_Api.JsonStringToAuthorObject;
 
 public class AuthorRequestApi {
-    public static Author getAuthor(String name) throws IOException {
+    public static Api_Author getAuthor(String name) throws IOException {
         name.toLowerCase();
         name = name.replace(" ", "%20");
 
@@ -32,7 +32,7 @@ public class AuthorRequestApi {
 
         String jsonString = content.toString();
         // System.out.println(jsonString);
-        List<Author> authoren = JsonStringToAuthorObject.parseJsonToAuthor(jsonString);
+        List<Api_Author> authoren = JsonStringToAuthorObject.parseJsonToAuthor(jsonString);
         /*
          * for (Author a : authoren) { System.out.println(a.toString()); }
          */
@@ -43,7 +43,7 @@ public class AuthorRequestApi {
             return null;
     }
 
-    public static List<Author> getAuthorListByName(String name) throws IOException {
+    public static List<Api_Author> getAuthorListByName(String name) throws IOException {
         name.toLowerCase();
         name = name.replace(" ", "%20");
 
@@ -64,9 +64,9 @@ public class AuthorRequestApi {
 
         String jsonString = content.toString();
         // System.out.println(jsonString);
-        List<Author> authoren = JsonStringToAuthorObject.parseJsonToAuthor(jsonString);
+        List<Api_Author> authoren = JsonStringToAuthorObject.parseJsonToAuthor(jsonString);
 
-        for (Author a : authoren) {
+        for (Api_Author a : authoren) {
             System.out.println(a.toString());
         }
 
