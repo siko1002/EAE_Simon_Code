@@ -1,73 +1,69 @@
 package Book_Api;
 
+import android.util.Log;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 public class JsonStringToBookObject {
+    public static Api_Book parseJsonToBook(String jsonString) {
+        try {
+            JSONObject bookJson = new JSONObject(jsonString).getJSONArray("docs").getJSONObject(0);
 
-    public static List<Api_Book> parseJsonToBook(String jsonString) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(jsonString);
+            String key = bookJson.getString("key");
+            String type = bookJson.getString("type");
+            List<String> seed = getListFromJsonArray(bookJson.getJSONArray("seed"));
+            String title = bookJson.getString("title");
+            String titleSuggest = bookJson.getString("title_suggest");
+            int editionCount = bookJson.getInt("edition_count");
+            List<String> editionKey = getListFromJsonArray(bookJson.getJSONArray("edition_key"));
+            List<String> publishDate = getListFromJsonArray(bookJson.getJSONArray("publish_date"));
+            List<Integer> publishYear = getListFromIntArray(bookJson.getJSONArray("publish_year"));
+            int firstPublishYear = bookJson.getInt("first_publish_year");
+            int numberOfPagesMedian = bookJson.getInt("number_of_pages_median");
+            List<String> lccn = getListFromJsonArray(bookJson.getJSONArray("lccn"));
+            List<String> publishPlace = getListFromJsonArray(bookJson.getJSONArray("publish_place"));
+            List<String> oclc = getListFromJsonArray(bookJson.getJSONArray("oclc"));
+            List<String> contributor = getListFromJsonArray(bookJson.getJSONArray("contributor"));
+            List<String> lcc = getListFromJsonArray(bookJson.getJSONArray("lcc"));
+            List<String> ddc = getListFromJsonArray(bookJson.getJSONArray("ddc"));
+            List<String> isbn = getListFromJsonArray(bookJson.getJSONArray("isbn"));
+            List<String> authors = getListFromJsonArray(bookJson.getJSONArray("author_name"));
+            List<String> subjects = getListFromJsonArray(bookJson.getJSONArray("subject"));
+            String coverId = bookJson.getString("cover_i");
+            byte[] coverImage = SaveImageFromUrl.saveImageToArray(coverId);
 
-        // Access the data in the JSON object
-        int numFound = root.get("numFound").asInt();
-        int start = root.get("start").asInt();
-        boolean numFoundExact = root.get("numFoundExact").asBoolean();
-        List<Api_Book> ret = new ArrayList<Api_Book>();
-        // Access the array of documents
-        JsonNode docs = root.get("docs");
-        for (JsonNode doc : docs) {
-            Api_Book add = new Api_Book();
-            // private String key;
-            add.setKey(JsonObjectCreaterHelper.interpreteString(doc, "key"));
-            // private String type;
-            add.setType(JsonObjectCreaterHelper.interpreteString(doc, "type"));
-            // private List<String> seed;
-            add.setSeed(JsonObjectCreaterHelper.interpreteStringList(doc, "seed"));
-            // private String title;
-            add.setTitle(JsonObjectCreaterHelper.interpreteString(doc, "title"));
-            // private String titleSuggest;
-            add.setTitleSuggest(JsonObjectCreaterHelper.interpreteString(doc, "titleSuggest"));
-            // private int editionCount;
-            add.setEditionCount(JsonObjectCreaterHelper.interpreteInt(doc, "editionCount"));
-            // private List<String> editionKey;
-            add.setEditionKey(JsonObjectCreaterHelper.interpreteStringList(doc, "editionKey"));
-            // private List<String> publishDate;
-            add.setPublishDate(JsonObjectCreaterHelper.interpreteStringList(doc, "publishDate"));
-            // private List<Integer> publishYear;
-            add.setPublishYear(JsonObjectCreaterHelper.interpreteIntegerList(doc, "publishYear"));
-            // private int firstPublishYear;
-            add.setFirstPublishYear(JsonObjectCreaterHelper.interpreteInt(doc, "firstPublishYear"));
-            // private int numberOfPagesMedian;
-            add.setNumberOfPagesMedian(JsonObjectCreaterHelper.interpreteInt(doc, "numberOfPagesMedian"));
-            // private List<String> lccn;
-            add.setLccn(JsonObjectCreaterHelper.interpreteStringList(doc, "lccn"));
-            // private List<String> publishPlace;
-            add.setPublishDate(JsonObjectCreaterHelper.interpreteStringList(doc, "publishPlace"));
-            // private List<String> oclc;
-            add.setOclc(JsonObjectCreaterHelper.interpreteStringList(doc, "oclc"));
-            // private List<String> contributor;
-            add.setContributor(JsonObjectCreaterHelper.interpreteStringList(doc, "contributor"));
-            // private List<String> lcc;
-            add.setLcc(JsonObjectCreaterHelper.interpreteStringList(doc, "lcc"));
-            // private List<String> ddc;
-            add.setDdc(JsonObjectCreaterHelper.interpreteStringList(doc, "ddc"));
-            // private List<String> isbn;
-            add.setIsbn(JsonObjectCreaterHelper.interpreteStringList(doc, "isbn"));
-            // private List<String> authors;
-            add.setAuthors(JsonObjectCreaterHelper.interpreteStringList(doc, "authors"));
-            // private List<String> subjects;
-            add.setSubjects(JsonObjectCreaterHelper.interpreteStringList(doc, "subjects"));
-            // private String coverId;
-            add.setCoverId(JsonObjectCreaterHelper.interpreteString(doc, "cover_i"));
-            // private byte[] coverImage;
-            add.setCoverImage(SaveImageFromUrl.saveImageToArray(add.getCoverId()));
-            ret.add(add);
+            return new Api_Book(key, type, seed, title, titleSuggest, editionCount, editionKey, publishDate, publishYear,
+                    firstPublishYear, numberOfPagesMedian, lccn, publishPlace, oclc, contributor, lcc, ddc, isbn, authors,
+                    subjects, coverId, coverImage);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return ret;
+
+        return null;
+    }
+    private static List<String> getListFromJsonArray(JSONArray array) throws JSONException {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < array.length(); i++) {
+            list.add(array.getString(i));
+        }
+        return list;
+    }
+    private static List<Integer> getListFromIntArray(JSONArray array) throws JSONException {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < array.length(); i++) {
+            list.add(array.getInt(i));
+        }
+        return list;
     }
 }
+

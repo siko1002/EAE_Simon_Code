@@ -2776,9 +2776,7 @@ id imageView
 id immediateStop
 id included
 id info
-id insert_author
 id insert_author2
-id insert_pages
 id insert_pages2
 id insert_title
 id insert_title2

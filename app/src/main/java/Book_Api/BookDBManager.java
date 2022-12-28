@@ -9,6 +9,8 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.google.android.material.tabs.TabLayout;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -214,4 +216,12 @@ public class BookDBManager extends SQLiteOpenHelper {
         Api_Book apiBook = new Api_Book(bookKey, type, seed, title, titleSuggest, editionCount, editionKey, publishDate, publishYear, firstPublishYear, numberOfPagesMedian, lccn, publishPlace, oclc, contributor, lcc, ddc, isbn, authors, subjects, cover_id, cover_image);
         return apiBook;
     }
+
+    public void deleteAll(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String clearDBQuery = "DELETE FROM " + TABLE_NAME;
+        db.execSQL(clearDBQuery);
+    }
+
+
 }

@@ -44,9 +44,7 @@ id ddc_text_view
 id delete_button
 id first_publish_year_text_view
 id imageView
-id insert_author
 id insert_author2
-id insert_pages
 id insert_pages2
 id insert_title
 id insert_title2

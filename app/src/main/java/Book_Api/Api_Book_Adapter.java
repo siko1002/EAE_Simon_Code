@@ -21,10 +21,8 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
 
     private List<Api_Book> mApiBooks;
     private Context mContext;
-    Activity activity;
 
-    public Api_Book_Adapter(Activity activity, Context context, List<Api_Book> apiBooks) {
-        activity = activity;
+    public Api_Book_Adapter(Context context, List<Api_Book> apiBooks) {
         mApiBooks = apiBooks;
         mContext = context;
     }
@@ -45,8 +43,11 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
         holder.authorsTextView.setText(apiBook.getAuthors().get(0));
 
         // Set the cover image
-        Bitmap coverImageBitmap = BitmapFactory.decodeByteArray(apiBook.getCoverImage(), 0, apiBook.getCoverImage().length);
-        holder.bookCoverImageView.setImageBitmap(coverImageBitmap);
+        if(apiBook.getCoverImage() != null) {
+            Bitmap coverImageBitmap = BitmapFactory.decodeByteArray(apiBook.getCoverImage(), 0, apiBook.getCoverImage().length);
+            holder.bookCoverImageView.setImageBitmap(coverImageBitmap);
+        }
+
 
         // Set the other book details
         holder.numberOfPagesMedianTextView.setText(String.format("Number of Pages (Median): %d", apiBook.getNumberOfPagesMedian()));
@@ -55,6 +56,7 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
         holder.lccTextView.setText(String.format("LCC: %s", apiBook.getLcc().get(0)));
         holder.ddcTextView.setText(String.format("DDC: %s", apiBook.getDdc().get(0)));
         holder.lccnTextView.setText(String.format("LCCN: %s", apiBook.getLccn().get(0)));
+
 
         // holder.mainLayout.setOnClickListener(view -> {}); Hier den Add für meine Datenbank einbauen
 
@@ -88,6 +90,14 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
             ddcTextView = itemView.findViewById(R.id.ddc_text_view);
             lccnTextView = itemView.findViewById(R.id.lccn_text_view);
         }
+    }
+    public void clear() {
+        int size = mApiBooks.size();
+        mApiBooks.clear();
+        notifyItemRangeRemoved(0, size);
+    }
+    public void addBook(Api_Book book){
+        mApiBooks.add(book);
     }
 }
 

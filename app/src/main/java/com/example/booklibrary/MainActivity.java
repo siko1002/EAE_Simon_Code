@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Book_Api.Api_Book;
+import Book_Api.Api_Book_Adapter;
 import Book_Api.BookDBManager;
 import Book_Api.BookRequestApi;
 
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.book_recyclerView);
         add_button = findViewById(R.id.add_button);
+
         add_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Add_Book.class);
@@ -55,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         bookAdapter = new Book_Adapter(MainActivity.this, this, books);
         recyclerView.setAdapter(bookAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-
     }
 
     //Action Bar Menü
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.Edit_view:
+                BookDBManager myDB = new BookDBManager(this);
                 //Testaufruf
                 Intent intent1 = new Intent(MainActivity.this, Api_Book_View.class);
                 startActivity(intent1);

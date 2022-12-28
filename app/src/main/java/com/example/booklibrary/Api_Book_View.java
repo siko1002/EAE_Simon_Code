@@ -2,6 +2,7 @@ package com.example.booklibrary;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -32,33 +33,17 @@ public class Api_Book_View extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    BookDBManager myDB = new BookDBManager(Api_Book_View.this);
-                    List<Api_Book> books = BookRequestApi.getBooks("A");
-                    for (Api_Book api_book : books) {
-                        myDB.insert(api_book);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-
-
         setContentView(R.layout.api_book_view);
 
         Api_Book_RecyclerView = findViewById(R.id.api_book_view_RecyclerView);
         myDB = new BookDBManager(Api_Book_View.this);
         apiBooks = new ArrayList<Api_Book>();
         apiBooks.addAll(myDB.getAllBooks());
+        Log.i("HSKL", "Alle Bücher: " + apiBooks.toString());
 
-        book_adapter = new Api_Book_Adapter(Api_Book_View.this, null, apiBooks);
+        book_adapter = new Api_Book_Adapter(this, apiBooks);
         Api_Book_RecyclerView.setAdapter(book_adapter);
         Api_Book_RecyclerView.setLayoutManager(new LinearLayoutManager(Api_Book_View.this));
-
     }
 
     //Action Bar Menü
@@ -90,5 +75,25 @@ public class Api_Book_View extends AppCompatActivity {
         if (requestCode == 1) {
             recreate();
         }
+    }
+    /*
+    @Override
+    protected void onResume() {
+        super.onResume();
+        BookDBManager bookDBManager = new BookDBManager(this);
+        bookDBManager.deleteAll();
+        book_adapter.clear();
+        apiBooks.clear();
+    }
+     */
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        Log.i("HSKL_Api", "Api_Book_View -> onPause aufgerufen");
+        BookDBManager bookDBManager = new BookDBManager(this);
+        bookDBManager.deleteAll();
+        //book_adapter.notifyDataSetChanged();
+        apiBooks.clear();
     }
 }
