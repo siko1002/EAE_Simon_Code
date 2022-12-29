@@ -25,18 +25,17 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookRequestApi extends AsyncTask<String, Void, Api_Book> {
+public class BookRequestApi extends AsyncTask<String, Void, SearchResultStorage> {
     private Context context;
     private ProgressDialog progressDialog;
-    private RecyclerView recyclerView;
     private Api_Book_Adapter api_book_adapter;
 
     public BookRequestApi(Context context) {
         this.context = context;
     }
 
-    public BookRequestApi(Context context, RecyclerView recyclerView, Api_Book_Adapter api_book_adapter) {
-        this.context = context;this.recyclerView = recyclerView; this.api_book_adapter = api_book_adapter;
+    public BookRequestApi(Context context, Api_Book_Adapter api_book_adapter) {
+        this.context = context; this.api_book_adapter = api_book_adapter;
     }
 
     @Override
@@ -47,13 +46,16 @@ public class BookRequestApi extends AsyncTask<String, Void, Api_Book> {
         progressDialog.show();
     }
     @Override
-    protected Api_Book doInBackground(String... params) {
+    protected SearchResultStorage doInBackground(String... params) {
+        List<Api_Book> ret = new ArrayList<Api_Book>();
         String title = params[0];
         title = title.toLowerCase();
         title = title.replace(" ", "%20");
         Log.i("HSKL_API" , "BookRequestApi -> Title: " + title);
         String urlString = "https://openlibrary.org/search.json?title=" + title;
         Log.i("HSKL_API" , "BookRequestApi -> UrlString: " + urlString);
+
+        progressDialog.setMessage(urlString);
 
         try {
             URL url = new URL(urlString);
@@ -67,30 +69,38 @@ public class BookRequestApi extends AsyncTask<String, Void, Api_Book> {
                 content.append(inputLine);
             }
             in.close();
-            con.disconnect();
 
+            SearchResultStorage searchResultStorage = new SearchResultStorage();
             String jsonString = content.toString();
-            Api_Book ret =  JsonStringToBookObject.parseJsonToBook(jsonString);
-            //Log.i("HSKL_Api", "BookRequestApi -> Found: " + ret.toStringReduced());
-            return ret;
+
+           JsonStringToBookObject.parseJsonToBooks(jsonString, searchResultStorage);
+
+            con.disconnect();
+            return searchResultStorage;
         } catch (IOException e) {
             e.printStackTrace();
         }
         Log.i("HSKL_Api", "BookRequestApi -> Found nothing");
+
         return null;
     }
 
     @Override
-    protected void onPostExecute(Api_Book book) {
-        super.onPostExecute(book);
+    protected void onPostExecute(SearchResultStorage searchResultStorage) {
         progressDialog.dismiss();
+        //super.onPostExecute(books);
+
         if(api_book_adapter != null) {
-            api_book_adapter.addBook(book);
+            api_book_adapter.addBooks(searchResultStorage.getBooks());
+            //Experimentell -> Adapter soll sich erweitern
+            api_book_adapter.notifyDataSetChanged();
         }
         //api_book_adapter.notifyDataSetChanged();
-        if (book != null) {
+        if (searchResultStorage.getBooks() != null) {
             BookDBManager bookDBManager = new BookDBManager(context);
-            bookDBManager.insert(book);
+            for(Api_Book apiBook : searchResultStorage.getBooks()){
+                bookDBManager.insert(apiBook);
+            }
         } else {
             // No book was found
         }

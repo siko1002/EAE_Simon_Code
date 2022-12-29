@@ -32,7 +32,6 @@ public class Api_Book_View extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         setContentView(R.layout.api_book_view);
 
         Api_Book_RecyclerView = findViewById(R.id.api_book_view_RecyclerView);
@@ -41,7 +40,7 @@ public class Api_Book_View extends AppCompatActivity {
         apiBooks.addAll(myDB.getAllBooks());
         Log.i("HSKL", "Alle Bücher: " + apiBooks.toString());
 
-        book_adapter = new Api_Book_Adapter(this, apiBooks);
+        book_adapter = new Api_Book_Adapter(Api_Book_View.this, this, apiBooks);
         Api_Book_RecyclerView.setAdapter(book_adapter);
         Api_Book_RecyclerView.setLayoutManager(new LinearLayoutManager(Api_Book_View.this));
     }
@@ -76,16 +75,7 @@ public class Api_Book_View extends AppCompatActivity {
             recreate();
         }
     }
-    /*
-    @Override
-    protected void onResume() {
-        super.onResume();
-        BookDBManager bookDBManager = new BookDBManager(this);
-        bookDBManager.deleteAll();
-        book_adapter.clear();
-        apiBooks.clear();
-    }
-     */
+
     @Override
     public void onPause()
     {

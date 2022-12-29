@@ -8,6 +8,9 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.concurrent.ExecutionException;
+
+import Book_Api.Api_Book_Adapter;
 import Book_Api.BookRequestApi;
 
 public class Add_Book extends AppCompatActivity {
@@ -29,6 +32,13 @@ public class Add_Book extends AppCompatActivity {
 
             BookRequestApi bookRequestApi = new BookRequestApi(this);
             bookRequestApi.execute(insert_title.getText().toString().trim());
+            try {
+                bookRequestApi.get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
 
             Intent intent = new Intent(Add_Book.this, MainActivity.class);

@@ -2,18 +2,24 @@ package Book_Api;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.booklibrary.Book_DBHelper;
+import com.example.booklibrary.MainActivity;
+import com.example.booklibrary.MyDatabaseHelper;
 import com.example.booklibrary.R;
+import com.example.booklibrary.Update_Book;
 
 import java.util.List;
 
@@ -21,10 +27,12 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
 
     private List<Api_Book> mApiBooks;
     private Context mContext;
+    private Activity activity;
 
-    public Api_Book_Adapter(Context context, List<Api_Book> apiBooks) {
+    public Api_Book_Adapter(Activity activity,Context context, List<Api_Book> apiBooks) {
         mApiBooks = apiBooks;
         mContext = context;
+        activity = activity;
     }
 
     @NonNull
@@ -57,7 +65,12 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
         holder.ddcTextView.setText(String.format("DDC: %s", apiBook.getDdc().get(0)));
         holder.lccnTextView.setText(String.format("LCCN: %s", apiBook.getLccn().get(0)));
 
-
+        holder.bookCoverImageView.setOnClickListener(view -> {
+            MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(mContext);
+            myDatabaseHelper.addBook(holder.titleTextView.getText().toString().trim(), holder.authorsTextView.getText().toString().trim(), holder.numberOfPagesMedianTextView.getText().toString().trim());
+            Intent intent = new Intent(mContext, Update_Book.class);
+            activity.startActivityForResult(intent, 1);
+        });
         // holder.mainLayout.setOnClickListener(view -> {}); Hier den Add für meine Datenbank einbauen
 
     }
@@ -98,6 +111,9 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
     }
     public void addBook(Api_Book book){
         mApiBooks.add(book);
+    }
+    public void addBooks(List<Api_Book> books){
+        mApiBooks.addAll(books);
     }
 }
 

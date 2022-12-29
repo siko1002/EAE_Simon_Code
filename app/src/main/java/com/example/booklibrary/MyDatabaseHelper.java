@@ -33,7 +33,12 @@ public class MyDatabaseHelper {
             Log.i("HSKL", "MyDBHelper -> AddData -> Author Existiert bereits?: " + author_dbHelper.AuthorExists(authorName));
         }
         Book book = new Book(title, author, pages);
-        book_dbHelper.addBook(title, authorName, Integer.parseInt(pages));
+        if(pages.contains(": ")){
+            String temp = pages.substring(pages.indexOf('.') + 1);
+            book_dbHelper.addBook(title, authorName, Integer.parseInt(temp));
+        }else {
+            book_dbHelper.addBook(title, authorName, Integer.parseInt(pages));
+        }
     }
 
     public void addAuthor(String vorname, String nachname) {
@@ -84,7 +89,7 @@ public class MyDatabaseHelper {
         author_dbHelper.deleteAuthor(vorname, nachname);
     }
 
-    MyDatabaseHelper(Context context) {
+    public MyDatabaseHelper(Context context) {
         this.context = context;
     }
 
