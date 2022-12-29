@@ -34,12 +34,8 @@ public class BookDBManager extends SQLiteOpenHelper {
     private static final String COLUMN_PUBLISH_YEAR = "publish_year";
     private static final String COLUMN_FIRST_PUBLISH_YEAR = "first_publish_year";
     private static final String COLUMN_NUMBER_OF_PAGES_MEDIAN = "number_of_pages_median";
-    private static final String COLUMN_LCCN = "lccn";
     private static final String COLUMN_PUBLISH_PLACE = "publish_place";
-    private static final String COLUMN_OCLC = "oclc";
     private static final String COLUMN_CONTRIBUTOR = "contributor";
-    private static final String COLUMN_LCC = "lcc";
-    private static final String COLUMN_DDC = "ddc";
     private static final String COLUMN_ISBN = "isbn";
     private static final String COLUMN_AUTHORS = "authors";
     private static final String COLUMN_SUBJECTS = "subjects";
@@ -54,14 +50,14 @@ public class BookDBManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + TABLE_NAME + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_KEY + " TEXT, " + COLUMN_TYPE + " TEXT, " + COLUMN_SEED + " TEXT, " + COLUMN_TITLE + " TEXT, " + COLUMN_TITLE_SUGGEST + " TEXT, " + COLUMN_EDITION_COUNT + " INTEGER, " + COLUMN_EDITION_KEY + " TEXT, " + COLUMN_PUBLISH_DATE + " TEXT, " + COLUMN_PUBLISH_YEAR + " INTEGER, " + COLUMN_FIRST_PUBLISH_YEAR + " INTEGER, " + COLUMN_NUMBER_OF_PAGES_MEDIAN + " INTEGER, " + COLUMN_LCCN + " TEXT, " + COLUMN_PUBLISH_PLACE + " TEXT, " + COLUMN_OCLC + " TEXT, " + COLUMN_CONTRIBUTOR + " TEXT, " + COLUMN_LCC + " TEXT, " + COLUMN_DDC + " Text, " + COLUMN_ISBN + " TEXT, " + COLUMN_AUTHORS + " TEXT, " + COLUMN_SUBJECTS + " Text, " + COLUMN_COVER_ID + " TEXT, " + COLUMN_COVER_IMAGE + " BLOB );";
+        String query = "CREATE TABLE " + TABLE_NAME + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_KEY + " TEXT, " + COLUMN_TYPE + " TEXT, " + COLUMN_SEED + " TEXT, " + COLUMN_TITLE + " TEXT, " + COLUMN_TITLE_SUGGEST + " TEXT, " + COLUMN_EDITION_COUNT + " INTEGER, " + COLUMN_EDITION_KEY + " TEXT, " + COLUMN_PUBLISH_DATE + " TEXT, " + COLUMN_PUBLISH_YEAR + " INTEGER, " + COLUMN_FIRST_PUBLISH_YEAR + " INTEGER, " + COLUMN_NUMBER_OF_PAGES_MEDIAN + " INTEGER, " +  COLUMN_PUBLISH_PLACE + " TEXT, " +  COLUMN_CONTRIBUTOR + " TEXT, " +  COLUMN_ISBN + " TEXT, " + COLUMN_AUTHORS + " TEXT, " + COLUMN_SUBJECTS + " Text, " + COLUMN_COVER_ID + " TEXT, " + COLUMN_COVER_IMAGE + " BLOB );";
         db.execSQL(query);
     }
 
     //Test wenn nicht onOpen raus
     @Override
     public void onOpen(SQLiteDatabase db) {
-        String query = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_KEY + " TEXT, " + COLUMN_TYPE + " TEXT, " + COLUMN_SEED + " TEXT, " + COLUMN_TITLE + " TEXT, " + COLUMN_TITLE_SUGGEST + " TEXT, " + COLUMN_EDITION_COUNT + " INTEGER, " + COLUMN_EDITION_KEY + " TEXT, " + COLUMN_PUBLISH_DATE + " TEXT, " + COLUMN_PUBLISH_YEAR + " INTEGER, " + COLUMN_FIRST_PUBLISH_YEAR + " INTEGER, " + COLUMN_NUMBER_OF_PAGES_MEDIAN + " INTEGER, " + COLUMN_LCCN + " TEXT, " + COLUMN_PUBLISH_PLACE + " TEXT, " + COLUMN_OCLC + " TEXT, " + COLUMN_CONTRIBUTOR + " TEXT, " + COLUMN_LCC + " TEXT, " + COLUMN_DDC + " Text, " + COLUMN_ISBN + " TEXT, " + COLUMN_AUTHORS + " TEXT, " + COLUMN_SUBJECTS + " Text, " + COLUMN_COVER_ID + " TEXT, " + COLUMN_COVER_IMAGE + " BLOB );";
+        String query = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_KEY + " TEXT, " + COLUMN_TYPE + " TEXT, " + COLUMN_SEED + " TEXT, " + COLUMN_TITLE + " TEXT, " + COLUMN_TITLE_SUGGEST + " TEXT, " + COLUMN_EDITION_COUNT + " INTEGER, " + COLUMN_EDITION_KEY + " TEXT, " + COLUMN_PUBLISH_DATE + " TEXT, " + COLUMN_PUBLISH_YEAR + " INTEGER, " + COLUMN_FIRST_PUBLISH_YEAR + " INTEGER, " + COLUMN_NUMBER_OF_PAGES_MEDIAN + " INTEGER, " + COLUMN_PUBLISH_PLACE + " TEXT, " +  COLUMN_CONTRIBUTOR + " TEXT, " +  COLUMN_ISBN + " TEXT, " + COLUMN_AUTHORS + " TEXT, " + COLUMN_SUBJECTS + " Text, " + COLUMN_COVER_ID + " TEXT, " + COLUMN_COVER_IMAGE + " BLOB );";
         db.execSQL(query);
     }
 
@@ -85,12 +81,8 @@ public class BookDBManager extends SQLiteOpenHelper {
         values.put(COLUMN_PUBLISH_YEAR, apiBook.getPublishYear().toString());
         values.put(COLUMN_FIRST_PUBLISH_YEAR, apiBook.getFirstPublishYear());
         values.put(COLUMN_NUMBER_OF_PAGES_MEDIAN, apiBook.getNumberOfPagesMedian());
-        values.put(COLUMN_LCCN, apiBook.getLccn().toString());
         values.put(COLUMN_PUBLISH_PLACE, apiBook.getPublishPlace().toString());
-        values.put(COLUMN_OCLC, apiBook.getOclc().toString());
         values.put(COLUMN_CONTRIBUTOR, apiBook.getContributor().toString());
-        values.put(COLUMN_LCC, apiBook.getLcc().toString());
-        values.put(COLUMN_DDC, apiBook.getDdc().toString());
         values.put(COLUMN_ISBN, apiBook.getIsbn().toString());
         values.put(COLUMN_AUTHORS, apiBook.getAuthors().toString());
         values.put(COLUMN_SUBJECTS, apiBook.getSubjects().toString());
@@ -116,12 +108,8 @@ public class BookDBManager extends SQLiteOpenHelper {
         values.put(COLUMN_PUBLISH_YEAR, apiBook.getPublishYear().toString());
         values.put(COLUMN_FIRST_PUBLISH_YEAR, apiBook.getFirstPublishYear());
         values.put(COLUMN_NUMBER_OF_PAGES_MEDIAN, apiBook.getNumberOfPagesMedian());
-        values.put(COLUMN_LCCN, apiBook.getLccn().toString());
         values.put(COLUMN_PUBLISH_PLACE, apiBook.getPublishPlace().toString());
-        values.put(COLUMN_OCLC, apiBook.getOclc().toString());
         values.put(COLUMN_CONTRIBUTOR, apiBook.getContributor().toString());
-        values.put(COLUMN_LCC, apiBook.getLcc().toString());
-        values.put(COLUMN_DDC, apiBook.getDdc().toString());
         values.put(COLUMN_ISBN, apiBook.getIsbn().toString());
         values.put(COLUMN_AUTHORS, apiBook.getAuthors().toString());
         values.put(COLUMN_SUBJECTS, apiBook.getSubjects().toString());
@@ -146,7 +134,7 @@ public class BookDBManager extends SQLiteOpenHelper {
 
     public Api_Book find(String key) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String[] projection = {COLUMN_ID, COLUMN_KEY, COLUMN_TYPE, COLUMN_SEED, COLUMN_TITLE, COLUMN_TITLE_SUGGEST, COLUMN_EDITION_COUNT, COLUMN_EDITION_KEY, COLUMN_PUBLISH_DATE, COLUMN_PUBLISH_YEAR, COLUMN_FIRST_PUBLISH_YEAR, COLUMN_NUMBER_OF_PAGES_MEDIAN, COLUMN_LCCN, COLUMN_PUBLISH_PLACE, COLUMN_OCLC, COLUMN_CONTRIBUTOR, COLUMN_LCC, COLUMN_DDC, COLUMN_ISBN, COLUMN_AUTHORS, COLUMN_SUBJECTS, COLUMN_COVER_ID, COLUMN_COVER_IMAGE};
+        String[] projection = {COLUMN_ID, COLUMN_KEY, COLUMN_TYPE, COLUMN_SEED, COLUMN_TITLE, COLUMN_TITLE_SUGGEST, COLUMN_EDITION_COUNT, COLUMN_EDITION_KEY, COLUMN_PUBLISH_DATE, COLUMN_PUBLISH_YEAR, COLUMN_FIRST_PUBLISH_YEAR, COLUMN_NUMBER_OF_PAGES_MEDIAN, COLUMN_PUBLISH_PLACE, COLUMN_CONTRIBUTOR, COLUMN_ISBN, COLUMN_AUTHORS, COLUMN_SUBJECTS, COLUMN_COVER_ID, COLUMN_COVER_IMAGE};
 
         String selection = "key = ?";
         String[] selectionArgs = {key};
@@ -162,7 +150,7 @@ public class BookDBManager extends SQLiteOpenHelper {
 
     public List<Api_Book> getAllBooks() {
         SQLiteDatabase db = this.getWritableDatabase();
-        String[] projection = {COLUMN_ID, COLUMN_KEY, COLUMN_TYPE, COLUMN_SEED, COLUMN_TITLE, COLUMN_TITLE_SUGGEST, COLUMN_EDITION_COUNT, COLUMN_EDITION_KEY, COLUMN_PUBLISH_DATE, COLUMN_PUBLISH_YEAR, COLUMN_FIRST_PUBLISH_YEAR, COLUMN_NUMBER_OF_PAGES_MEDIAN, COLUMN_LCCN, COLUMN_PUBLISH_PLACE, COLUMN_OCLC, COLUMN_CONTRIBUTOR, COLUMN_LCC, COLUMN_DDC, COLUMN_ISBN, COLUMN_AUTHORS, COLUMN_SUBJECTS, COLUMN_COVER_ID, COLUMN_COVER_IMAGE};
+        String[] projection = {COLUMN_ID, COLUMN_KEY, COLUMN_TYPE, COLUMN_SEED, COLUMN_TITLE, COLUMN_TITLE_SUGGEST, COLUMN_EDITION_COUNT, COLUMN_EDITION_KEY, COLUMN_PUBLISH_DATE, COLUMN_PUBLISH_YEAR, COLUMN_FIRST_PUBLISH_YEAR, COLUMN_NUMBER_OF_PAGES_MEDIAN,  COLUMN_PUBLISH_PLACE,  COLUMN_CONTRIBUTOR,  COLUMN_ISBN, COLUMN_AUTHORS, COLUMN_SUBJECTS, COLUMN_COVER_ID, COLUMN_COVER_IMAGE};
 
         Cursor cursor = db.query(TABLE_NAME, projection, null, null, null, null, null);
 
@@ -192,18 +180,13 @@ public class BookDBManager extends SQLiteOpenHelper {
         }
         int firstPublishYear = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_FIRST_PUBLISH_YEAR));
         int numberOfPagesMedian = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_NUMBER_OF_PAGES_MEDIAN));
-        String lccnString = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_LCCN));
-        List<String> lccn = Arrays.asList(lccnString.substring(1, lccnString.length() - 1).split(", "));
+
         String publishPlaceString = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PUBLISH_PLACE));
         List<String> publishPlace = Arrays.asList(publishPlaceString.substring(1, publishPlaceString.length() - 1).split(", "));
-        String oclcString = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_OCLC));
-        List<String> oclc = Arrays.asList(oclcString.substring(1, oclcString.length() - 1).split(", "));
+
         String contributorString = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTRIBUTOR));
         List<String> contributor = Arrays.asList(contributorString.substring(1, contributorString.length() - 1).split(", "));
-        String lccString = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_LCC));
-        List<String> lcc = Arrays.asList(lccString.substring(1, lccString.length() - 1).split(", "));
-        String ddcString = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DDC));
-        List<String> ddc = Arrays.asList(ddcString.substring(1, ddcString.length() - 1).split(", "));
+
         String isbnString = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ISBN));
         List<String> isbn = Arrays.asList(isbnString.substring(1, isbnString.length() - 1).split(", "));
         String authorsString = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_AUTHORS));
@@ -213,7 +196,7 @@ public class BookDBManager extends SQLiteOpenHelper {
         String cover_id = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_COVER_ID));
         byte[] cover_image = cursor.getBlob(cursor.getColumnIndexOrThrow(COLUMN_COVER_IMAGE));
 
-        Api_Book apiBook = new Api_Book(bookKey, type, seed, title, titleSuggest, editionCount, editionKey, publishDate, publishYear, firstPublishYear, numberOfPagesMedian, lccn, publishPlace, oclc, contributor, lcc, ddc, isbn, authors, subjects, cover_id, cover_image);
+        Api_Book apiBook = new Api_Book(bookKey, type, seed, title, titleSuggest, editionCount, editionKey, publishDate, publishYear, firstPublishYear, numberOfPagesMedian, publishPlace, contributor, isbn, authors, subjects, cover_id, cover_image);
         return apiBook;
     }
 

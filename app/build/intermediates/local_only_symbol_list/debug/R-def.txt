@@ -40,7 +40,6 @@ id book_pages_text
 id book_recyclerView
 id book_title_text
 id book_view
-id ddc_text_view
 id delete_button
 id first_publish_year_text_view
 id imageView
@@ -49,11 +48,8 @@ id insert_pages2
 id insert_title
 id insert_title2
 id isbn_text_view
-id lcc_text_view
-id lccn_text_view
 id mainLayout
 id number_of_pages_median_text_view
-id oclc_text_view
 id publish_date_text_view
 id publish_place_text_view
 id subjects_text_view

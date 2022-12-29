@@ -27,12 +27,12 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
 
     private List<Api_Book> mApiBooks;
     private Context mContext;
-    private Activity activity;
+    private Activity mActivity;
 
     public Api_Book_Adapter(Activity activity,Context context, List<Api_Book> apiBooks) {
         mApiBooks = apiBooks;
         mContext = context;
-        activity = activity;
+        mActivity = activity;
     }
 
     @NonNull
@@ -58,18 +58,21 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
 
 
         // Set the other book details
-        holder.numberOfPagesMedianTextView.setText(String.format("Number of Pages (Median): %d", apiBook.getNumberOfPagesMedian()));
-        holder.firstPublishYearTextView.setText(String.format("First Publish Year: %d", apiBook.getFirstPublishYear()));
-        holder.isbnTextView.setText(String.format("ISBN: %s", apiBook.getIsbn().get(0)));
-        holder.lccTextView.setText(String.format("LCC: %s", apiBook.getLcc().get(0)));
-        holder.ddcTextView.setText(String.format("DDC: %s", apiBook.getDdc().get(0)));
-        holder.lccnTextView.setText(String.format("LCCN: %s", apiBook.getLccn().get(0)));
+        holder.numberOfPagesMedianTextView.setText(String.format("Number of Pages (Median): %d", apiBook.getNumberOfPagesMedian()).toString());
+        holder.firstPublishYearTextView.setText(String.format("First Publish Year: %d", apiBook.getFirstPublishYear()).toString());
+        holder.isbnTextView.setText(String.format("ISBN: %s", apiBook.getIsbn().get(0)).toString());
 
         holder.bookCoverImageView.setOnClickListener(view -> {
             MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(mContext);
-            myDatabaseHelper.addBook(holder.titleTextView.getText().toString().trim(), holder.authorsTextView.getText().toString().trim(), holder.numberOfPagesMedianTextView.getText().toString().trim());
-            Intent intent = new Intent(mContext, Update_Book.class);
-            activity.startActivityForResult(intent, 1);
+            String title = apiBook.getTitle().replace("`", " ");
+            title = title.replace("´", " ");title = title.replace("'", " ");
+            myDatabaseHelper.addBook(title, apiBook.getAuthors().get(0), String.valueOf(apiBook.getNumberOfPagesMedian()));
+            /*myDatabaseHelper.addBook(holder.titleTextView.getText().toString().trim(),
+                    holder.authorsTextView.getText().toString().trim(),
+                    holder.numberOfPagesMedianTextView.getText().toString().trim());*/
+            clear();
+            Intent intent = new Intent(mContext, MainActivity.class);
+            this.mActivity.startActivity(intent);
         });
         // holder.mainLayout.setOnClickListener(view -> {}); Hier den Add für meine Datenbank einbauen
 
@@ -87,9 +90,6 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
         TextView numberOfPagesMedianTextView;
         TextView firstPublishYearTextView;
         TextView isbnTextView;
-        TextView lccTextView;
-        TextView ddcTextView;
-        TextView lccnTextView;
 
         public BookViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,9 +99,6 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
             numberOfPagesMedianTextView = itemView.findViewById(R.id.number_of_pages_median_text_view);
             firstPublishYearTextView = itemView.findViewById(R.id.first_publish_year_text_view);
             isbnTextView = itemView.findViewById(R.id.isbn_text_view);
-            lccTextView = itemView.findViewById(R.id.lcc_text_view);
-            ddcTextView = itemView.findViewById(R.id.ddc_text_view);
-            lccnTextView = itemView.findViewById(R.id.lccn_text_view);
         }
     }
     public void clear() {

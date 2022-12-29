@@ -45,29 +45,6 @@ public class Api_Book_View extends AppCompatActivity {
         Api_Book_RecyclerView.setLayoutManager(new LinearLayoutManager(Api_Book_View.this));
     }
 
-    //Action Bar Menü
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.author_view_menu, menu);
-
-        return true;
-    }
-
-    //Menü Items -> Case = Auswahl -> Was soll gemacht werden
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.book_view:
-                Intent intent = new Intent(Api_Book_View.this, MainActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.author_edit_view:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

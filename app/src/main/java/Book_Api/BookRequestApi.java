@@ -45,6 +45,7 @@ public class BookRequestApi extends AsyncTask<String, Void, SearchResultStorage>
         progressDialog.setMessage("Loading...");
         progressDialog.show();
     }
+
     @Override
     protected SearchResultStorage doInBackground(String... params) {
         List<Api_Book> ret = new ArrayList<Api_Book>();
@@ -59,6 +60,7 @@ public class BookRequestApi extends AsyncTask<String, Void, SearchResultStorage>
 
         try {
             URL url = new URL(urlString);
+            Log.i("HSKL_TEST", urlString);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 
@@ -69,21 +71,30 @@ public class BookRequestApi extends AsyncTask<String, Void, SearchResultStorage>
                 content.append(inputLine);
             }
             in.close();
+            con.disconnect();
+            JSONObject jObject = new JSONObject(content.toString());
 
             SearchResultStorage searchResultStorage = new SearchResultStorage();
-            String jsonString = content.toString();
+            searchResultStorage.setNumFound(jObject.getInt("numFound"));
+            searchResultStorage.setStart(jObject.getInt("start"));
+            searchResultStorage.setNumFoundExact(jObject.getBoolean("numFoundExact"));
+            Log.i("HSKL_TEST", "Anzahl -> " + searchResultStorage.getNumFound());
 
-           JsonStringToBookObject.parseJsonToBooks(jsonString, searchResultStorage);
+           searchResultStorage = parseJsonToBooks(jObject, searchResultStorage);
 
-            con.disconnect();
+            Log.i("HSKL_TEST", "srs size: " + searchResultStorage.getBooks().size());
             return searchResultStorage;
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         Log.i("HSKL_Api", "BookRequestApi -> Found nothing");
 
         return null;
     }
+
+
 
     @Override
     protected void onPostExecute(SearchResultStorage searchResultStorage) {
@@ -104,5 +115,70 @@ public class BookRequestApi extends AsyncTask<String, Void, SearchResultStorage>
         } else {
             // No book was found
         }
+    }
+
+public static SearchResultStorage parseJsonToBooks(JSONObject jObject, SearchResultStorage searchResultStorage) {
+    try {
+
+
+        // set booklist values
+        searchResultStorage.setNumFound(jObject.getInt("numFound"));;
+        searchResultStorage.setStart(jObject.getInt("start"));
+        searchResultStorage.setNumFoundExact(jObject.getBoolean("numFoundExact"));
+
+        JSONArray jsonArray = jObject.getJSONArray("docs");
+
+        for(int i = 0; i < jsonArray.length(); i++) {
+            JSONObject bookJson = (JSONObject) jsonArray.get(i);
+            String key = bookJson.getString("key");
+            String type = bookJson.getString("type");
+            List<String> seed = getListFromJsonArray(bookJson.getJSONArray("seed"));
+            String title = bookJson.getString("title");
+            String titleSuggest = bookJson.getString("title_suggest");
+            int editionCount = bookJson.getInt("edition_count");
+            List<String> editionKey = getListFromJsonArray(bookJson.getJSONArray("edition_key"));
+            List<String> publishDate = getListFromJsonArray(bookJson.getJSONArray("publish_date"));
+            List<Integer> publishYear = getListFromIntArray(bookJson.getJSONArray("publish_year"));
+            int firstPublishYear = bookJson.getInt("first_publish_year");
+            int numberOfPagesMedian = bookJson.getInt("number_of_pages_median");
+
+            List<String> publishPlace = getListFromJsonArray(bookJson.getJSONArray("publish_place"));
+
+            List<String> contributor = getListFromJsonArray(bookJson.getJSONArray("contributor"));
+
+            List<String> isbn = getListFromJsonArray(bookJson.getJSONArray("isbn"));
+            List<String> authors = getListFromJsonArray(bookJson.getJSONArray("author_name"));
+            List<String> subjects = getListFromJsonArray(bookJson.getJSONArray("subject"));
+            String coverId = bookJson.getString("cover_i");
+            byte[] coverImage = SaveImageFromUrl.saveImageToArray(coverId);
+
+
+            Api_Book add = new Api_Book(key, type, seed, title, titleSuggest, editionCount, editionKey, publishDate, publishYear,
+                    firstPublishYear, numberOfPagesMedian, publishPlace, contributor, isbn, authors,
+                    subjects, coverId, coverImage);
+            Log.i("HSKL_TEST", add.toString());
+            searchResultStorage.addBook(add);
+        }
+    } catch (JSONException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+
+    return searchResultStorage;
+}
+    private static List<String> getListFromJsonArray(JSONArray array) throws JSONException {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < array.length(); i++) {
+            list.add(array.getString(i));
+        }
+        return list;
+    }
+    private static List<Integer> getListFromIntArray(JSONArray array) throws JSONException {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < array.length(); i++) {
+            list.add(array.getInt(i));
+        }
+        return list;
     }
 }

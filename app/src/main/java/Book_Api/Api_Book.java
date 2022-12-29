@@ -1,11 +1,37 @@
 package Book_Api;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Api_Book {
     public Api_Book() {
 
     }
+    public Api_Book(String key, String type, List<String> seed, String title, String titleSuggest, int editionCount,
+                    List<String> editionKey, List<String> publishDate, List<Integer> publishYear, int firstPublishYear,
+                    int numberOfPagesMedian,List<String> publishPlace,
+                    List<String> contributor, List<String> isbn, List<String> authors,
+                    List<String> subjects, String coverId, byte[] coverImage){  this.key = key;
+        this.type = type;
+        this.seed = seed;
+        this.title = title;
+        this.titleSuggest = titleSuggest;
+        this.editionCount = editionCount;
+        this.editionKey = editionKey;
+        this.publishDate = publishDate;
+        this.publishYear = publishYear;
+        this.firstPublishYear = firstPublishYear;
+        this.numberOfPagesMedian = numberOfPagesMedian;
+
+        this.publishPlace = publishPlace;
+
+        this.contributor = contributor;
+
+        this.isbn = isbn;
+        this.authors = authors;
+        this.subjects = subjects;
+        this.coverId = coverId;
+        this.coverImage = coverImage;}
 
     public Api_Book(String key, String type, List<String> seed, String title, String titleSuggest, int editionCount,
                     List<String> editionKey, List<String> publishDate, List<Integer> publishYear, int firstPublishYear,
@@ -23,12 +49,11 @@ public class Api_Book {
         this.publishYear = publishYear;
         this.firstPublishYear = firstPublishYear;
         this.numberOfPagesMedian = numberOfPagesMedian;
-        this.lccn = lccn;
+
         this.publishPlace = publishPlace;
-        this.oclc = oclc;
+
         this.contributor = contributor;
-        this.lcc = lcc;
-        this.ddc = ddc;
+
         this.isbn = isbn;
         this.authors = authors;
         this.subjects = subjects;
@@ -38,49 +63,52 @@ public class Api_Book {
 
     private String key;
     private String type;
-    private List<String> seed;
     private String title;
     private String titleSuggest;
     private int editionCount;
-    private List<String> editionKey;
-    private List<String> publishDate;
-    private List<Integer> publishYear;
     private int firstPublishYear;
     private int numberOfPagesMedian;
-    private List<String> lccn;
+
     private List<String> publishPlace;
-    private List<String> oclc;
     private List<String> contributor;
-    private List<String> lcc;
-    private List<String> ddc;
     private List<String> isbn;
     private List<String> authors;
     private List<String> subjects;
+    private List<String> seed;
+    private List<String> editionKey;
+    private List<String> publishDate;
+    private List<Integer> publishYear;
+
     private String coverId;
     private byte[] coverImage;
 
-    @Override
-    public String toString() {
-        if (this.coverImage != null) {
-            return "Book [\nkey=" + key + ", \ntype=" + type + ", \nseed=" + seed + ", \ntitle=" + title
-                    + ", \ntitleSuggest=" + titleSuggest + ", \neditionCount=" + editionCount + ", \neditionKey="
-                    + editionKey + ", \npublishDate=" + publishDate + ", \npublishYear=" + publishYear
-                    + ", \nfirstPublishYear=" + firstPublishYear + ", \nnumberOfPagesMedian=" + numberOfPagesMedian
-                    + ", \nlccn=" + lccn + ", \npublishPlace=" + publishPlace + ", \noclc=" + oclc + ", \ncontributor="
-                    + contributor + ", \nlcc=" + lcc + ", \nddc=" + ddc + ", \nisbn=" + isbn + ", \nauthors=" + authors
-                    + ", \nsubjects=" + subjects + ", \ncoverId: " + coverId + ", \ncoverImg: " + this.coverImage.toString()
-                    + "]\n";
-        } else {
-            return "Book [\nkey=" + key + ", \ntype=" + type + ", \nseed=" + seed + ", \ntitle=" + title
-                    + ", \ntitleSuggest=" + titleSuggest + ", \neditionCount=" + editionCount + ", \neditionKey="
-                    + editionKey + ", \npublishDate=" + publishDate + ", \npublishYear=" + publishYear
-                    + ", \nfirstPublishYear=" + firstPublishYear + ", \nnumberOfPagesMedian=" + numberOfPagesMedian
-                    + ", \nlccn=" + lccn + ", \npublishPlace=" + publishPlace + ", \noclc=" + oclc + ", \ncontributor="
-                    + contributor + ", \nlcc=" + lcc + ", \nddc=" + ddc + ", \nisbn=" + isbn + ", \nauthors=" + authors
-                    + ", \nsubjects=" + subjects + ", \ncoverId: " + coverId + ", \ncoverImg: " + "]\n";
-        }
+    public void addPublishPlace(String place){
+        this.publishPlace.add(place);
     }
-
+    public void addContributor(String contributor){
+        this.contributor.add(contributor);
+    }
+    public void addISBN (String isbn){
+        this.isbn.add(isbn);
+    }
+    public void addAuthor(String author){
+        this.authors.add(author);
+    }
+    public void addSubjects(String subject){
+        this.subjects.add(subject);
+    }
+    public void addSeed(String s){
+        this.seed.add(s);
+    }
+    public void addEditionKey(String key){
+        this.editionKey.add(key);
+    }
+    public void addPublishDate(String date){
+        this.publishDate.add(date);
+    }
+    public void addPublishYear(int year){
+        this.publishYear.add(year);
+    }
     public String toStringReduced() {
         StringBuilder sb = new StringBuilder();
         sb.append("Book [\n");
@@ -112,24 +140,15 @@ public class Api_Book {
         }
         sb.append("\tfirstPublishYear=" + firstPublishYear + ",\n");
         sb.append("\tnumberOfPagesMedian=" + numberOfPagesMedian + ",\n");
-        if (lccn != null && lccn.size() > 0) {
-            sb.append("\tlccn=" + lccn + ",\n");
-        }
+
         if (publishPlace != null && publishPlace.size() > 0) {
             sb.append("\tpublishPlace=" + publishPlace + ",\n");
         }
-        if (oclc != null && oclc.size() > 0) {
-            sb.append("\toclc=" + oclc + ",\n");
-        }
+
         if (contributor != null && contributor.size() > 0) {
             sb.append("\tcontributor=" + contributor + ",\n");
         }
-        if (lcc != null && lcc.size() > 0) {
-            sb.append("\tlcc=" + lcc + ",\n");
-        }
-        if (ddc != null && ddc.size() > 0) {
-            sb.append("\tddc=" + ddc + ",\n");
-        }
+
         if (isbn != null && isbn.size() > 0) {
             sb.append("\tisbn=" + isbn + ",\n");
         }
@@ -146,6 +165,30 @@ public class Api_Book {
             sb.append("\tcoverImage=" + coverImage.toString() + ",\n");
         }
         return sb.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Api_Book{" +
+                "key='" + key + '\'' +
+                ", type='" + type + '\'' +
+                ", title='" + title + '\'' +
+                ", titleSuggest='" + titleSuggest + '\'' +
+                ", editionCount=" + editionCount +
+                ", firstPublishYear=" + firstPublishYear +
+                ", numberOfPagesMedian=" + numberOfPagesMedian +
+                ", publishPlace=" + publishPlace +
+                ", contributor=" + contributor +
+                ", isbn=" + isbn +
+                ", authors=" + authors +
+                ", subjects=" + subjects +
+                ", seed=" + seed +
+                ", editionKey=" + editionKey +
+                ", publishDate=" + publishDate +
+                ", publishYear=" + publishYear +
+                ", coverId='" + coverId + '\'' +
+                ", coverImage=" + Arrays.toString(coverImage) +
+                '}';
     }
 
     public String getKey() {
@@ -236,13 +279,6 @@ public class Api_Book {
         this.numberOfPagesMedian = numberOfPagesMedian;
     }
 
-    public List<String> getLccn() {
-        return lccn;
-    }
-
-    public void setLccn(List<String> lccn) {
-        this.lccn = lccn;
-    }
 
     public List<String> getPublishPlace() {
         return publishPlace;
@@ -252,13 +288,6 @@ public class Api_Book {
         this.publishPlace = publishPlace;
     }
 
-    public List<String> getOclc() {
-        return oclc;
-    }
-
-    public void setOclc(List<String> oclc) {
-        this.oclc = oclc;
-    }
 
     public List<String> getContributor() {
         return contributor;
@@ -266,22 +295,6 @@ public class Api_Book {
 
     public void setContributor(List<String> contributor) {
         this.contributor = contributor;
-    }
-
-    public List<String> getLcc() {
-        return lcc;
-    }
-
-    public void setLcc(List<String> lcc) {
-        this.lcc = lcc;
-    }
-
-    public List<String> getDdc() {
-        return ddc;
-    }
-
-    public void setDdc(List<String> ddc) {
-        this.ddc = ddc;
     }
 
     public List<String> getIsbn() {

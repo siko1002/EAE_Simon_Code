@@ -2686,7 +2686,6 @@ id custom
 id customPanel
 id cut
 id date_picker_actions
-id ddc_text_view
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -2789,8 +2788,6 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
-id lcc_text_view
-id lccn_text_view
 id left
 id leftToRight
 id legacy
@@ -2876,7 +2873,6 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id number_of_pages_median_text_view
-id oclc_text_view
 id off
 id on
 id onInterceptTouchReturnSwipe

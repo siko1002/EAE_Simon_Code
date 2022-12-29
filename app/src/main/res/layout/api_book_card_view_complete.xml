@@ -76,38 +76,6 @@
                 android:textColor="@color/book_card_info_text_color" />
 
             <TextView
-                android:id="@+id/lcc_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="LCC: [lcc]"
-                android:textSize="12sp"
-                android:textColor="@color/book_card_info_text_color" />
-
-            <TextView
-                android:id="@+id/ddc_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DDC: [ddc]"
-                android:textSize="12sp"
-                android:textColor="@color/book_card_info_text_color" />
-
-            <TextView
-                android:id="@+id/lccn_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="LCCN: [lccn]"
-                android:textSize="12sp"
-                android:textColor="@color/book_card_info_text_color" />
-
-            <TextView
-                android:id="@+id/oclc_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OCLC: [oclc]"
-                android:textSize="12sp"
-                android:textColor="@color/book_card_info_text_color" />
-
-            <TextView
                 android:id="@+id/publish_place_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

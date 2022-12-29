@@ -32,6 +32,7 @@ public class Add_Book extends AppCompatActivity {
 
             BookRequestApi bookRequestApi = new BookRequestApi(this);
             bookRequestApi.execute(insert_title.getText().toString().trim());
+            
             try {
                 bookRequestApi.get();
             } catch (ExecutionException e) {

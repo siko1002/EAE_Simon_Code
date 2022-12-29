@@ -35,9 +35,6 @@ public class api_book_detail_view extends AppCompatActivity {
         mNumberOfPagesMedianTextView = findViewById(R.id.number_of_pages_median_text_view);
         mFirstPublishYearTextView = findViewById(R.id.first_publish_year_text_view);
         mIsbnTextView = findViewById(R.id.isbn_text_view);
-        mLccTextView = findViewById(R.id.lcc_text_view);
-        mDdcTextView = findViewById(R.id.ddc_text_view);
-        mLccnTextView = findViewById(R.id.lccn_text_view);
 
         // Retrieve book data from the intent or savedInstanceState
         Api_Book apiBook = (Api_Book) getIntent().getSerializableExtra("book");
@@ -52,9 +49,6 @@ public class api_book_detail_view extends AppCompatActivity {
             mNumberOfPagesMedianTextView.setText(apiBook.getNumberOfPagesMedian());
             mFirstPublishYearTextView.setText(apiBook.getFirstPublishYear());
             mIsbnTextView.setText(apiBook.getIsbn().get(0));
-            mLccTextView.setText(apiBook.getLcc().get(0));
-            mDdcTextView.setText(apiBook.getDdc().get(0));
-            mLccnTextView.setText(apiBook.getLccn().get(0));
         }
         if (apiBook.getCoverImage() != null) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(apiBook.getCoverImage(), 0, apiBook.getCoverImage().length);
