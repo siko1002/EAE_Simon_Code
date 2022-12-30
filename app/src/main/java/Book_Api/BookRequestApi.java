@@ -129,6 +129,7 @@ public static SearchResultStorage parseJsonToBooks(JSONObject jObject, SearchRes
         JSONArray jsonArray = jObject.getJSONArray("docs");
 
         for(int i = 0; i < jsonArray.length(); i++) {
+            Log.i("HSKL_TEST", "" + jsonArray.length());
             JSONObject bookJson = (JSONObject) jsonArray.get(i);
             String key = bookJson.getString("key");
             String type = bookJson.getString("type");

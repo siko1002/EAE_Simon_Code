@@ -25,7 +25,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85dcc8d-b356-4cdd-973e-67b7cd8e5209" name="Changes" comment="Done:&#10;Working Checkpoint&#10;Todo:&#10;Viel">
+    <list default="true" id="c85dcc8d-b356-4cdd-973e-67b7cd8e5209" name="Changes" comment="Done:&#10;OnClick -&gt; Add into Main&#10;Todo:&#10;Api Fix&#10;Detail View">
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -35,31 +35,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex_archive_input_jar_hashes/debug/out" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex_archive_input_jar_hashes/debug/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/debug/mergeDebugResources/compile-file-map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/local_only_symbol_list/debug/R-def.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/local_only_symbol_list/debug/R-def.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_res_blame_folder/debug/out/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_res_blame_folder/debug/out/single/debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/runtime_symbol_list/debug/R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/runtime_symbol_list/debug/R.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/stable_resource_ids_file/debug/stableIds.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/stable_resource_ids_file/debug/stableIds.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booklibrary/MyDatabaseHelper.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booklibrary/MyDatabaseHelper.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/Book_Api/Api_Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Book_Api/Api_Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/Book_Api/Api_Book_Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Book_Api/Api_Book_Adapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/Book_Api/BookDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Book_Api/BookDBManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/Book_Api/BookRequestApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Book_Api/BookRequestApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/Book_Api/JsonStringToBookObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Book_Api/JsonStringToBookObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/Book_Api/api_book_detail_view.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Book_Api/api_book_detail_view.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/Add_Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/Add_Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/Api_Book_View.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/Api_Book_View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/MyDatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/MyDatabaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/api_book_card_view_complete.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/api_book_card_view_complete.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672311058953</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Done:&#10;OnClick -&gt; Add into Main&#10;Todo:&#10;Api Fix&#10;Detail View">
+      <created>1672339027357</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1672339027357</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,6 +334,8 @@
     <MESSAGE value="Done:&#10;Renamed Api_Book, Api_Author&#10;Todo:&#10;-Fix Request Api&#10;-Testing Api_Book&#10;-Implementing onClick in Api-Book so it adds a Book into the Book Libary" />
     <MESSAGE value="Done:&#10;Removed Api_Author etc.&#10;Todo:&#10;Viel" />
     <MESSAGE value="Done:&#10;Working Checkpoint&#10;Todo:&#10;Viel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done:&#10;Working Checkpoint&#10;Todo:&#10;Viel" />
+    <MESSAGE value="Done:&#10;OnClick -&gt; Add into Main&#10;Todo:&#10;Api Fix" />
+    <MESSAGE value="Done:&#10;OnClick -&gt; Add into Main&#10;Todo:&#10;Api Fix&#10;Detail View" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done:&#10;OnClick -&gt; Add into Main&#10;Todo:&#10;Api Fix&#10;Detail View" />
   </component>
 </project>

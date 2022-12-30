@@ -42,7 +42,7 @@ public class Add_Book extends AppCompatActivity {
             }
 
 
-            Intent intent = new Intent(Add_Book.this, MainActivity.class);
+            Intent intent = new Intent(Add_Book.this, Api_Book_View.class);
             insert_title.setText("");
             startActivity(intent);
         });
