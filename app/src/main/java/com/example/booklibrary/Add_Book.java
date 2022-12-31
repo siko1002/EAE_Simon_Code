@@ -8,9 +8,14 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.concurrent.ExecutionException;
+
+import Book_Api.Api_Book_Adapter;
+import Book_Api.BookRequestApi;
+
 public class Add_Book extends AppCompatActivity {
 
-    EditText insert_title, insert_author, insert_pages;
+    EditText insert_title;
     Button add_button;
 
     @Override
@@ -20,17 +25,25 @@ public class Add_Book extends AppCompatActivity {
 
 
         insert_title = findViewById(R.id.insert_title);
-        insert_author = findViewById(R.id.insert_author);
-        insert_pages = findViewById(R.id.insert_pages);
         add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(view -> {
             MyDatabaseHelper myDB = new MyDatabaseHelper(Add_Book.this);
-            Log.i("HSKL", "AddActivity => AddButton => Title: " + insert_title.getText().toString().trim() + ", Author: " + insert_author.getText().toString().trim() + ", Pages: " + insert_pages.getText().toString().trim());
-            myDB.addBook(insert_title.getText().toString().trim(),
-                    insert_author.getText().toString().trim(),
-                    insert_pages.getText().toString().trim());
+            Log.i("HSKL", "AddActivity => AddButton => Title: " + insert_title.getText().toString().trim());
 
-            Intent intent = new Intent(Add_Book.this, MainActivity.class);
+            BookRequestApi bookRequestApi = new BookRequestApi(this);
+            bookRequestApi.execute(insert_title.getText().toString().trim());
+            
+            try {
+                bookRequestApi.get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
+            Intent intent = new Intent(Add_Book.this, Api_Book_View.class);
+            insert_title.setText("");
             startActivity(intent);
         });
     }

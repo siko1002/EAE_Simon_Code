@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <!--android:background="@drawable/book_card_background">-->
+
+    <TextView
+        android:id="@+id/title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title: [title]"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/book_card_title_text_color" />
+
+    <TextView
+        android:id="@+id/authors_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Authors: [apiAuthors]"
+        android:textSize="16sp"
+        android:textColor="@color/book_card_subtitle_text_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <!--
+        <ImageView
+            android:id="@+id/book_cover_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Book cover"
+            android:layout_marginRight="8dp" />
+            android:src="@drawable/book_cover_placeholder"
+        -->
+        <ImageView
+            android:id="@+id/book_cover_image_view"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Book cover" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/number_of_pages_median_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of Pages (Median): [numberOfPagesMedian]"
+                android:textSize="12sp"
+                android:textColor="@color/book_card_info_text_color" />
+
+            <TextView
+                android:id="@+id/first_publish_year_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Publish Year: [firstPublishYear]"
+                android:textSize="12sp"
+                android:textColor="@color/book_card_info_text_color" />
+
+            <TextView
+                android:id="@+id/isbn_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ISBN: [isbn]"
+                android:textSize="12sp"
+                android:textColor="@color/book_card_info_text_color" />
+
+            <TextView
+                android:id="@+id/publish_place_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publish Place: [publishPlace]"
+                android:textSize="12sp"
+                android:textColor="@color/book_card_info_text_color" />
+
+            <TextView
+                android:id="@+id/publish_date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publish Date: [publishDate]"
+                android:textSize="12sp"
+                android:textColor="@color/book_card_info_text_color" />
+
+            <TextView
+                android:id="@+id/subjects_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subjects: [subjects]"
+                android:textSize="12sp"
+                android:textColor="@color/book_card_info_text_color" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

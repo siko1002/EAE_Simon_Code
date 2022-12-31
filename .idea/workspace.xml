@@ -25,13 +25,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85dcc8d-b356-4cdd-973e-67b7cd8e5209" name="Changes" comment="Add:&#10;Author View, Update, Add&#10;Action Bar funktionality&#10;&#10;Todo:&#10;&#10;Bugfixes">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+    <list default="true" id="c85dcc8d-b356-4cdd-973e-67b7cd8e5209" name="Changes" comment="Done:&#10;Add Book Button ruft Search Results auf&#10;Todo:&#10;Api Fix&#10;Detail View&#10;Update View anpassen&#10;Maybe Custom Add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/api_book_card_view.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +63,17 @@
       <list>
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
+        <option value="valueResourceFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -100,6 +103,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="android-custom-viewC:/Users/Simon/AppData/Local/Android/Sdk/sources/android-32/android/view/View.java_SELECTED" value="View" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="recommended.upgrade.last.time.stamp" value="1667829747635" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -107,6 +111,11 @@
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Properties" />
     <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.booklibrary" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
@@ -223,7 +232,77 @@
       <option name="project" value="LOCAL" />
       <updated>1671496762028</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add:&#10;Api&#10;Gradle Sync">
+      <created>1671662351674</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671662351674</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add:&#10;Api&#10;Gradle Sync">
+      <created>1671662431525</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1671662431525</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add:&#10;Author Model Class&#10;Book Model Class&#10;Author DBManager&#10;Book DBManager&#10;&#10;Todo:&#10;Implement new Author and Book into Main Project">
+      <created>1671746270855</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1671746270855</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Done:&#10;Implemented Api to an &quot;running&quot; build&#10;Todo:&#10;-Error fixes (Book Db crashes)">
+      <created>1671751275696</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1671751275696</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Done:&#10;Implemented Api_Book Adapter and View&#10;Error fixes (Book DB)&#10;Todo:&#10;-Testing Api_Book&#10;-Implementing onClick in Api-Book so it adds a Book into the Book Libary">
+      <created>1671823909917</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1671823909917</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Done:&#10;Renamed Api_Book, Api_Author&#10;Todo:&#10;-Fix Request Api&#10;-Testing Api_Book&#10;-Implementing onClick in Api-Book so it adds a Book into the Book Libary">
+      <created>1671842033341</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1671842033341</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Done:&#10;Removed Api_Author etc.&#10;Todo:&#10;Viel">
+      <created>1672220524366</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1672220524366</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Done:&#10;Working Checkpoint&#10;Todo:&#10;Viel">
+      <created>1672311058953</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1672311058953</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Done:&#10;OnClick -&gt; Add into Main&#10;Todo:&#10;Api Fix&#10;Detail View">
+      <created>1672339027357</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1672339027357</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Done:&#10;Add Book Button ruft Search Results auf&#10;Todo:&#10;Api Fix&#10;Detail View&#10;Update View anpassen&#10;Maybe Custom Add">
+      <created>1672396364346</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1672396364346</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -244,6 +323,16 @@
     <MESSAGE value="Add: Author XMLs" />
     <MESSAGE value="Add: Author View, Update, Add" />
     <MESSAGE value="Add:&#10;Author View, Update, Add&#10;Action Bar funktionality&#10;&#10;Todo:&#10;&#10;Bugfixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add:&#10;Author View, Update, Add&#10;Action Bar funktionality&#10;&#10;Todo:&#10;&#10;Bugfixes" />
+    <MESSAGE value="Add:&#10;Api&#10;Gradle Sync" />
+    <MESSAGE value="Add:&#10;Author Model Class&#10;Book Model Class&#10;Author DBManager&#10;Book DBManager&#10;&#10;Todo:&#10;Implement new Author and Book into Main Project" />
+    <MESSAGE value="Done:&#10;Implemented Api to an &quot;running&quot; build&#10;Todo:&#10;-Error fixes (Book Db crashes)" />
+    <MESSAGE value="Done:&#10;Implemented Api_Book Adapter and View&#10;Error fixes (Book DB)&#10;Todo:&#10;-Testing Api_Book&#10;-Implementing onClick in Api-Book so it adds a Book into the Book Libary" />
+    <MESSAGE value="Done:&#10;Renamed Api_Book, Api_Author&#10;Todo:&#10;-Fix Request Api&#10;-Testing Api_Book&#10;-Implementing onClick in Api-Book so it adds a Book into the Book Libary" />
+    <MESSAGE value="Done:&#10;Removed Api_Author etc.&#10;Todo:&#10;Viel" />
+    <MESSAGE value="Done:&#10;Working Checkpoint&#10;Todo:&#10;Viel" />
+    <MESSAGE value="Done:&#10;OnClick -&gt; Add into Main&#10;Todo:&#10;Api Fix" />
+    <MESSAGE value="Done:&#10;OnClick -&gt; Add into Main&#10;Todo:&#10;Api Fix&#10;Detail View" />
+    <MESSAGE value="Done:&#10;Add Book Button ruft Search Results auf&#10;Todo:&#10;Api Fix&#10;Detail View&#10;Update View anpassen&#10;Maybe Custom Add" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done:&#10;Add Book Button ruft Search Results auf&#10;Todo:&#10;Api Fix&#10;Detail View&#10;Update View anpassen&#10;Maybe Custom Add" />
   </component>
 </project>

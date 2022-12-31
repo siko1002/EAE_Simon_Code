@@ -6,6 +6,9 @@ import android.util.Log;
 
 import java.util.List;
 
+//import Book_Api.Author;
+//import Book_Api.Book;
+
 public class MyDatabaseHelper {
     Context context;
 
@@ -14,7 +17,7 @@ public class MyDatabaseHelper {
 
     public void addBook(String title, String authorName, String pages) {
 
-        Log.i("HSKL", "MyDBHelper => addBook => Title: " + title + ", Author: " + authorName + ", Pages: " + pages);
+
         Book_DBHelper book_dbHelper = new Book_DBHelper(context);
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
         //Name
@@ -30,7 +33,14 @@ public class MyDatabaseHelper {
             Log.i("HSKL", "MyDBHelper -> AddData -> Author Existiert bereits?: " + author_dbHelper.AuthorExists(authorName));
         }
         Book book = new Book(title, author, pages);
-        book_dbHelper.addBook(title, authorName, Integer.parseInt(pages));
+        if(pages.contains(": ")){
+            String temp = pages.substring(pages.indexOf('.') + 1);
+            Log.i("HSKL", "MyDBHelper => addBook => Title: " + title + ", Author: " + authorName + ", Pages: " + pages);
+            book_dbHelper.addBook(title, authorName, Integer.parseInt(temp));
+        }else {
+            Log.i("HSKL", "MyDBHelper => addBook => Title: " + title + ", Author: " + authorName + ", Pages: " + pages);
+            book_dbHelper.addBook(title, authorName, Integer.parseInt(pages));
+        }
     }
 
     public void addAuthor(String vorname, String nachname) {
@@ -81,7 +91,7 @@ public class MyDatabaseHelper {
         author_dbHelper.deleteAuthor(vorname, nachname);
     }
 
-    MyDatabaseHelper(Context context) {
+    public MyDatabaseHelper(Context context) {
         this.context = context;
     }
 

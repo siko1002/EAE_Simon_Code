@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
@@ -13,7 +12,8 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.jar.Attributes;
+
+//import Book_Api.Author;
 
 public class Author_DBHelper extends SQLiteOpenHelper {
 
@@ -150,7 +150,7 @@ public class Author_DBHelper extends SQLiteOpenHelper {
         int iVorname = meinZeiger.getColumnIndex(COLUMN_VORNAME);
         int iNachname = meinZeiger.getColumnIndex(COLUMN_NACHNAME);
 
-        Log.i("HSKL", "Author_DBHelper -> findAuthorByName: ID: " + meinZeiger.getInt(iId) +", Vorname: " + meinZeiger.getString(iVorname) + ", Nachname: " + meinZeiger.getString(iNachname) + "\n");
+        //Log.i("HSKL", "Author_DBHelper -> findAuthorByName: ID: " + meinZeiger.getInt(iId) +", Vorname: " + meinZeiger.getString(iVorname) + ", Nachname: " + meinZeiger.getString(iNachname) + "\n");
         String ret;
         if(meinZeiger.getString(iId).length() > 0) {
             ret = meinZeiger.getString(iId);
@@ -219,7 +219,9 @@ public class Author_DBHelper extends SQLiteOpenHelper {
             int iId = meinZeiger.getColumnIndex(COLUMN_ID);
             int iVorname = meinZeiger.getColumnIndex(COLUMN_VORNAME);
             int iNachname = meinZeiger.getColumnIndex(COLUMN_NACHNAME);
+
             ret.add(new Author(meinZeiger.getString(iVorname), meinZeiger.getString(iNachname), meinZeiger.getInt(iId)));
+
         }
         return ret;
     }
