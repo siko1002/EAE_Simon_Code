@@ -2524,6 +2524,8 @@ id Author_view
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
+id Delete_Book
+id Edit_Book
 id Edit_view
 id FUNCTION
 id META
@@ -2608,6 +2610,7 @@ id api_book_view_RecyclerView
 id arc
 id asConfigured
 id async
+id author
 id author_add_button
 id author_delete_button
 id author_edit_view
@@ -2681,6 +2684,7 @@ id continuousVelocity
 id coordinator
 id cos
 id counterclockwise
+id cover_image
 id currentState
 id custom
 id customPanel
@@ -2781,6 +2785,7 @@ id insert_title
 id insert_title2
 id invisible
 id inward
+id isbn
 id isbn_text_view
 id italic
 id item_touch_helper_previous_elevation
@@ -2880,6 +2885,7 @@ id outline
 id outward
 id overshoot
 id packed
+id pages
 id parallax
 id parent
 id parentPanel
@@ -2895,6 +2901,7 @@ id position
 id postLayout
 id progress_circular
 id progress_horizontal
+id publish_date
 id publish_date_text_view
 id publish_place_text_view
 id radio
@@ -3139,10 +3146,10 @@ layout abc_tooltip
 layout activity_main
 layout add_author
 layout add_book
-layout api_book_card_view
 layout api_book_card_view_complete
 layout api_book_view
 layout author_view
+layout book_detail_view
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3239,6 +3246,7 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu author_view_menu
 menu main_menu
+menu on_long_click_menue
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round

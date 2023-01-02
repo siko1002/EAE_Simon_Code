@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         books = new ArrayList<Book>();
         myDB = new MyDatabaseHelper(MainActivity.this);
-
+        //myDB.deleteAll();
 
         //myAdapter = new MyAdapter(MainActivity.this, this, book_title, book_author, book_pages);
         bookAdapter = new Book_Adapter(MainActivity.this, this, books);

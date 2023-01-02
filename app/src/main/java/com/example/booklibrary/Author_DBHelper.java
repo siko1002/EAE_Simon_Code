@@ -84,7 +84,20 @@ public class Author_DBHelper extends SQLiteOpenHelper {
         } else {
             Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show();
         }
+    }
+    void addAuthor(Author author){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
 
+        cv.put(COLUMN_VORNAME, author.getVorname());
+        cv.put(COLUMN_NACHNAME, author.getNachname());
+        long result = db.insert(TABLE_NAME, null, cv);
+        Log.i("HSKL", "Author_DBHelper => addAuthor => Vorname: " + author.getVorname() + ", Nachname: " + author.getNachname() + ", Result: " + result);
+        if (result == -1) {
+            Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show();
+        }
     }
 
     Cursor readAllAuthors() {
@@ -224,5 +237,10 @@ public class Author_DBHelper extends SQLiteOpenHelper {
 
         }
         return ret;
+    }
+    public void deleteDB(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String self_destroy = "DROP TABLE " + TABLE_NAME;
+        db.execSQL(self_destroy);
     }
 }

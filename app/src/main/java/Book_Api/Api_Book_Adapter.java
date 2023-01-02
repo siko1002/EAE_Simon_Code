@@ -5,19 +5,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.booklibrary.Author;
+import com.example.booklibrary.Book;
 import com.example.booklibrary.Book_DBHelper;
 import com.example.booklibrary.MainActivity;
 import com.example.booklibrary.MyDatabaseHelper;
+import com.example.booklibrary.NameSplitter;
 import com.example.booklibrary.R;
 import com.example.booklibrary.Update_Book;
 
@@ -66,13 +71,27 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
             MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(mContext);
             String title = apiBook.getTitle().replace("`", " ");
             title = title.replace("´", " ");title = title.replace("'", " ");
-            myDatabaseHelper.addBook(title, apiBook.getAuthors().get(0), String.valueOf(apiBook.getNumberOfPagesMedian()));
-            /*myDatabaseHelper.addBook(holder.titleTextView.getText().toString().trim(),
-                    holder.authorsTextView.getText().toString().trim(),
-                    holder.numberOfPagesMedianTextView.getText().toString().trim());*/
+            String vorname = NameSplitter.SplitVorname(apiBook.getAuthors().get(0));
+            String nachname = NameSplitter.SplitNachname(apiBook.getAuthors().get(0));
+            Author author = new Author(vorname, nachname);
+            Log.i("HSKL_TEST", "ONCLICK -> Author Name: " + author.getVorname() + " " +  author.getNachname());
+            String pages = String.valueOf(apiBook.getNumberOfPagesMedian());
+            String isbn = apiBook.getIsbn().get(0);
+            String publishDate = apiBook.getPublishDate().get(0);
+            String coverId = apiBook.getCoverId();
+            byte[] coverImage = apiBook.getCoverImage();
+            Book add = new Book(title, author, pages, isbn, publishDate, coverId, coverImage);
+            Log.i("HSKL_TEST", "ONCLICK -> Book.author: " + add.getAuthorName());
+            myDatabaseHelper.addBook(add);
             clear();
             Intent intent = new Intent(mContext, MainActivity.class);
             this.mActivity.startActivity(intent);
+        });
+        holder.bookCoverImageView.setOnLongClickListener(view -> {
+
+            //Contact contact = this.contacts.get(position);
+            Toast.makeText(mContext, "position " + position, Toast.LENGTH_SHORT).show();
+            return true;
         });
         // holder.mainLayout.setOnClickListener(view -> {}); Hier den Add für meine Datenbank einbauen
 
