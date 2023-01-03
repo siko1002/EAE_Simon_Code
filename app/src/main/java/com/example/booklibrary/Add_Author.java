@@ -25,6 +25,11 @@ public class Add_Author extends AppCompatActivity {
         add_button = findViewById(R.id.author_add_button);
         add_button.setOnClickListener(view -> {
             MyDatabaseHelper myDB = new MyDatabaseHelper(Add_Author.this);
+            if(myDB.findAuthorByName(add_author_vorname.getText().toString().trim(), add_author_nachname.getText().toString().trim()) == null){
+                Author add = myDB.findAuthorByName(add_author_vorname.getText().toString().trim(), add_author_nachname.getText().toString().trim());
+                myDB.addAuthor(add);
+            }
+
             myDB.addAuthor(add_author_vorname.getText().toString().trim(), add_author_nachname.toString().trim());
 
 

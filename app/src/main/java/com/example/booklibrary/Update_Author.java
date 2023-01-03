@@ -37,7 +37,10 @@ public class Update_Author extends AppCompatActivity{
             String new_nachname = insertNachname.getText().toString();
 
             MyDatabaseHelper myDB = new MyDatabaseHelper(Update_Author.this);
-            myDB.updateAuthor(vorname, nachname, new_vorname, new_nachname);
+            Author author = myDB.findAuthorByName(vorname, nachname);
+            author.setVorname(new_vorname);
+            author.setNachname(new_nachname);
+            myDB.updateAuthor(author);
             Intent intent = new Intent(Update_Author.this, Author_View.class);
             startActivity(intent);
         });
@@ -70,7 +73,8 @@ public class Update_Author extends AppCompatActivity{
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(Update_Author.this);
-                myDB.deleteOneAuthor(vorname, nachname);
+                Author author = myDB.findAuthorByName(vorname, nachname);
+                myDB.deleteOneAuthor(author);
                 Intent intent = new Intent(Update_Author.this, Author_View.class);
                 startActivity(intent);
             }

@@ -54,37 +54,7 @@ public class Author_DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addAuthor(String authorName) {
-        Log.i("HSKL", "Author_DBHelper => addAuthor aufgerufen => authorName: " + authorName);
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        String Vorname = NameSplitter.SplitVorname(authorName);
-        String Nachname = NameSplitter.SplitNachname(authorName);
-        cv.put(COLUMN_VORNAME, Vorname);
-        cv.put(COLUMN_NACHNAME, Nachname);
-        long result = db.insert(TABLE_NAME, null, cv);
-        Log.i("HSKL", "Author_DBHelper => addAuthor => Vorname: " + Vorname + ", Nachname: " + Nachname + ", Result: " + result);
-        if (result == -1) {
-            Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show();
-        }
-    }
 
-    void addAuthor(String Vorname, String Nachname) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-
-        cv.put(COLUMN_VORNAME, Vorname);
-        cv.put(COLUMN_NACHNAME, Nachname);
-        long result = db.insert(TABLE_NAME, null, cv);
-        Log.i("HSKL", "Author_DBHelper => addAuthor => Vorname: " + Vorname + ", Nachname: " + Nachname + ", Result: " + result);
-        if (result == -1) {
-            Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show();
-        }
-    }
     void addAuthor(Author author){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -113,14 +83,14 @@ public class Author_DBHelper extends SQLiteOpenHelper {
     }
 
     //Todo
-    void updateData(String vorname, String nachname, String new_vorname, String new_nachname) {
+    void updateData(Author author) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_VORNAME, new_vorname);
-        values.put(COLUMN_NACHNAME, new_nachname);
+        values.put(COLUMN_VORNAME, author.getVorname());
+        values.put(COLUMN_NACHNAME, author.getNachname());
 
         String where = COLUMN_ID + "=?";
-        String id = findAuthorByName(vorname, nachname);
+        String id = String.valueOf(author.getpId());
         String[] whereArg = new String[]{id};
 
         long result = db.update(TABLE_NAME, values, where, whereArg);
@@ -135,12 +105,12 @@ public class Author_DBHelper extends SQLiteOpenHelper {
     }
 
     //Todo
-    void deleteAuthor(String vorname, String nachname) {
+    void deleteAuthor(Author author) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         String where = COLUMN_ID + "=?";
-        String[] whereArg = new String[]{findAuthorByName(vorname, nachname)};
+        String[] whereArg = new String[]{String.valueOf(author.getpId())};
         long result = db.delete(TABLE_NAME, where, whereArg);
         if (result == -1) {
             Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show();
@@ -152,7 +122,7 @@ public class Author_DBHelper extends SQLiteOpenHelper {
     }
 
     //Todo
-    String findAuthorByName(String vorname, String nachname) {
+    Author findAuthorByName(String vorname, String nachname) {
         SQLiteDatabase db = this.getWritableDatabase();
         //Test
         Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE vorname='"+vorname+"' AND nachname='"+nachname+"'", null);
@@ -162,16 +132,11 @@ public class Author_DBHelper extends SQLiteOpenHelper {
         int iId = meinZeiger.getColumnIndex(COLUMN_ID);
         int iVorname = meinZeiger.getColumnIndex(COLUMN_VORNAME);
         int iNachname = meinZeiger.getColumnIndex(COLUMN_NACHNAME);
-
-        //Log.i("HSKL", "Author_DBHelper -> findAuthorByName: ID: " + meinZeiger.getInt(iId) +", Vorname: " + meinZeiger.getString(iVorname) + ", Nachname: " + meinZeiger.getString(iNachname) + "\n");
-        String ret;
-        if(meinZeiger.getString(iId).length() > 0) {
-            ret = meinZeiger.getString(iId);
-        }else{
-            ret = "";
-        }
-        meinZeiger.close();
-        return ret;
+        Author ret = new Author(meinZeiger.getString(iVorname), meinZeiger.getString(iNachname), meinZeiger.getInt(iId));
+        if(ret != null)
+            return ret;
+        else
+            return null;
     }
 
     boolean AuthorExists(String author) {

@@ -88,7 +88,7 @@ public class Api_Book_Adapter extends RecyclerView.Adapter<Api_Book_Adapter.Book
             this.mActivity.startActivity(intent);
         });
         holder.bookCoverImageView.setOnLongClickListener(view -> {
-
+            //Contextmenue
             //Contact contact = this.contacts.get(position);
             Toast.makeText(mContext, "position " + position, Toast.LENGTH_SHORT).show();
             return true;

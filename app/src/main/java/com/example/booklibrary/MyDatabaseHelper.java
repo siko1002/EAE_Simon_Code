@@ -16,8 +16,6 @@ public class MyDatabaseHelper {
     }
 
     public void addBook(Book book) {
-
-
         Book_DBHelper book_dbHelper = new Book_DBHelper(context);
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
         Log.i("HSKL", "MyDBHelper -> AddData Book: " + book.toString() );
@@ -42,14 +40,20 @@ public class MyDatabaseHelper {
             book_dbHelper.addBook(book);
         }
     }
-
-    public void addAuthor(String vorname, String nachname) {
+    public  void addAuthor(Author author){
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
-        if (author_dbHelper.findAuthorByName(vorname, nachname) != "") {
-            author_dbHelper.addAuthor(vorname, nachname);
+        if(author_dbHelper.findAuthorByName(author.getVorname(), author.getNachname()) == null) {
+            author_dbHelper.addAuthor(author);
         }
     }
 
+    public void addAuthor(String vorname, String nachname){
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        Author temp = new Author(vorname, nachname);
+        if(author_dbHelper.findAuthorByName(vorname, nachname) != null){
+
+        }
+    }
     Author getAuthorByName(String vorname, String nachname) {
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
         return author_dbHelper.getAuthorByName(vorname, nachname);
@@ -67,9 +71,9 @@ public class MyDatabaseHelper {
         book_dbHelper.updateData(book);
     }
 
-    void updateAuthor(String vorname, String nachname, String new_vorname, String new_nachname) {
+    void updateAuthor(Author author) {
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
-        author_dbHelper.updateData(vorname, nachname, new_vorname, new_nachname);
+        author_dbHelper.updateData(author);
 
     }
 
@@ -79,9 +83,9 @@ public class MyDatabaseHelper {
         book_dbHelper.deleteOne(book);
     }
 
-    void deleteOneAuthor(String vorname, String nachname) {
+    void deleteOneAuthor(Author author) {
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);
-        author_dbHelper.deleteAuthor(vorname, nachname);
+        author_dbHelper.deleteAuthor(author);
     }
 
     public MyDatabaseHelper(Context context) {
@@ -108,6 +112,14 @@ public class MyDatabaseHelper {
         Book_DBHelper book_dbHelper = new Book_DBHelper(context);
         Book ret = book_dbHelper.findByTitle(title);
         return ret;
+    }
+    public Author findAuthorByName(String name){
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        return author_dbHelper.findAuthorByName(NameSplitter.SplitVorname(name), NameSplitter.SplitNachname(name));
+    }
+    public Author findAuthorByName(String vorname, String nachname){
+        Author_DBHelper author_dbHelper = new Author_DBHelper(context);
+        return author_dbHelper.findAuthorByName(vorname, nachname);
     }
     public void deleteAll(){
         Author_DBHelper author_dbHelper = new Author_DBHelper(context);

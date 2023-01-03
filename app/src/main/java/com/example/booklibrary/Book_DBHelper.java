@@ -39,6 +39,7 @@ public class Book_DBHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
+
     //Test wenn nicht onOpen raus
     @Override
     public void onOpen(SQLiteDatabase db) {
@@ -47,13 +48,14 @@ public class Book_DBHelper extends SQLiteOpenHelper {
                 COLUMN_TITLE + " TEXT, " +
                 COLUMN_AUTHOR + " INTEGER, " +
                 COLUMN_PAGES + " INTEGER, " +
-                COLUMN_READ + " BOOLEAN, "+
+                COLUMN_READ + " BOOLEAN, " +
                 COLUMN_ISBN + " TEXT, " +
                 COLUMN_PUBLISH_DATE + " TEXT, " +
                 COLUMN_COVER_ID + " TEXT, " +
                 COLUMN_COVER_IMAGE + " BLOB );";
         db.execSQL(query);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
@@ -61,7 +63,7 @@ public class Book_DBHelper extends SQLiteOpenHelper {
                 COLUMN_TITLE + " TEXT, " +
                 COLUMN_AUTHOR + " INTEGER, " +
                 COLUMN_PAGES + " INTEGER, " +
-                COLUMN_READ + " BOOLEAN, "+
+                COLUMN_READ + " BOOLEAN, " +
                 COLUMN_ISBN + " TEXT, " +
                 COLUMN_PUBLISH_DATE + " TEXT, " +
                 COLUMN_COVER_ID + " TEXT, " +
@@ -74,29 +76,30 @@ public class Book_DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
-void addBook(Book book) {
-    SQLiteDatabase db = this.getWritableDatabase();
-    ContentValues cv = new ContentValues();
 
-    cv.put(COLUMN_TITLE, book.getTitle());
-    cv.put(COLUMN_AUTHOR, book.getAuthor().toStringDB());
-    cv.put(COLUMN_PAGES, book.getPages());
-    cv.put(COLUMN_ISBN, book.getIsbn());
-    cv.put(COLUMN_PUBLISH_DATE, book.getPublishDate());
-    cv.put(COLUMN_COVER_ID, book.getCoverId());
-    cv.put(COLUMN_COVER_IMAGE, book.getCoverImage());
+    void addBook(Book book) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
 
-    long result = db.insert(TABLE_NAME, null, cv);
-    if (result == -1) {
-        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
-    } else {
-        Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show();
+        cv.put(COLUMN_TITLE, book.getTitle());
+        cv.put(COLUMN_AUTHOR, book.getAuthor().toStringDB());
+        cv.put(COLUMN_PAGES, book.getPages());
+        cv.put(COLUMN_ISBN, book.getIsbn());
+        cv.put(COLUMN_PUBLISH_DATE, book.getPublishDate());
+        cv.put(COLUMN_COVER_ID, book.getCoverId());
+        cv.put(COLUMN_COVER_IMAGE, book.getCoverImage());
+
+        long result = db.insert(TABLE_NAME, null, cv);
+        if (result == -1) {
+            Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
-}
-
     Cursor readAllBooks() {
-        Log.i("HSKL" , "Book_DBHelper => readAllBooks");
+        Log.i("HSKL", "Book_DBHelper => readAllBooks");
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -161,7 +164,7 @@ void addBook(Book book) {
         String query = "SELECT * FROM " + TABLE_NAME +
                 " WHERE " + COLUMN_TITLE + " = ?";
 
-        Cursor cursor = db.rawQuery(query, new String[] { title });
+        Cursor cursor = db.rawQuery(query, new String[]{title});
         /*
         SQLiteDatabase db = this.getWritableDatabase();
         String[] projection = {COLUMN_ID, COLUMN_TITLE, COLUMN_AUTHOR, COLUMN_PAGES, COLUMN_READ, COLUMN_ISBN, COLUMN_PUBLISH_DATE, COLUMN_COVER_ID, COLUMN_COVER_IMAGE};
@@ -172,7 +175,7 @@ void addBook(Book book) {
         Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE book_title='" + title + "'", null);
          */
         Book ret = null;
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             ret = getBookThroughCursor(cursor);
         }
         return ret;
@@ -182,7 +185,7 @@ void addBook(Book book) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         Log.i("HSKL", "--------Book_DBHelper -> logAllData--------\n\n");
-        while(meinZeiger.moveToNext()){
+        while (meinZeiger.moveToNext()) {
             int iId = meinZeiger.getColumnIndex(COLUMN_ID);
             int iTitle = meinZeiger.getColumnIndex(COLUMN_TITLE);
             int iAuthor = meinZeiger.getColumnIndex(COLUMN_AUTHOR);
@@ -191,25 +194,27 @@ void addBook(Book book) {
         }
         Log.i("HSKL", "----------------------------------------------------");
     }
-    public List<Book> getAllBooksAsList(){
+
+    public List<Book> getAllBooksAsList() {
         List<Book> ret = new ArrayList<>();
 
         SQLiteDatabase db = this.getWritableDatabase();
         MyDatabaseHelper myDb = new MyDatabaseHelper(context);
         Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
 
-        while(meinZeiger.moveToNext()){
+        while (meinZeiger.moveToNext()) {
             int iId = meinZeiger.getColumnIndex(COLUMN_ID);
             int iTitle = meinZeiger.getColumnIndex(COLUMN_TITLE);
             int iAuthor = meinZeiger.getColumnIndex(COLUMN_AUTHOR);
             int iPages = meinZeiger.getColumnIndex(COLUMN_PAGES);
             ret.add(new Book(meinZeiger.getString(iTitle),
-                    myDb.getAuthorByName(NameSplitter.SplitVorname(meinZeiger.getString(iAuthor)),  NameSplitter.SplitNachname(meinZeiger.getString(iAuthor))),
-                            meinZeiger.getString(iPages), meinZeiger.getInt(iId)));
+                    myDb.getAuthorByName(NameSplitter.SplitVorname(meinZeiger.getString(iAuthor)), NameSplitter.SplitNachname(meinZeiger.getString(iAuthor))),
+                    meinZeiger.getString(iPages), meinZeiger.getInt(iId)));
         }
         return ret;
     }
-    public Book getBookThroughCursor(Cursor cursor){
+
+    public Book getBookThroughCursor(Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID));
         String title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE));
         String pages = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAGES));
@@ -219,10 +224,11 @@ void addBook(Book book) {
         String publishDate = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PUBLISH_DATE));
         String coverId = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_COVER_ID));
         byte[] coverImage = cursor.getBlob(cursor.getColumnIndexOrThrow(COLUMN_COVER_IMAGE));
-        Book ret = new Book(title,author, pages, isbn,publishDate, coverId, coverImage, id);
+        Book ret = new Book(title, author, pages, isbn, publishDate, coverId, coverImage, id);
         return ret;
     }
-    public void deleteDB(){
+
+    public void deleteDB() {
         SQLiteDatabase db = this.getWritableDatabase();
         String self_destroy = "DROP TABLE " + TABLE_NAME;
         db.execSQL(self_destroy);

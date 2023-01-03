@@ -35,14 +35,19 @@ public class Update_Book extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
             ab.setTitle(title);
         update_button.setOnClickListener(view -> {
-            MyDatabaseHelper myDB = new MyDatabaseHelper(this);
-            Book book = myDB.findBookByTitle(insert_title.getText().toString());
+            MyDatabaseHelper myDB = new MyDatabaseHelper(Update_Book.this);
+            Book book = myDB.findBookByTitle(getIntent().getStringExtra("title"));
             String new_title = insert_title.getText().toString();
             String new_author = insert_author.getText().toString();
             String new_pages = insert_pages.getText().toString();
             book.setTitle(new_title);
-            book.setAuthor(new Author(NameSplitter.SplitVorname(new_author), NameSplitter.SplitNachname(new_author)));
+            Author author = book.getAuthor();//myDB.findAuthorByName(getIntent().getStringExtra("author"));
+            author.setVorname(NameSplitter.SplitVorname(new_author));
+            author.setNachname(NameSplitter.SplitNachname(new_author));
+            myDB.updateAuthor(author);
+            book.setAuthor(author);
             book.setPages(new_pages);
+
             Log.i("HSKL", "UpdateActivity => onCreate => values -> " + "Titel: " + title + ", Author: " + author + ", Pages: " + pages);
             Log.i("HSKL", "UpdateActivity => onCreate => new_values -> Titel: " + new_title + ", Author: " + new_author + ", Pages: " + new_pages);
             myDB.updateData(book);
