@@ -19,9 +19,7 @@ public class api_book_detail_view extends AppCompatActivity {
     private TextView mNumberOfPagesMedianTextView;
     private TextView mFirstPublishYearTextView;
     private TextView mIsbnTextView;
-    private TextView mLccTextView;
-    private TextView mDdcTextView;
-    private TextView mLccnTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

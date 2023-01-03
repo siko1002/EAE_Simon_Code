@@ -2610,7 +2610,6 @@ id api_book_view_RecyclerView
 id arc
 id asConfigured
 id async
-id author
 id author_add_button
 id author_delete_button
 id author_edit_view
@@ -2618,7 +2617,6 @@ id author_insert_nachname
 id author_insert_vorname
 id author_main_layout
 id author_nachname
-id author_picture
 id author_update_button
 id author_view_add_button
 id author_view_recyclerView
@@ -2636,6 +2634,7 @@ id bestChoice
 id blocking
 id book_author_text
 id book_cover_image_view
+id book_imageView
 id book_pages_text
 id book_recyclerView
 id book_title_text
@@ -2684,7 +2683,6 @@ id continuousVelocity
 id coordinator
 id cos
 id counterclockwise
-id cover_image
 id currentState
 id custom
 id customPanel
@@ -2702,6 +2700,12 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detail_author
+id detail_cover_image
+id detail_isbn
+id detail_pages
+id detail_publish_date
+id detail_title
 id dialog_button
 id dimensions
 id direct
@@ -2775,7 +2779,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageView
 id immediateStop
 id included
 id info
@@ -2785,7 +2788,6 @@ id insert_title
 id insert_title2
 id invisible
 id inward
-id isbn
 id isbn_text_view
 id italic
 id item_touch_helper_previous_elevation
@@ -2885,7 +2887,6 @@ id outline
 id outward
 id overshoot
 id packed
-id pages
 id parallax
 id parent
 id parentPanel
@@ -2901,7 +2902,6 @@ id position
 id postLayout
 id progress_circular
 id progress_horizontal
-id publish_date
 id publish_date_text_view
 id publish_place_text_view
 id radio

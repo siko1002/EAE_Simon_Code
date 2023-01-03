@@ -55,6 +55,11 @@
             android:exported="false"
             android:label="Add Book"
             android:parentActivityName="com.example.booklibrary.MainActivity" />
+        <activity
+            android:name="com.example.booklibrary.Book_Detail_View"
+            android:exported="false"
+            android:label="Book Detail"
+            android:parentActivityName="com.example.booklibrary.MainActivity" />
 
         <meta-data
             android:name="android.app.lib_name"

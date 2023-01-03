@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -54,18 +56,23 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
 
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         this.position = position;
+
         holder.book_pages_text.setText(String.valueOf(books.get(position).getPages()));
         holder.book_author_text.setText(String.valueOf(books.get(position).getAuthorName()));
         holder.book_title_text.setText(String.valueOf(books.get(position).getTitle()));
+        MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(context);
+        Book book = myDatabaseHelper.findBookByTitle(books.get(0).getTitle());
+        Log.i("HSKL_TEST", "Controller Book: " + book.toString());
         // Set the cover image
-        if(books.get(position).getCoverImage() != null) {
-            Bitmap coverImageBitmap = BitmapFactory.decodeByteArray(books.get(position).getCoverImage(), 0, books.get(position).getCoverImage().length);
+        /*Bitmap coverImageBitmap = BitmapFactory.decodeByteArray(book.getCoverImage(), 0, book.getCoverImage().length);
+        holder.book_cover.setImageBitmap(coverImageBitmap);*/
+        /*if(book.getCoverImage() != null) {
+            Bitmap coverImageBitmap = BitmapFactory.decodeByteArray(book.getCoverImage(), 0, book.getCoverImage().length);
             holder.book_cover.setImageBitmap(coverImageBitmap);
-        }
-
+        }*/
 
         holder.mainLayout.setOnClickListener(view -> {
-            Intent intent = new Intent(context, Update_Book.class);
+            Intent intent = new Intent(context, Book_Detail_View.class);
             intent.putExtra("pages", String.valueOf(books.get(position).getPages()));
             intent.putExtra("author", String.valueOf(books.get(position).getAuthorName()));
             intent.putExtra("title", String.valueOf(books.get(position).getTitle()));
@@ -75,14 +82,11 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
             intent.putExtra("cover_Image", books.get(position).getCoverImage());
             activity.startActivityForResult(intent, 1);
         });
-
-
     }
 
     public int getItemCount() {
         return books.size();
     }
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView book_title_text, book_author_text, book_pages_text;
