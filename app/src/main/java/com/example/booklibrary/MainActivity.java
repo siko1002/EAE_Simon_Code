@@ -1,5 +1,6 @@
 package com.example.booklibrary;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -59,6 +61,29 @@ public class MainActivity extends AppCompatActivity {
         bookAdapter = new Book_Adapter(MainActivity.this, this, books);
         recyclerView.setAdapter(bookAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.on_long_click_menue, menu);
+    }
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.on_long_click_Edit_Book:
+                Toast.makeText(this, "Edit Selected: " + getIntent().hasExtra("title") , Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Update_Book.class);
+                startActivity(intent);
+                return true;
+            case  R.id.on_long_cloick_Delete_Book:
+                Intent intent2 = new Intent(MainActivity.this, Update_Book.class);
+                startActivity(intent2);
+                Toast.makeText(this, "Delete Selected", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
     }
 
     //Action Bar Menü

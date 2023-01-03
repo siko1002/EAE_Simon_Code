@@ -68,10 +68,6 @@
         "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.booklibrary.app-merged_res-29:/layout_book_detail_view.xml.flat",
-        "source": "com.example.booklibrary.app-main-31:/layout/book_detail_view.xml"
-    },
-    {
         "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\drawable_ic_add.xml.flat",
         "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-main-31:\\drawable\\ic_add.xml"
     },
@@ -94,6 +90,10 @@
     {
         "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-debug-30:\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "com.example.booklibrary.app-merged_res-29:/layout_my_book.xml.flat",
+        "source": "com.example.booklibrary.app-main-31:/layout/my_book.xml"
     },
     {
         "merged": "C:\\Users\\Simon\\.gradle\\daemon\\7.4\\com.example.booklibrary.app-merged_res-29:\\layout_book_detail_view.xml.flat",

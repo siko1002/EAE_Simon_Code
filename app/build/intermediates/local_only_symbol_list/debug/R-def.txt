@@ -16,8 +16,6 @@ drawable ic_book
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 id Author_view
-id Delete_Book
-id Edit_Book
 id Edit_view
 id add_author_nachname
 id add_author_vorname
@@ -57,6 +55,8 @@ id insert_title2
 id isbn_text_view
 id mainLayout
 id number_of_pages_median_text_view
+id on_long_click_Edit_Book
+id on_long_cloick_Delete_Book
 id publish_date_text_view
 id publish_place_text_view
 id subjects_text_view

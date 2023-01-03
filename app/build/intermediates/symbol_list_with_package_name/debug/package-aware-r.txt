@@ -2524,8 +2524,6 @@ id Author_view
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
-id Delete_Book
-id Edit_Book
 id Edit_view
 id FUNCTION
 id META
@@ -2883,6 +2881,8 @@ id number_of_pages_median_text_view
 id off
 id on
 id onInterceptTouchReturnSwipe
+id on_long_click_Edit_Book
+id on_long_cloick_Delete_Book
 id outline
 id outward
 id overshoot

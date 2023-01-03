@@ -18,12 +18,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View.OnCreateContextMenuListener;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 //import Book_Api.Book;
 
-class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
+class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> implements OnCreateContextMenuListener{
 
     private Context context;
     Activity activity;
@@ -62,14 +64,10 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
         holder.book_title_text.setText(String.valueOf(books.get(position).getTitle()));
         MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(context);
         Book book = myDatabaseHelper.findBookByTitle(books.get(0).getTitle());
-        Log.i("HSKL_TEST", "Controller Book: " + book.toString());
-        // Set the cover image
-        /*Bitmap coverImageBitmap = BitmapFactory.decodeByteArray(book.getCoverImage(), 0, book.getCoverImage().length);
-        holder.book_cover.setImageBitmap(coverImageBitmap);*/
-        /*if(book.getCoverImage() != null) {
-            Bitmap coverImageBitmap = BitmapFactory.decodeByteArray(book.getCoverImage(), 0, book.getCoverImage().length);
-            holder.book_cover.setImageBitmap(coverImageBitmap);
-        }*/
+        if(book.getCoverImage() != null) {
+
+            holder.book_cover.setImageBitmap(BitmapFactory.decodeByteArray(book.getCoverImage(), 0, book.getCoverImage().length));
+        }
 
         holder.mainLayout.setOnClickListener(view -> {
             Intent intent = new Intent(context, Book_Detail_View.class);
@@ -82,10 +80,35 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
             intent.putExtra("cover_Image", books.get(position).getCoverImage());
             activity.startActivityForResult(intent, 1);
         });
+        activity.registerForContextMenu(holder.mainLayout);
     }
+
 
     public int getItemCount() {
         return books.size();
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        activity.onCreateContextMenu(menu, v, menuInfo);
+        activity.getMenuInflater().inflate(R.menu.on_long_click_menue, menu);
+    }
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.on_long_click_Edit_Book:
+                Toast.makeText(context, "Edit Selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, Update_Book.class);
+                activity.startActivity(intent);
+                return true;
+            case  R.id.on_long_cloick_Delete_Book:
+                Intent intent2 = new Intent(context, Update_Book.class);
+                activity.startActivity(intent2);
+                Toast.makeText(context, "Delete Selected", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return activity.onContextItemSelected(item);
+
+        }
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -95,7 +118,7 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> {
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            book_cover = itemView.findViewById(R.id.book_cover_image_view);
+            book_cover = itemView.findViewById(R.id.book_imageView);
             book_author_text = itemView.findViewById(R.id.book_author_text);
             book_title_text = itemView.findViewById(R.id.book_title_text);
             book_pages_text = itemView.findViewById(R.id.book_pages_text);
