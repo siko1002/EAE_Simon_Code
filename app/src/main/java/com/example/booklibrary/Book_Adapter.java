@@ -32,9 +32,8 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder>{
 
     private Context context;
     Activity activity;
-    // private ArrayList book_title, book_author, book_pages;
     private ArrayList<Book> books;
-
+    public Book selectedBook;
     int position;
 
     Book_Adapter(Activity activity, Context context, ArrayList books) {
@@ -85,32 +84,12 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder>{
         });
 
         holder.mainLayout.setOnCreateContextMenuListener(holder);
-        //activity.registerForContextMenu(holder.mainLayout);
     }
 
 
     public int getItemCount() {
         return books.size();
     }
-
-    /*public boolean onContextItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.on_long_click_Edit_Book:
-                Toast.makeText(context, "Edit Selected", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context, Update_Book.class);
-                activity.startActivity(intent);
-                return true;
-            case  R.id.on_long_cloick_Delete_Book:
-                Intent intent2 = new Intent(context, Update_Book.class);
-                activity.startActivity(intent2);
-                Toast.makeText(context, "Delete Selected", Toast.LENGTH_SHORT).show();
-                return true;
-            default:
-                return activity.onContextItemSelected(item);
-
-        }
-    }*/
-
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements OnCreateContextMenuListener {
@@ -133,6 +112,7 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder>{
             position = getAdapterPosition();
             MenuInflater inflater = ((Activity) v.getContext()).getMenuInflater();
             inflater.inflate(R.menu.on_long_click_menue, menu);
+            selectedBook = books.get(position);
         }
 
     }
