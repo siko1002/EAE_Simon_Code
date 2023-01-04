@@ -142,7 +142,7 @@ public class Book_DBHelper extends SQLiteOpenHelper {
     }
 
 
-    void deleteOne(Book book) {
+    /*void deleteOne(Book book) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -156,6 +156,14 @@ public class Book_DBHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Successfully deleted", Toast.LENGTH_SHORT).show();
             Log.i("HSKL", "Book_DBHelper -> deleteOne: Element erfolgreich gelöscht");
         }
+    }*/
+
+    void deleteOne(Book book) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String where = COLUMN_TITLE + "=?";
+        String[] whereArg = new String[]{book.getTitle()};
+        db.delete(TABLE_NAME, where, whereArg);
     }
 
     Book findByTitle(String title) {

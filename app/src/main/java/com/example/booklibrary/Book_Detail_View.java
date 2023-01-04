@@ -1,13 +1,18 @@
 package com.example.booklibrary;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Book_Detail_View extends AppCompatActivity {
@@ -17,6 +22,7 @@ public class Book_Detail_View extends AppCompatActivity {
     private TextView mNumberOfPagesMedianTextView;
     private TextView mFirstPublishYearTextView;
     private TextView mIsbnTextView;
+    Button new_delete_button;
 
     String title, author, pages, isbn, first_publish, cover_id;
     byte[] coverImage;
@@ -30,9 +36,16 @@ public class Book_Detail_View extends AppCompatActivity {
         mIsbnTextView = findViewById(R.id.detail_isbn);
         mFirstPublishYearTextView = findViewById(R.id.detail_publish_date);
         mBookCoverImageView = findViewById(R.id.detail_cover_image);
+        new_delete_button = findViewById(R.id.new_delete_button);
         getIntentData();
         ActionBar ab = getSupportActionBar();
         ab.setTitle(title);
+        new_delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmDialog();
+            }
+        });
 
     }
 
@@ -63,5 +76,28 @@ public class Book_Detail_View extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    void confirmDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete " + title + " ?");
+        builder.setMessage("Are you sure you want to delete " + title + " ?" );
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(Book_Detail_View.this);
+                Book book = myDB.findBookByTitle(title);
+                myDB.deleteOneBook(book);
+                Intent intent = new Intent(Book_Detail_View.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
     }
 }

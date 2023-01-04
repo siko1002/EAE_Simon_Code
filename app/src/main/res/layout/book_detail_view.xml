@@ -1,44 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/detail_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="411dp"
+        android:layout_height="22dp"
         android:padding="16dp"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/detail_cover_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/detail_cover_image"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        android:layout_width="203dp"
+        android:layout_height="263dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/detail_author"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/detail_title"
+        app:layout_constraintTop_toBottomOf="@+id/detail_title" />
 
     <TextView
         android:id="@+id/detail_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp" />
+        android:layout_width="206dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="1dp"
+        android:padding="16dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/detail_pages"
+        app:layout_constraintStart_toStartOf="@+id/detail_cover_image"
+        app:layout_constraintTop_toBottomOf="@+id/detail_cover_image" />
 
     <TextView
         android:id="@+id/detail_pages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp" />
+        android:layout_width="206dp"
+        android:layout_height="50dp"
+        android:padding="16dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/detail_isbn"
+        app:layout_constraintStart_toStartOf="@+id/detail_author"
+        app:layout_constraintTop_toBottomOf="@+id/detail_author" />
 
     <TextView
         android:id="@+id/detail_isbn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp" />
+        android:layout_width="206dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="1dp"
+        android:padding="16dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/detail_publish_date"
+        app:layout_constraintStart_toStartOf="@+id/detail_pages"
+        app:layout_constraintTop_toBottomOf="@+id/detail_pages" />
 
     <TextView
         android:id="@+id/detail_publish_date"
+        android:layout_width="207dp"
+        android:layout_height="54dp"
+        android:gravity="center"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="@+id/detail_isbn"
+        app:layout_constraintTop_toBottomOf="@+id/detail_isbn" />
+
+    <Button
+        android:id="@+id/new_delete_button"
+        android:layout_width="107dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#d3d3d3"
+        android:text="Delete"
+        android:textAllCaps="false"
+        android:textColor="#ff7f7f"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp" />
-</LinearLayout>
+        android:layout_marginTop="20dp"
+        android:text="finished reading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_publish_date" />
+
+    <!--<Button
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="131dp"
+        android:backgroundTint="#d3d3d3"
+        android:text="Delete"
+        android:textAllCaps="false"
+        android:textColor="#ff7f7f"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.735"
+        app:layout_constraintStart_toEndOf="@+id/update_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_button"
+        tools:ignore="TextContrastCheck" /> -->
+</androidx.constraintlayout.widget.ConstraintLayout>

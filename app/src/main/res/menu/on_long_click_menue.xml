@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/on_long_click_Edit_Book"
-        android:title="Edit"></item>
-    <item
-        android:id="@+id/on_long_cloick_Delete_Book"
+        android:id="@+id/on_long_click_Delete_Book"
         android:title="Delete"></item>
 </menu>

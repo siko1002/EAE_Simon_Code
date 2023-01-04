@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,9 +24,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import android.view.MenuInflater;
+
 //import Book_Api.Book;
 
-class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> implements OnCreateContextMenuListener{
+class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder>{
 
     private Context context;
     Activity activity;
@@ -63,7 +66,7 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> imple
         holder.book_author_text.setText(String.valueOf(books.get(position).getAuthorName()));
         holder.book_title_text.setText(String.valueOf(books.get(position).getTitle()));
         MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(context);
-        Book book = myDatabaseHelper.findBookByTitle(books.get(0).getTitle());
+        Book book = myDatabaseHelper.findBookByTitle(books.get(position).getTitle());
         if(book.getCoverImage() != null) {
 
             holder.book_cover.setImageBitmap(BitmapFactory.decodeByteArray(book.getCoverImage(), 0, book.getCoverImage().length));
@@ -80,7 +83,9 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> imple
             intent.putExtra("cover_Image", books.get(position).getCoverImage());
             activity.startActivityForResult(intent, 1);
         });
-        activity.registerForContextMenu(holder.mainLayout);
+
+        holder.mainLayout.setOnCreateContextMenuListener(holder);
+        //activity.registerForContextMenu(holder.mainLayout);
     }
 
 
@@ -88,12 +93,7 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> imple
         return books.size();
     }
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        activity.onCreateContextMenu(menu, v, menuInfo);
-        activity.getMenuInflater().inflate(R.menu.on_long_click_menue, menu);
-    }
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
+    /*public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.on_long_click_Edit_Book:
                 Toast.makeText(context, "Edit Selected", Toast.LENGTH_SHORT).show();
@@ -109,8 +109,11 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> imple
                 return activity.onContextItemSelected(item);
 
         }
-    }
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    }*/
+
+
+
+    public class MyViewHolder extends RecyclerView.ViewHolder implements OnCreateContextMenuListener {
 
         TextView book_title_text, book_author_text, book_pages_text;
         ImageView book_cover;
@@ -124,5 +127,13 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> imple
             book_pages_text = itemView.findViewById(R.id.book_pages_text);
             mainLayout = itemView.findViewById(R.id.mainLayout);
         }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            position = getAdapterPosition();
+            MenuInflater inflater = ((Activity) v.getContext()).getMenuInflater();
+            inflater.inflate(R.menu.on_long_click_menue, menu);
+        }
+
     }
 }
