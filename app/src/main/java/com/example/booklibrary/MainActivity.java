@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        //int position = item.getOrder();
         switch (item.getItemId()) {
             case R.id.on_long_click_Delete_Book:
                 confirmDialog(bookAdapter.selectedBook);
