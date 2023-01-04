@@ -63,9 +63,8 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder> imple
         holder.book_author_text.setText(String.valueOf(books.get(position).getAuthorName()));
         holder.book_title_text.setText(String.valueOf(books.get(position).getTitle()));
         MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(context);
-        Book book = myDatabaseHelper.findBookByTitle(books.get(0).getTitle());
+        Book book = myDatabaseHelper.findBookByTitle(books.get(position).getTitle());
         if(book.getCoverImage() != null) {
-
             holder.book_cover.setImageBitmap(BitmapFactory.decodeByteArray(book.getCoverImage(), 0, book.getCoverImage().length));
         }
 
