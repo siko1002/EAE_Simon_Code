@@ -26,7 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c85dcc8d-b356-4cdd-973e-67b7cd8e5209" name="Changes" comment="Done:&#10;Fixes Context Menu&#10;Todo:&#10;-">
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/MainActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +82,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="SecureMerge" />
+        <entry key="$PROJECT_DIR$" value="feature/Detail_View" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -348,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672848476702</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Done:&#10;Fixes Context Menu&#10;Todo:&#10;-">
+      <created>1672868753314</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1672868753314</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -380,6 +387,7 @@
     <MESSAGE value="Done:&#10;OnClick -&gt; Add into Main&#10;Todo:&#10;Api Fix&#10;Detail View" />
     <MESSAGE value="Done:&#10;Add Book Button ruft Search Results auf&#10;Todo:&#10;Api Fix&#10;Detail View&#10;Update View anpassen&#10;Maybe Custom Add" />
     <MESSAGE value="Done:&#10;delete im context menu, delete in detail view&#10;Todo:&#10;Api Fix&#10;Detail View&#10;Update View anpassen&#10;Maybe Custom Add" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done:&#10;delete im context menu, delete in detail view&#10;Todo:&#10;Api Fix&#10;Detail View&#10;Update View anpassen&#10;Maybe Custom Add" />
+    <MESSAGE value="Done:&#10;Fixes Context Menu&#10;Todo:&#10;-" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done:&#10;Fixes Context Menu&#10;Todo:&#10;-" />
   </component>
 </project>
