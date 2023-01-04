@@ -19,7 +19,7 @@
     <string name="author_view">Author View</string>
     <string name="book_title">Book Title</string>
     <string name="ddc">DDC</string>
-    <string name="edit_view">Search Results</string>
+    <string name="edit_view">Delete All</string>
     <string name="first_publish_year">First published year</string>
     <string name="isbn">ISBN</string>
     <string name="lcc">LCC</string>

@@ -158,10 +158,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.Edit_view:
-                BookDBManager myDB = new BookDBManager(this);
-                //Testaufruf
-                Intent intent1 = new Intent(MainActivity.this, Api_Book_View.class);
-                startActivity(intent1);
+                books.clear();
+                myDB.deleteAll();
+                intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

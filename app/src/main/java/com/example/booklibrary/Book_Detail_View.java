@@ -2,9 +2,11 @@ package com.example.booklibrary;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -26,14 +28,14 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
     private TextView mIsbnTextView;
     Button new_delete_button;
     CheckBox read;
-    Boolean myBoolean1;
 
     String title, author, pages, isbn, first_publish, cover_id;
     byte[] coverImage;
 
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.book_detail_view);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.book_detail_view);
+        read = (CheckBox) findViewById(R.id.checkBox);
         mTitleTextView = findViewById(R.id.detail_title);
         mAuthorsTextView = findViewById(R.id.detail_author);
         mNumberOfPagesMedianTextView = findViewById(R.id.detail_pages);
@@ -41,7 +43,11 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
         mFirstPublishYearTextView = findViewById(R.id.detail_publish_date);
         mBookCoverImageView = findViewById(R.id.detail_cover_image);
         new_delete_button = findViewById(R.id.new_delete_button);
-        read = (CheckBox) findViewById(R.id.checkBox);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        boolean checkBoxValue = sharedPreferences.getBoolean("checkBoxValue", false);
+        read.setChecked(checkBoxValue);
+
         getIntentData();
         ActionBar ab = getSupportActionBar();
         ab.setTitle(title);
@@ -51,12 +57,11 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
                 confirmDialog();
             }
         });
-        if (savedInstanceState!=null) {
-            myBoolean1 = savedInstanceState.getBoolean("read");
-            read.setChecked(myBoolean1);
+
         }
 
-    }
+
+
 
     void getIntentData() {
         if (getIntent().hasExtra("title") && getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("isbn") && getIntent().hasExtra("publish_date") && getIntent().hasExtra("cover_id") && getIntent().hasExtra("cover_Image")) {
@@ -116,16 +121,24 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
         if(read.isChecked()){
             book.setRead(true);
             myDatabaseHelper.updateData(book);
-        } else {
+        }else if(!read.isChecked()){
             book.setRead(false);
+            myDatabaseHelper.updateData(book);
         }
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean("read", read.isChecked());
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("checkBoxValue", read.isChecked());
+        editor.apply();
     }
+
+
+
+
 
 
 }

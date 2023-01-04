@@ -5,7 +5,7 @@
     <string name="book_title">Book Title</string>
     <string name="add_book">Add apiBook</string>
     <string name="author_view">Author View</string>
-    <string name="edit_view">Search Results</string>
+    <string name="edit_view">Delete All</string>
     <string name="add_author">Add</string>
     <string name="main_view">Book View</string>
     <string name="author_edit_view">Edit</string>
