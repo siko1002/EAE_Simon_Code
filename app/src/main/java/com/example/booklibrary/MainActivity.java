@@ -153,14 +153,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.Author_view:
-                Intent intent = new Intent(MainActivity.this, Author_View.class);
-                startActivity(intent);
-                return true;
             case R.id.Edit_view:
                 books.clear();
                 myDB.deleteAll();
-                intent = new Intent(MainActivity.this, MainActivity.class);
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
                 return true;
             default:
