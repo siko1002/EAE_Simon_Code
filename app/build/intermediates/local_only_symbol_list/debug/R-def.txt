@@ -15,7 +15,6 @@ drawable ic_add
 drawable ic_book
 drawable ic_launcher_background
 drawable ic_launcher_foreground
-id Author_view
 id Edit_view
 id add_author_nachname
 id add_author_vorname
