@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
     private TextView mIsbnTextView;
     Button new_delete_button;
     CheckBox read;
+    RatingBar bar;
 
     String title, author, pages, isbn, first_publish, cover_id;
     byte[] coverImage;
@@ -36,6 +38,7 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_detail_view);
         read = (CheckBox) findViewById(R.id.checkBox);
+        bar = (RatingBar) findViewById(R.id.ratingBar);
         mTitleTextView = findViewById(R.id.detail_title);
         mAuthorsTextView = findViewById(R.id.detail_author);
         mNumberOfPagesMedianTextView = findViewById(R.id.detail_pages);
@@ -46,7 +49,9 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         boolean checkBoxValue = sharedPreferences.getBoolean("checkBoxValue", false);
+        float rating = sharedPreferences.getFloat("rating", 0.0f);
         read.setChecked(checkBoxValue);
+        bar.setRating(rating);
 
         getIntentData();
         ActionBar ab = getSupportActionBar();
@@ -132,7 +137,12 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
         super.onPause();
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+
+// Save the current values
         editor.putBoolean("checkBoxValue", read.isChecked());
+        editor.putFloat("rating", bar.getRating());
+
+// Commit the changes
         editor.apply();
     }
 

@@ -13,7 +13,9 @@
   </component>
   <component name="AndroidLayouts">
     <shared>
-      <config />
+      <config>
+        <target>android-32</target>
+      </config>
     </shared>
   </component>
   <component name="AndroidLogFilters">
@@ -25,15 +27,21 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85dcc8d-b356-4cdd-973e-67b7cd8e5209" name="Changes" comment="Done:&#10;Fixes Context Menu&#10;Todo:&#10;-">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/MainActivity.java" afterDir="false" />
+    <list default="true" id="c85dcc8d-b356-4cdd-973e-67b7cd8e5209" name="Changes" comment="Done:&#10;delete im context menu, delete in detail view&#10;Todo:&#10;Api Fix&#10;Detail View&#10;Update View anpassen&#10;Maybe Custom Add">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_03_01_2023_20_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_03_01_2023_20_53__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_01_2023_20_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_01_2023_20_54__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/Book_Detail_View.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booklibrary/Book_Detail_View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/book_detail_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/book_detail_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R3CT50VQG9N]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RF8N92RXLQN]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
