@@ -2655,6 +2655,7 @@ id center_vertical
 id chain
 id chain2
 id chains
+id checkBox
 id checkbox
 id checked
 id chip
@@ -2799,6 +2800,7 @@ id legacy
 id line1
 id line3
 id linear
+id linearLayout
 id listMode
 id list_item
 id mainLayout
@@ -2869,6 +2871,7 @@ id navigation_header_container
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id new_delete_button
 id noScroll
 id noState
 id none
@@ -2881,8 +2884,7 @@ id number_of_pages_median_text_view
 id off
 id on
 id onInterceptTouchReturnSwipe
-id on_long_click_Edit_Book
-id on_long_cloick_Delete_Book
+id on_long_click_Delete_Book
 id outline
 id outward
 id overshoot

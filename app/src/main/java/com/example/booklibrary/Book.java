@@ -2,7 +2,7 @@ package com.example.booklibrary;
 
 import java.util.Arrays;
 
-public class Book {
+public class Book  {
     public Book(String title, Author author, String pages, String isbn, String publishDate, String coverId, byte[] coverImage){
         this.title = title;
         this.author = author;
@@ -11,6 +11,7 @@ public class Book {
         this.publishDate = publishDate;
         this.coverId = coverId;
         this.coverImage = coverImage;
+        this.read = false;
     }
     Book(String title, Author author, String pages, String isbn, String publishDate, String coverId, byte[] coverImage, int id){
         this.title = title;
@@ -21,12 +22,14 @@ public class Book {
         this.coverId = coverId;
         this.coverImage = coverImage;
         this.id = id;
+        this.read = false;
     }
     Book(String title, Author author, String pages, int id){
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.id = id;
+        this.read = false;
     }
     int id;
     String title;
@@ -36,6 +39,7 @@ public class Book {
     String publishDate;
     String coverId;
     byte[] coverImage;
+    boolean read;
 
     public int getId() {
         return id;
@@ -44,6 +48,10 @@ public class Book {
     public void setId(int id) {
         this.id = id;
     }
+
+    public Boolean getRead(){ return read; }
+
+    public void setRead(boolean read){ this.read = read; }
 
     public String getTitle() {
         return title;

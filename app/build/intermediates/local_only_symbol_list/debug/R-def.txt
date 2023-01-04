@@ -40,6 +40,7 @@ id book_pages_text
 id book_recyclerView
 id book_title_text
 id book_view
+id checkBox
 id delete_button
 id detail_author
 id detail_cover_image
@@ -53,10 +54,11 @@ id insert_pages2
 id insert_title
 id insert_title2
 id isbn_text_view
+id linearLayout
 id mainLayout
+id new_delete_button
 id number_of_pages_median_text_view
-id on_long_click_Edit_Book
-id on_long_cloick_Delete_Book
+id on_long_click_Delete_Book
 id publish_date_text_view
 id publish_place_text_view
 id subjects_text_view

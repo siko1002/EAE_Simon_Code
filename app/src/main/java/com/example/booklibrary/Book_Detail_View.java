@@ -7,15 +7,17 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Book_Detail_View extends AppCompatActivity {
+public class Book_Detail_View<Checkbox> extends AppCompatActivity {
     private TextView mTitleTextView;
     private TextView mAuthorsTextView;
     private ImageView mBookCoverImageView;
@@ -23,13 +25,15 @@ public class Book_Detail_View extends AppCompatActivity {
     private TextView mFirstPublishYearTextView;
     private TextView mIsbnTextView;
     Button new_delete_button;
+    CheckBox read;
+    Boolean myBoolean1;
 
     String title, author, pages, isbn, first_publish, cover_id;
     byte[] coverImage;
 
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.book_detail_view);
+        super.onCreate(savedInstanceState);
         mTitleTextView = findViewById(R.id.detail_title);
         mAuthorsTextView = findViewById(R.id.detail_author);
         mNumberOfPagesMedianTextView = findViewById(R.id.detail_pages);
@@ -37,6 +41,7 @@ public class Book_Detail_View extends AppCompatActivity {
         mFirstPublishYearTextView = findViewById(R.id.detail_publish_date);
         mBookCoverImageView = findViewById(R.id.detail_cover_image);
         new_delete_button = findViewById(R.id.new_delete_button);
+        read = (CheckBox) findViewById(R.id.checkBox);
         getIntentData();
         ActionBar ab = getSupportActionBar();
         ab.setTitle(title);
@@ -46,6 +51,10 @@ public class Book_Detail_View extends AppCompatActivity {
                 confirmDialog();
             }
         });
+        if (savedInstanceState!=null) {
+            myBoolean1 = savedInstanceState.getBoolean("read");
+            read.setChecked(myBoolean1);
+        }
 
     }
 
@@ -100,4 +109,23 @@ public class Book_Detail_View extends AppCompatActivity {
         });
         builder.create().show();
     }
+
+    public void onCheckBoxClicked(View view){
+        MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(this);
+        Book book = myDatabaseHelper.findBookByTitle(title);
+        if(read.isChecked()){
+            book.setRead(true);
+            myDatabaseHelper.updateData(book);
+        } else {
+            book.setRead(false);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("read", read.isChecked());
+    }
+
+
 }

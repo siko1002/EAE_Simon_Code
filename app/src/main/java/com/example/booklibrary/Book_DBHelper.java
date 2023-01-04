@@ -88,6 +88,7 @@ public class Book_DBHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PUBLISH_DATE, book.getPublishDate());
         cv.put(COLUMN_COVER_ID, book.getCoverId());
         cv.put(COLUMN_COVER_IMAGE, book.getCoverImage());
+        cv.put(COLUMN_READ, book.getRead());
 
         long result = db.insert(TABLE_NAME, null, cv);
         if (result == -1) {
@@ -122,6 +123,7 @@ public class Book_DBHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PUBLISH_DATE, book.getPublishDate());
         cv.put(COLUMN_COVER_ID, book.getCoverId());
         cv.put(COLUMN_COVER_IMAGE, book.getCoverImage());
+        cv.put(COLUMN_READ, book.getRead());
 
         String where = COLUMN_ID + "=?";
         String id = String.valueOf(book.getId());
