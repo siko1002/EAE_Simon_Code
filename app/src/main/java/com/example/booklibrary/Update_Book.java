@@ -35,13 +35,22 @@ public class Update_Book extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
             ab.setTitle(title);
         update_button.setOnClickListener(view -> {
+            MyDatabaseHelper myDB = new MyDatabaseHelper(Update_Book.this);
+            Book book = myDB.findBookByTitle(getIntent().getStringExtra("title"));
             String new_title = insert_title.getText().toString();
             String new_author = insert_author.getText().toString();
             String new_pages = insert_pages.getText().toString();
+            book.setTitle(new_title);
+            Author author = book.getAuthor();//myDB.findAuthorByName(getIntent().getStringExtra("author"));
+            author.setVorname(NameSplitter.SplitVorname(new_author));
+            author.setNachname(NameSplitter.SplitNachname(new_author));
+            myDB.updateAuthor(author);
+            book.setAuthor(author);
+            book.setPages(new_pages);
+
             Log.i("HSKL", "UpdateActivity => onCreate => values -> " + "Titel: " + title + ", Author: " + author + ", Pages: " + pages);
             Log.i("HSKL", "UpdateActivity => onCreate => new_values -> Titel: " + new_title + ", Author: " + new_author + ", Pages: " + new_pages);
-            MyDatabaseHelper myDB = new MyDatabaseHelper(Update_Book.this);
-            myDB.updateData(title, new_author, new_pages, new_title);
+            myDB.updateData(book);
             Intent intent = new Intent(Update_Book.this, MainActivity.class);
             startActivity(intent);
         });
@@ -79,7 +88,8 @@ public class Update_Book extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(Update_Book.this);
-                myDB.deleteOneBook(title);
+                Book book = myDB.findBookByTitle(title);
+                myDB.deleteOneBook(book);
                 Intent intent = new Intent(Update_Book.this, MainActivity.class);
                 startActivity(intent);
             }

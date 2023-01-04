@@ -1,11 +1,11 @@
 package com.example.booklibrary;
 
 public class Author {
-    Author(String vorname, String nachname) {
+    public Author(String vorname, String nachname) {
         this.vorname = vorname;
         this.nachname = nachname;
     }
-    Author(String vorname, String nachname, int pid) {
+    public Author(String vorname, String nachname, int pid) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.pid = pid;
@@ -33,6 +33,9 @@ public class Author {
     @Override
     public String toString() {
         return "Author [vorname=" + vorname + ", nachname=" + nachname + "]";
+    }
+    public String toStringDB(){
+        return vorname+" "+nachname;
     }
     public int getpId(){
         return this.pid;

@@ -1,18 +1,23 @@
 package com.example.booklibrary;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 
@@ -53,13 +58,89 @@ public class MainActivity extends AppCompatActivity {
 
         books = new ArrayList<Book>();
         myDB = new MyDatabaseHelper(MainActivity.this);
-
+        //myDB.deleteAll();
 
         //myAdapter = new MyAdapter(MainActivity.this, this, book_title, book_author, book_pages);
         bookAdapter = new Book_Adapter(MainActivity.this, this, books);
         recyclerView.setAdapter(bookAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+
+
+
     }
+
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        int position = item.getGroupId();
+        switch (item.getItemId()) {
+            case R.id.on_long_click_Delete_Book:
+                //confirmDialog();
+                MyDatabaseHelper myDB = new MyDatabaseHelper(MainActivity.this);
+                Book bookToDelete = books.get(position);
+                myDB.deleteOneBook(bookToDelete);
+                books.clear();
+                books.addAll(myDB.getAllBooksAsList());
+                bookAdapter.notifyDataSetChanged();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+
+            /*case  R.id.on_long_click_Delete_Book:
+                //position of the item that was long-clicked
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                int position = info.position;
+                // Book object at that position
+                MyDatabaseHelper myDB = new MyDatabaseHelper(MainActivity.this);
+                Book bookToDelete = books.get(position);
+                // Delete the book from the database
+                myDB.deleteOneBook(bookToDelete);
+                // Refresh the RecyclerView
+                books.clear();
+                books.addAll(myDB.getAllBooksAsList());
+                bookAdapter.notifyDataSetChanged();
+                Toast.makeText(this, "Delete Selected", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);*/
+        }
+
+        /*delete from array list:
+        int position = item.getGroupId();
+        switch (item.getItemId()) {
+            case R.id.on_long_click_Delete_Book:
+                books.remove(position); // delete the item from the ArrayList
+                bookAdapter.notifyDataSetChanged(); // refresh the RecyclerView
+                return true;
+            default:
+                return super.onContextItemSelected(item); */
+
+
+
+
+
+    /*@Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.on_long_click_menue, menu);
+    }
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.on_long_click_Edit_Book:
+                Toast.makeText(this, "Edit Selected: " + getIntent().hasExtra("title") , Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Update_Book.class);
+                startActivity(intent);
+                return true;
+            case  R.id.on_long_click_Delete_Book:
+                Intent intent2 = new Intent(MainActivity.this, Update_Book.class);
+                startActivity(intent2);
+                Toast.makeText(this, "Delete Selected", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    } */
 
     //Action Bar Menü
     @Override
@@ -93,4 +174,6 @@ public class MainActivity extends AppCompatActivity {
             recreate();
         }
     }
+
+
 }

@@ -12,7 +12,7 @@
         android:id="@+id/title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title: [title]"
+        android:text="Title:"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/book_card_title_text_color" />
@@ -21,7 +21,7 @@
         android:id="@+id/authors_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Authors: [apiAuthors]"
+        android:text="Authors:"
         android:textSize="16sp"
         android:textColor="@color/book_card_subtitle_text_color" />
 
@@ -55,7 +55,7 @@
                 android:id="@+id/number_of_pages_median_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Number of Pages (Median): [numberOfPagesMedian]"
+                android:text="Number of Pages (Median):"
                 android:textSize="12sp"
                 android:textColor="@color/book_card_info_text_color" />
 
@@ -63,7 +63,7 @@
                 android:id="@+id/first_publish_year_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="First Publish Year: [firstPublishYear]"
+                android:text="First Publish Year:"
                 android:textSize="12sp"
                 android:textColor="@color/book_card_info_text_color" />
 
@@ -71,7 +71,7 @@
                 android:id="@+id/isbn_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ISBN: [isbn]"
+                android:text="ISBN:"
                 android:textSize="12sp"
                 android:textColor="@color/book_card_info_text_color" />
 
@@ -79,7 +79,7 @@
                 android:id="@+id/publish_place_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Publish Place: [publishPlace]"
+                android:text="Publish Place:"
                 android:textSize="12sp"
                 android:textColor="@color/book_card_info_text_color" />
 
@@ -87,7 +87,7 @@
                 android:id="@+id/publish_date_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Publish Date: [publishDate]"
+                android:text="Publish Date:"
                 android:textSize="12sp"
                 android:textColor="@color/book_card_info_text_color" />
 
@@ -95,7 +95,7 @@
                 android:id="@+id/subjects_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Subjects: [subjects]"
+                android:text="Subjects:"
                 android:textSize="12sp"
                 android:textColor="@color/book_card_info_text_color" />
         </LinearLayout>

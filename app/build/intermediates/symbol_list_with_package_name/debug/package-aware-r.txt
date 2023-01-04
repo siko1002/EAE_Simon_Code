@@ -2615,7 +2615,6 @@ id author_insert_nachname
 id author_insert_vorname
 id author_main_layout
 id author_nachname
-id author_picture
 id author_update_button
 id author_view_add_button
 id author_view_recyclerView
@@ -2633,6 +2632,7 @@ id bestChoice
 id blocking
 id book_author_text
 id book_cover_image_view
+id book_imageView
 id book_pages_text
 id book_recyclerView
 id book_title_text
@@ -2655,6 +2655,7 @@ id center_vertical
 id chain
 id chain2
 id chains
+id checkBox
 id checkbox
 id checked
 id chip
@@ -2698,6 +2699,12 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detail_author
+id detail_cover_image
+id detail_isbn
+id detail_pages
+id detail_publish_date
+id detail_title
 id dialog_button
 id dimensions
 id direct
@@ -2771,7 +2778,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageView
 id immediateStop
 id included
 id info
@@ -2794,6 +2800,7 @@ id legacy
 id line1
 id line3
 id linear
+id linearLayout
 id listMode
 id list_item
 id mainLayout
@@ -2864,6 +2871,7 @@ id navigation_header_container
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id new_delete_button
 id noScroll
 id noState
 id none
@@ -2876,6 +2884,7 @@ id number_of_pages_median_text_view
 id off
 id on
 id onInterceptTouchReturnSwipe
+id on_long_click_Delete_Book
 id outline
 id outward
 id overshoot
@@ -3139,10 +3148,10 @@ layout abc_tooltip
 layout activity_main
 layout add_author
 layout add_book
-layout api_book_card_view
 layout api_book_card_view_complete
 layout api_book_view
 layout author_view
+layout book_detail_view
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3239,6 +3248,7 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu author_view_menu
 menu main_menu
+menu on_long_click_menue
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
