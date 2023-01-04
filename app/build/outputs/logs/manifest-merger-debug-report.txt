@@ -186,7 +186,7 @@ ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\A
 activity#com.example.booklibrary.MainActivity
 ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:58:9-72:20
 	android:label
-		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:62:13-33
+		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:62:13-39
 	android:exported
 		ADDED from D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:61:13-36
 	android:name
