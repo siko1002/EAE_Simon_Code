@@ -71,9 +71,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        int position = item.getGroupId();
+        //int position = item.getOrder();
         switch (item.getItemId()) {
-            case R.id.on_long_click_Delete_Book:
+            case  R.id.on_long_click_Delete_Book:
+                //position of the item that was long-clicked
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                int position = info.position;
+                // Book object at that position
+                MyDatabaseHelper myDB = new MyDatabaseHelper(MainActivity.this);
+                Book bookToDelete = books.get(position);
+                // Delete the book from the database
+                myDB.deleteOneBook(bookToDelete);
+                // Refresh the RecyclerView
+                books.clear();
+                books.addAll(myDB.getAllBooksAsList());
+                bookAdapter.notifyDataSetChanged();
+                Toast.makeText(this, "Delete Selected", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+            /*case R.id.on_long_click_Delete_Book:
                 //confirmDialog();
                 MyDatabaseHelper myDB = new MyDatabaseHelper(MainActivity.this);
                 Book bookToDelete = books.get(position);
@@ -83,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 bookAdapter.notifyDataSetChanged();
                 return true;
             default:
-                return super.onContextItemSelected(item);
+                return super.onContextItemSelected(item);*/
         }
 
             /*case  R.id.on_long_click_Delete_Book:
