@@ -47,13 +47,14 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
         mBookCoverImageView = findViewById(R.id.detail_cover_image);
         new_delete_button = findViewById(R.id.new_delete_button);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        boolean checkBoxValue = sharedPreferences.getBoolean("checkBoxValue", false);
+        getIntentData();
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences(title + "_MY_PREFS", MODE_PRIVATE);
         float rating = sharedPreferences.getFloat("rating", 0.0f);
-        read.setChecked(checkBoxValue);
         bar.setRating(rating);
 
-        getIntentData();
+
         ActionBar ab = getSupportActionBar();
         ab.setTitle(title);
         new_delete_button.setOnClickListener(new View.OnClickListener() {
@@ -63,9 +64,7 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
             }
         });
 
-        }
-
-
+    }
 
 
     void getIntentData() {
@@ -81,13 +80,14 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
             first_publish = book.getPublishDate();
             cover_id = book.getCoverId();
             coverImage = book.getCoverImage();
-
+            Log.i("HSKL_TEST", "read: " + book.getRead());
             //Setting Intent Data
             mTitleTextView.setText("Title: " + title);
             mAuthorsTextView.setText("Author: " + author);
             mNumberOfPagesMedianTextView.setText("Pages: " + pages);
             mIsbnTextView.setText("ISBN: " + isbn);
             mFirstPublishYearTextView.setText("First published Year: " + first_publish);
+            read.setChecked(book.getRead());
 
             Bitmap coverImageBitmap = BitmapFactory.decodeByteArray(coverImage, 0, coverImage.length);
             mBookCoverImageView.setImageBitmap(coverImageBitmap);
@@ -97,10 +97,10 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
         }
     }
 
-    void confirmDialog(){
+    void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete " + title + " ?");
-        builder.setMessage("Are you sure you want to delete " + title + " ?" );
+        builder.setMessage("Are you sure you want to delete " + title + " ?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -120,13 +120,13 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
         builder.create().show();
     }
 
-    public void onCheckBoxClicked(View view){
+    public void onCheckBoxClicked(View view) {
         MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(this);
         Book book = myDatabaseHelper.findBookByTitle(title);
-        if(read.isChecked()){
+        if (read.isChecked()) {
             book.setRead(true);
             myDatabaseHelper.updateData(book);
-        }else if(!read.isChecked()){
+        } else if (!read.isChecked()) {
             book.setRead(false);
             myDatabaseHelper.updateData(book);
         }
@@ -135,20 +135,24 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(title + "_MY_PREFS", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
 // Save the current values
-        editor.putBoolean("checkBoxValue", read.isChecked());
         editor.putFloat("rating", bar.getRating());
 
 // Commit the changes
         editor.apply();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences sharedPreferences = getSharedPreferences(title + "_MY_PREFS", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+// Save the current values
+        editor.putFloat("rating", bar.getRating());
 
-
-
-
-
+// Commit the changes
+        editor.apply();
+    }
 }

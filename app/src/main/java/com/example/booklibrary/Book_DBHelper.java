@@ -235,6 +235,11 @@ public class Book_DBHelper extends SQLiteOpenHelper {
         String coverId = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_COVER_ID));
         byte[] coverImage = cursor.getBlob(cursor.getColumnIndexOrThrow(COLUMN_COVER_IMAGE));
         Book ret = new Book(title, author, pages, isbn, publishDate, coverId, coverImage, id);
+        if(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_READ))) == 1){
+            ret.setRead(true);
+        }else{
+            ret.setRead(false);
+        }
         return ret;
     }
 
