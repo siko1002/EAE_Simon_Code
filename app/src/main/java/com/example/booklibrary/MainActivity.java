@@ -112,8 +112,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.Edit_view:
                 books.clear();
                 myDB.deleteAll();
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
+                bookAdapter.notifyDataSetChanged();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
