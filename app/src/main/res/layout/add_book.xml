@@ -32,7 +32,7 @@
         android:layout_marginTop="32dp"
         android:textColor="@color/white"
         android:layout_marginEnd="118dp"
-        android:text="@string/add_book"
+        android:text="Add Book"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
