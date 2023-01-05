@@ -2905,6 +2905,7 @@ int id progress_horizontal 0x7f08017f
 int id publish_date_text_view 0x7f080180
 int id publish_place_text_view 0x7f080181
 int id radio 0x7f080182
+int id ratingBar 0x7f080215
 int id ratio 0x7f080183
 int id rectangles 0x7f080184
 int id reverseSawtooth 0x7f080185

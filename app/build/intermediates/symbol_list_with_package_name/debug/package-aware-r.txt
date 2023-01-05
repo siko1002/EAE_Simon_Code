@@ -2906,6 +2906,7 @@ id progress_horizontal
 id publish_date_text_view
 id publish_place_text_view
 id radio
+id ratingBar
 id ratio
 id rectangles
 id reverseSawtooth

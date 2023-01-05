@@ -60,6 +60,7 @@ id number_of_pages_median_text_view
 id on_long_click_Delete_Book
 id publish_date_text_view
 id publish_place_text_view
+id ratingBar
 id subjects_text_view
 id title_text_view
 id update_button

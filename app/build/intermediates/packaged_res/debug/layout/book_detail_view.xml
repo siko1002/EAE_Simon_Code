@@ -31,9 +31,9 @@
     <TextView
         android:id="@+id/detail_author"
         android:layout_width="206dp"
-        android:layout_height="53dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
-        android:padding="16dp"
+        android:padding="10dp"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/detail_pages"
         app:layout_constraintStart_toStartOf="@+id/detail_cover_image"
@@ -42,8 +42,8 @@
     <TextView
         android:id="@+id/detail_pages"
         android:layout_width="206dp"
-        android:layout_height="50dp"
-        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/detail_isbn"
         app:layout_constraintStart_toStartOf="@+id/detail_author"
@@ -52,9 +52,9 @@
     <TextView
         android:id="@+id/detail_isbn"
         android:layout_width="206dp"
-        android:layout_height="53dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
-        android:padding="16dp"
+        android:padding="10dp"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/detail_publish_date"
         app:layout_constraintStart_toStartOf="@+id/detail_pages"
@@ -63,9 +63,9 @@
     <TextView
         android:id="@+id/detail_publish_date"
         android:layout_width="207dp"
-        android:layout_height="54dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="16dp"
+        android:padding="10dp"
         app:layout_constraintStart_toStartOf="@+id/detail_isbn"
         app:layout_constraintTop_toBottomOf="@+id/detail_isbn" />
 
@@ -73,26 +73,39 @@
         android:id="@+id/new_delete_button"
         android:layout_width="107dp"
         android:layout_height="57dp"
-        android:layout_marginTop="16dp"
         android:backgroundTint="#d3d3d3"
         android:text="Delete"
         android:textAllCaps="false"
         android:textColor="#ff7f7f"
+        android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintTop_toBottomOf="@id/ratingBar"
+        tools:layout_editor_absoluteY="644dp" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="finished reading"
         android:onClick="onCheckBoxClicked"
+        android:text="finished reading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_publish_date" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:numStars="5"
+
+        app:layout_constraintBottom_toTopOf="@+id/new_delete_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
     <!--<Button
         android:id="@+id/delete_button"
