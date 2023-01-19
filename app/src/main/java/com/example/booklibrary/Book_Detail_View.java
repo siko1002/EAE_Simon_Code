@@ -66,7 +66,7 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
 
     }
 
-
+    //Fill XML with Book Data
     void getIntentData() {
         if (getIntent().hasExtra("title") && getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("isbn") && getIntent().hasExtra("publish_date") && getIntent().hasExtra("cover_id") && getIntent().hasExtra("cover_Image")) {
             //Getting Data from Intent
@@ -96,7 +96,7 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
             Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
         }
     }
-
+    //Delete Dialog
     void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete " + title + " ?");
@@ -119,7 +119,7 @@ public class Book_Detail_View<Checkbox> extends AppCompatActivity {
         });
         builder.create().show();
     }
-
+    //Read?
     public void onCheckBoxClicked(View view) {
         MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(this);
         Book book = myDatabaseHelper.findBookByTitle(title);

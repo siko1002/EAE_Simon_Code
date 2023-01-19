@@ -50,14 +50,14 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder>{
         Log.i("HSKL", "books.toString() -> " + books.toString());
 
     }
-
+    //Create lList with Layout Inflater
     @NonNull
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.my_book, parent, false);
         return new MyViewHolder(view);
     }
-
+    //Iterate through the Items to insert sth into the List
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         this.position = position;
 
@@ -70,7 +70,7 @@ class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.MyViewHolder>{
 
             holder.book_cover.setImageBitmap(BitmapFactory.decodeByteArray(book.getCoverImage(), 0, book.getCoverImage().length));
         }
-
+        //Open Detail View
         holder.mainLayout.setOnClickListener(view -> {
             Intent intent = new Intent(context, Book_Detail_View.class);
             intent.putExtra("pages", String.valueOf(books.get(position).getPages()));

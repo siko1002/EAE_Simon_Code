@@ -8,6 +8,7 @@ public class SearchResultStorage {
     int numFound;
     int start;
     boolean numFoundExact;
+    //HashMap => (Buchtitel, Buch)
     HashMap<String ,Api_Book> books = new HashMap<String, Api_Book>();
 
     public void addBook(Api_Book book){

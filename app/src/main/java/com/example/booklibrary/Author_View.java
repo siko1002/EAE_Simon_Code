@@ -18,6 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+//Not Relevant => Could maybe Implemented in a Version 2.0
 public class Author_View extends AppCompatActivity {
 
     RecyclerView authorRecyclerView;

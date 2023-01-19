@@ -143,23 +143,6 @@ public class Book_DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-
-    /*void deleteOne(Book book) {
-
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        String where = COLUMN_TITLE + "=?";
-        String[] whereArg = new String[]{book.getTitle()};
-        long result = db.delete(TABLE_NAME, where, whereArg);
-        if (result == -1) {
-            Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show();
-            Log.i("HSKL", "Book_DBHelper -> deleteOne: Fehler beim Löschen des Elements");
-        } else {
-            Toast.makeText(context, "Successfully deleted", Toast.LENGTH_SHORT).show();
-            Log.i("HSKL", "Book_DBHelper -> deleteOne: Element erfolgreich gelöscht");
-        }
-    }*/
-
     void deleteOne(Book book) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -175,15 +158,6 @@ public class Book_DBHelper extends SQLiteOpenHelper {
                 " WHERE " + COLUMN_TITLE + " = ?";
 
         Cursor cursor = db.rawQuery(query, new String[]{title});
-        /*
-        SQLiteDatabase db = this.getWritableDatabase();
-        String[] projection = {COLUMN_ID, COLUMN_TITLE, COLUMN_AUTHOR, COLUMN_PAGES, COLUMN_READ, COLUMN_ISBN, COLUMN_PUBLISH_DATE, COLUMN_COVER_ID, COLUMN_COVER_IMAGE};
-        String selection = COLUMN_TITLE + " = ?";
-        String[] selectionArgs = {title};
-        Cursor cursor = db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, null);
-        //'"+title+"'"
-        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE book_title='" + title + "'", null);
-         */
         Book ret = null;
         if (cursor.moveToFirst()) {
             ret = getBookThroughCursor(cursor);

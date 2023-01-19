@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Context Menu
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.on_long_click_Delete_Book:
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 return super.onContextItemSelected(item);
         }
     }
+    //Delete Dialog
     void confirmDialog(Book book){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete " + book.getTitle() + " ?");
@@ -98,14 +100,15 @@ public class MainActivity extends AppCompatActivity {
         builder.create().show();
     }
 
-    //Action Bar Menü
+    //Action Bar Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
-    //Menü Items -> Case = Auswahl -> Was soll gemacht werden
+    //Menu Items -> Case
+    //Menu Bar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

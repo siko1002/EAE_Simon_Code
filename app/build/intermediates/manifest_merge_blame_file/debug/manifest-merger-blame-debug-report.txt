@@ -6,163 +6,163 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml
+8-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="32" />
-9-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml
+9-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:5:5-67
-11-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:5:22-64
+11-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:6:5-79
-12-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:6:22-76
+12-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:6:5-79
+12-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:6:22-76
 13
 14    <application
-14-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:8:5-71:19
+14-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:8:5-71:19
 15        android:allowBackup="true"
-15-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:9:9-35
+15-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:9:9-35
 16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-16-->[androidx.core:core:1.8.0] C:\Users\miche\.gradle\caches\transforms-3\87a796fe63836d99a2198ac6a6284cb3\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+16-->[androidx.core:core:1.8.0] C:\Users\Simon\.gradle\caches\transforms-3\87a796fe63836d99a2198ac6a6284cb3\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
 17        android:dataExtractionRules="@xml/data_extraction_rules"
-17-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:10:9-65
+17-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:10:9-65
 18        android:debuggable="true"
 19        android:fullBackupContent="@xml/backup_rules"
-19-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:11:9-54
+19-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:11:9-54
 20        android:icon="@mipmap/ic_launcher"
-20-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:12:9-43
+20-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:12:9-43
 21        android:label="My Bookshelf"
-21-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:13:9-37
+21-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:13:9-37
 22        android:roundIcon="@mipmap/ic_launcher_round"
-22-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:14:9-54
+22-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:14:9-54
 23        android:supportsRtl="true"
-23-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:15:9-35
+23-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:15:9-35
 24        android:testOnly="true"
 25        android:theme="@style/Theme.BookLibrary"
-25-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:16:9-49
+25-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:16:9-49
 26        android:usesCleartextTraffic="true" >
-26-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:17:9-44
+26-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:17:9-44
 27        <activity
-27-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:19:9-22:67
+27-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:19:9-22:67
 28            android:name="com.example.booklibrary.Update_Book"
-28-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:20:13-40
+28-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:20:13-40
 29            android:exported="false"
-29-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:21:13-37
+29-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:21:13-37
 30            android:parentActivityName="com.example.booklibrary.MainActivity" />
-30-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:22:13-55
+30-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:22:13-55
 31        <activity
-31-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:23:9-27:67
+31-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:23:9-27:67
 32            android:name="com.example.booklibrary.Add_Book"
-32-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:24:13-37
+32-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:24:13-37
 33            android:exported="false"
-33-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:25:13-37
+33-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:25:13-37
 34            android:label="Add Book"
-34-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:26:13-37
+34-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:26:13-37
 35            android:parentActivityName="com.example.booklibrary.MainActivity" />
-35-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:27:13-55
+35-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:27:13-55
 36        <activity
-36-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:28:9-32:58
+36-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:28:9-32:58
 37            android:name="com.example.booklibrary.Add_Author"
-37-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:29:13-39
+37-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:29:13-39
 38            android:exported="false"
-38-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:30:13-37
+38-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:30:13-37
 39            android:label="Add Book"
-39-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:31:13-37
+39-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:31:13-37
 40            android:parentActivityName="com.example.booklibrary.MainActivity" />
-40-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:32:13-55
+40-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:32:13-55
 41        <activity
-41-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:33:9-37:58
+41-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:33:9-37:58
 42            android:name="com.example.booklibrary.Update_Author"
-42-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:34:13-42
+42-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:34:13-42
 43            android:exported="false"
-43-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:35:13-37
+43-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:35:13-37
 44            android:label="Add Book"
-44-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:36:13-37
+44-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:36:13-37
 45            android:parentActivityName="com.example.booklibrary.MainActivity" />
-45-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:37:13-55
+45-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:37:13-55
 46        <activity
-46-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:38:9-42:58
+46-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:38:9-42:58
 47            android:name="com.example.booklibrary.Author_View"
-47-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:39:13-40
+47-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:39:13-40
 48            android:exported="false"
-48-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:40:13-37
+48-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:40:13-37
 49            android:label="Add Book"
-49-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:41:13-37
+49-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:41:13-37
 50            android:parentActivityName="com.example.booklibrary.MainActivity" />
-50-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:42:13-55
+50-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:42:13-55
 51        <activity
-51-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:43:9-47:58
+51-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:43:9-47:58
 52            android:name="com.example.booklibrary.Api_Book_View"
-52-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:44:13-42
+52-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:44:13-42
 53            android:exported="false"
-53-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:45:13-37
+53-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:45:13-37
 54            android:label="Add Book"
-54-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:46:13-37
+54-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:46:13-37
 55            android:parentActivityName="com.example.booklibrary.MainActivity" />
-55-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:47:13-55
+55-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:47:13-55
 56        <activity
-56-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:48:9-52:58
+56-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:48:9-52:58
 57            android:name="com.example.booklibrary.Book_Detail_View"
-57-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:49:13-45
+57-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:49:13-45
 58            android:exported="false"
-58-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:50:13-37
+58-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:50:13-37
 59            android:label="Book Detail"
-59-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:51:13-40
+59-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:51:13-40
 60            android:parentActivityName="com.example.booklibrary.MainActivity" />
-60-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:52:13-55
+60-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:52:13-55
 61
 62        <meta-data
-62-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:54:9-56:32
+62-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:54:9-56:32
 63            android:name="android.app.lib_name"
-63-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:55:13-48
+63-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:55:13-48
 64            android:value="" /> <!-- > Activity<! -->
-64-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:56:13-29
+64-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:56:13-29
 65        <activity
-65-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:57:9-70:20
+65-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:57:9-70:20
 66            android:name="com.example.booklibrary.MainActivity"
-66-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:58:13-41
+66-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:58:13-41
 67            android:exported="true"
-67-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:59:13-36
+67-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:59:13-36
 68            android:label="Booklibrary" >
-68-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:60:13-40
+68-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:60:13-40
 69            <intent-filter>
-69-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:61:13-65:29
+69-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:61:13-65:29
 70                <action android:name="android.intent.action.MAIN" />
-70-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:62:17-69
-70-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:62:25-66
+70-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:62:17-69
+70-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:62:25-66
 71
 72                <category android:name="android.intent.category.LAUNCHER" />
-72-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:64:17-77
-72-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:64:27-74
+72-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:64:17-77
+72-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:64:27-74
 73            </intent-filter>
 74
 75            <meta-data
-75-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:54:9-56:32
+75-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:54:9-56:32
 76                android:name="android.app.lib_name"
-76-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:55:13-48
+76-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:55:13-48
 77                android:value="" />
-77-->C:\Users\miche\EAE_Simon_Code\app\src\main\AndroidManifest.xml:56:13-29
+77-->D:\Dateien\AndroidStudioProjekte\AndroidStudioProjects\app\src\main\AndroidManifest.xml:56:13-29
 78        </activity>
 79
 80        <provider
-80-->[androidx.emoji2:emoji2:1.2.0] C:\Users\miche\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+80-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 81            android:name="androidx.startup.InitializationProvider"
-81-->[androidx.emoji2:emoji2:1.2.0] C:\Users\miche\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+81-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
 82            android:authorities="com.example.booklibrary.androidx-startup"
-82-->[androidx.emoji2:emoji2:1.2.0] C:\Users\miche\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+82-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
 83            android:exported="false" >
-83-->[androidx.emoji2:emoji2:1.2.0] C:\Users\miche\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+83-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
 84            <meta-data
-84-->[androidx.emoji2:emoji2:1.2.0] C:\Users\miche\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+84-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
 85                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-85-->[androidx.emoji2:emoji2:1.2.0] C:\Users\miche\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+85-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
 86                android:value="androidx.startup" />
-86-->[androidx.emoji2:emoji2:1.2.0] C:\Users\miche\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+86-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Simon\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
 87            <meta-data
-87-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\miche\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+87-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Simon\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
 88                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-88-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\miche\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+88-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Simon\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
 89                android:value="androidx.startup" />
-89-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\miche\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+89-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Simon\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
 90        </provider>
 91    </application>
 92

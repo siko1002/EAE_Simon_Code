@@ -40,12 +40,14 @@ public class BookRequestApi extends AsyncTask<String, Void, SearchResultStorage>
 
     @Override
     protected void onPreExecute() {
+        //Process Dialog to show the User the App is loading
         super.onPreExecute();
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
     }
 
+    //Async Task to Request Books
     @Override
     protected SearchResultStorage doInBackground(String... params) {
         List<Api_Book> ret = new ArrayList<Api_Book>();
@@ -59,11 +61,12 @@ public class BookRequestApi extends AsyncTask<String, Void, SearchResultStorage>
         progressDialog.setMessage(urlString);
 
         try {
+            //Json Request
             URL url = new URL(urlString);
             Log.i("HSKL_TEST", urlString);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
-
+            //Get JsonString
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             StringBuilder content = new StringBuilder();
@@ -74,6 +77,7 @@ public class BookRequestApi extends AsyncTask<String, Void, SearchResultStorage>
             con.disconnect();
             JSONObject jObject = new JSONObject(content.toString());
 
+            //Persist JsonObjects in searchResultStorage
             SearchResultStorage searchResultStorage = new SearchResultStorage();
             searchResultStorage.setNumFound(jObject.getInt("numFound"));
             searchResultStorage.setStart(jObject.getInt("start"));
@@ -127,7 +131,7 @@ public static SearchResultStorage parseJsonToBooks(JSONObject jObject, SearchRes
         searchResultStorage.setNumFoundExact(jObject.getBoolean("numFoundExact"));
 
         JSONArray jsonArray = jObject.getJSONArray("docs");
-
+        //Json Object into Book Object
         for(int i = 0; i < jsonArray.length(); i++) {
             Log.i("HSKL_TEST", "" + jsonArray.length());
             JSONObject bookJson = (JSONObject) jsonArray.get(i);
@@ -153,7 +157,7 @@ public static SearchResultStorage parseJsonToBooks(JSONObject jObject, SearchRes
             String coverId = bookJson.getString("cover_i");
             byte[] coverImage = SaveImageFromUrl.saveImageToArray(coverId);
 
-
+            //Parse Values into Book
             Api_Book add = new Api_Book(key, type, seed, title, titleSuggest, editionCount, editionKey, publishDate, publishYear,
                     firstPublishYear, numberOfPagesMedian, publishPlace, contributor, isbn, authors,
                     subjects, coverId, coverImage);
@@ -168,6 +172,7 @@ public static SearchResultStorage parseJsonToBooks(JSONObject jObject, SearchRes
 
     return searchResultStorage;
 }
+    //Create List from JsonDocs
     private static List<String> getListFromJsonArray(JSONArray array) throws JSONException {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < array.length(); i++) {
@@ -175,6 +180,7 @@ public static SearchResultStorage parseJsonToBooks(JSONObject jObject, SearchRes
         }
         return list;
     }
+    //Create List from JsonDocs
     private static List<Integer> getListFromIntArray(JSONArray array) throws JSONException {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < array.length(); i++) {
